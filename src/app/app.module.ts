@@ -1,10 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 
+const routes: Routes = [
+  {path: '', component: LandingPageComponent}
+];
 
 @NgModule({
   declarations: [
@@ -12,7 +16,8 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
     LandingPageComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

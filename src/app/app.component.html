@@ -6,19 +6,6 @@
                 <h4 class="text-white">Collapsed content</h4>
                 <span class="text-muted">Toggleable via the navbar brand.</span>
             </div>
-            <div [ngClass]="{'is-user': user, 'is-anon': anon}">
-                <div *ngIf="loading">
-                    <span class="username text">loading...</span>
-                </div>
-                <div *ngIf="!loading && !!user">
-                    <a (click)="profile()">{{user.username}}</a>
-                    <a (click)="logout()">logout</a>
-                </div>
-                <div *ngIf="!loading && anon">
-                    <a (click)="login()">login</a>
-                    <a (click)="signup()">signup</a>
-                </div>
-            </div>
         </div>
         <nav class="navbar navbar-dark bg-dark">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">

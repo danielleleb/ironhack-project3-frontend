@@ -1,4 +1,4 @@
-<h1>signup</h1>
+<h1>business signup</h1>
 <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
 
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
@@ -26,5 +26,3 @@
       </div>
     </div>
   </form>
-
-  <p>Are you a business with equipment to rent? <a [routerLink]="['/business/signup']">Register as a business.</a></p>

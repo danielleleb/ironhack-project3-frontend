@@ -16,6 +16,7 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { BusinessSignUpComponent } from './pages/business-sign-up/business-sign-up.component';
 
 const routes: Routes = [
   { path: '',  component: LandingPageComponent
@@ -25,6 +26,9 @@ const routes: Routes = [
   , canActivate: [ RequireAnonGuardService ]
  },
   { path: 'signup',  component: SignupPageComponent
+  , canActivate: [ RequireAnonGuardService ] 
+},
+{ path: 'business/signup',  component: BusinessSignUpComponent
   , canActivate: [ RequireAnonGuardService ] 
 },
   { path: 'homepage',  component: HomePageComponent
@@ -40,7 +44,8 @@ const routes: Routes = [
     LandingPageComponent,
     HomePageComponent,
     LoginPageComponent,
-    SignupPageComponent
+    SignupPageComponent,
+    BusinessSignUpComponent
   ],
   imports: [
     BrowserModule,

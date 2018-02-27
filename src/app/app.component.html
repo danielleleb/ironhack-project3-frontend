@@ -1,6 +1,19 @@
 
-<nav id="site-header">
-    <div class="pos-f-t">
+<header id="site-header">
+        <div [ngClass]="{'is-user': user, 'is-anon': anon}">
+                <div *ngIf="loading">
+                  <span class="username text">loading...</span>
+                </div>
+                <div *ngIf="!loading && !!user">
+                  <a (click)="profile()">{{user.username}}</a>
+                  <a (click)="logout()">logout</a>
+                </div>
+                <div *ngIf="!loading && anon">
+                  <a (click)="login()">login</a>
+                  <a (click)="signup()">signup</a>
+                </div>
+              </div>
+    <!-- <div class="pos-f-t">
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="bg-dark p-4">
                 <h4 class="text-white">Collapsed content</h4>
@@ -12,8 +25,8 @@
             <span class="navbar-toggler-icon"></span>
             </button>
         </nav>
-    </div>
-</nav>
+    </div> -->
+</header>
 
 <router-outlet></router-outlet>
 

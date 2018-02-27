@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'signup',  component: SignupPageComponent
   , canActivate: [ RequireAnonGuardService ] 
 },
-  { path: 'page',  component: HomePageComponent
+  { path: 'homepage',  component: HomePageComponent
    , canActivate: [ RequireUserGuardService ] 
   },
   { path: '**', redirectTo: '' }

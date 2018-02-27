@@ -20,7 +20,8 @@ export class LoginPageComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router
-  ) { }
+  ) {
+   }
 
   ngOnInit() {
   }
@@ -28,6 +29,7 @@ export class LoginPageComponent implements OnInit {
   submitForm(form) {
     this.error = '';
     this.feedbackEnabled = true;
+    if (form.valid) {
     this.processing = true;
     const data = {
       username: this.username,
@@ -39,10 +41,10 @@ export class LoginPageComponent implements OnInit {
       //     // ... navigate with this.router.navigate(['...'])
         })
         .catch((err) => {
-          this.error = err.error.error; // :-)
           this.processing = false;
+          this.error =  err.error.error;
           this.feedbackEnabled = false;
         });
   }
-
+}
 }

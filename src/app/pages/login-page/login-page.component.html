@@ -1,3 +1,4 @@
+
 <h1>login</h1>
 <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
 
@@ -12,7 +13,7 @@
   
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
         <label>password</label>
-        <input type="text" name="password" [(ngModel)]="password" #passwordField="ngModel" required minlength="6" [disabled]="processing"/>
+        <input type="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required minlength="6" [disabled]="processing"/>
         <div *ngIf="feedbackEnabled && passwordField.errors">
           <p *ngIf="passwordField.errors.required" class="validation">password required</p>
           <p *ngIf="passwordField.errors.minlength" class="validation">password is too short</p>
@@ -21,9 +22,12 @@
 
     <div class="field submit">
       <button type="submit" [disabled]="processing">Login</button>
-      <div *ngIf="feedbackEnabled && form.invalid">
-        <p class="validation">there are errors in the form, please review the fields</p>
-      </div>
+
+        <div class="validation" [ngSwitch]="error" *ngIf="error">
+            <div *ngSwitchCase="'not-found'">The username/password are not recongnised</div>
+            <div *ngSwitchDefault>An unexpected error ocurred, please try again</div>
+          </div>
     </div>
   </form>
+
   <!-- <a [routerLink]="['/signup']">No account yet?</a> -->

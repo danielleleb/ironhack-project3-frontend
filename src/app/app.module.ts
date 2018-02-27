@@ -18,6 +18,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { BusinessSignUpComponent } from './pages/business-sign-up/business-sign-up.component';
 import { BusinessProfileComponent } from './pages/business-profile/business-profile.component';
+import { ProductsService } from './services/products.service';
 
 const routes: Routes = [
   { path: '',  component: LandingPageComponent
@@ -62,7 +63,8 @@ const routes: Routes = [
     AuthService,
     InitAuthGuardService,
     RequireAnonGuardService,
-    RequireUserGuardService
+    RequireUserGuardService,
+    ProductsService
   ],
   bootstrap: [AppComponent]
 })

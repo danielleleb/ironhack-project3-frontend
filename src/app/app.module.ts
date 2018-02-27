@@ -17,6 +17,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { BusinessSignUpComponent } from './pages/business-sign-up/business-sign-up.component';
+import { BusinessProfileComponent } from './pages/business-profile/business-profile.component';
 
 const routes: Routes = [
   { path: '',  component: LandingPageComponent
@@ -34,6 +35,9 @@ const routes: Routes = [
   { path: 'homepage',  component: HomePageComponent
    , canActivate: [ RequireUserGuardService ] 
   },
+  { path: 'business-profile',  component: BusinessProfileComponent
+   , canActivate: [ RequireUserGuardService ] 
+  },
   { path: '**', redirectTo: '' }
 ];
 
@@ -45,7 +49,8 @@ const routes: Routes = [
     HomePageComponent,
     LoginPageComponent,
     SignupPageComponent,
-    BusinessSignUpComponent
+    BusinessSignUpComponent,
+    BusinessProfileComponent
   ],
   imports: [
     BrowserModule,

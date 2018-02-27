@@ -36,7 +36,7 @@ export class BusinessSignUpComponent implements OnInit {
     }
       this.authService.businessSignup(data)
         .then((result) => {
-            this.router.navigate(['/homepage'])
+            this.router.navigate(['/business-profile'])
       //     // ... navigate with this.router.navigate(['...'])
         })
         .catch((err) => {

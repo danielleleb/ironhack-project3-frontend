@@ -37,8 +37,15 @@ export class LoginPageComponent implements OnInit {
     }
       this.authService.login(data)
         .then((result) => {
+          console.log(result)
+          if (result.type == 'business') { 
+            this.router.navigate(['/business-profile'])
+          } else if (result.type =='user'){
             this.router.navigate(['/homepage'])
-      //     // ... navigate with this.router.navigate(['...'])
+          } else {
+            this.router.navigate(['/login'])
+          }
+        // ... navigate with this.router.navigate(['...'])
         })
         .catch((err) => {
           this.processing = false;

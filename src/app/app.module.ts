@@ -37,8 +37,7 @@ const routes: Routes = [
 { path: 'business-profile/:id',  component: BusinessProfileComponent
 , canActivate: [ RequireUserGuardService ] 
 },
-{ path: ':citySearch/:typeSearch',  component: HomePageComponent
- , canActivate: [ RequireUserGuardService ] 
+{ path: ':citySearch/:typeSearch',  component: HomePageComponent 
 },
   { path: '**', redirectTo: '' }
 ];

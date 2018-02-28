@@ -18,7 +18,7 @@
               </div>
         
           <div class="field submit">
-              <button type="submit" [routerLink]="[cityField.value, typeField.value]"[disabled]="processing">search</button>
+              <button type="button" [routerLink]="[cityField.value, typeField.value]"[disabled]="processing">search</button>
               <div *ngIf="feedbackEnabled && form.invalid">
                 <p class="validation">there are errors in the form, please review the fields</p>
               </div>

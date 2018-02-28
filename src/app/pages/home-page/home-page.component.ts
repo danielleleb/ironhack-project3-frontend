@@ -12,7 +12,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  searched: string;
+  citySearch: string;
+  typeSearch: string;
   // businesses: {}[];
   products: {}[];
 
@@ -26,9 +27,9 @@ export class HomePageComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params
     .subscribe((params) => {
-      this.searched = String(params.searched)
-
-      this.productsService.getProductsBySearch(this.searched)
+      this.citySearch = String(params.citySearch)
+      this.typeSearch = String(params.typeSearch)
+      this.productsService.getProductsBySearch(this.citySearch, this.typeSearch)
       .then((products) => {
         console.log(products)
         this.products = products

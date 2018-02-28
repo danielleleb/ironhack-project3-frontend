@@ -9,7 +9,6 @@ import 'rxjs/add/operator/toPromise';
 export class ProductsService {
 
   private product: any;
-  // private products: {}[]
   private productChange: Subject<any> = new Subject();
 
   private API_URL = 'http://localhost:3000/products/';
@@ -31,12 +30,13 @@ export class ProductsService {
       .toPromise()
       .then((data) => this.setProduct(data));
   }
-  getProductList() :Promise<any>{
+  getProductList(businessId) :Promise<any>{
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.API_URL}/all-products`, options)
+    return this.httpClient.get(`${this.API_URL}/${businessId}`, options)
     .toPromise()
+    // .then((data) => console.log(data))
     .then((data) => this.setProduct(data))
   }
 

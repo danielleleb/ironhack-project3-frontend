@@ -1,3 +1,7 @@
-<p>
-  home-page works!
-</p>
+<ul *ngIf="businesses">
+  <li *ngFor="let business of businesses">
+    {{ business.username }}
+    <a  [routerLink]="['/business-profile', business._id]">business profile</a>
+  </li>
+</ul>
+

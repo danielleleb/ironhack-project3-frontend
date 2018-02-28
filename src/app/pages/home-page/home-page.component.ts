@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
+import { ProductsService } from '../../services/products.service';
+
+// import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  businesses: {}[]
+  businessId: any
+
+  constructor(
+    private userService: UserService,
+    private productsService: ProductsService
+  ) { }
 
   ngOnInit() {
+    
+    this.userService.getBusinessList()
+    .then((businesses) => {
+      this.businesses = businesses})
+   }
   }
 
-}
+

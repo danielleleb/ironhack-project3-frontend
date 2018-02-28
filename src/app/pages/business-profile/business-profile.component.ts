@@ -68,7 +68,7 @@ export class BusinessProfileComponent implements OnInit {
     }
       this.productsService.addNewProduct(data)
         .then((result) => {
-            this.router.navigate(['/business-profile/:id'])
+            this.router.navigate(['/business-profile/', this.businessId])
       //     // ... navigate with this.router.navigate(['...'])
         })
         .catch((err) => {

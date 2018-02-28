@@ -34,12 +34,12 @@ const routes: Routes = [
   { path: 'business/signup',  component: BusinessSignUpComponent
   , canActivate: [ RequireAnonGuardService ] 
 },
-  { path: 'homepage',  component: HomePageComponent
-   , canActivate: [ RequireUserGuardService ] 
-  },
-  { path: 'business-profile/:id',  component: BusinessProfileComponent
-   , canActivate: [ RequireUserGuardService ] 
-  },
+{ path: 'business-profile/:id',  component: BusinessProfileComponent
+, canActivate: [ RequireUserGuardService ] 
+},
+{ path: ':searched',  component: HomePageComponent
+ , canActivate: [ RequireUserGuardService ] 
+},
   { path: '**', redirectTo: '' }
 ];
 

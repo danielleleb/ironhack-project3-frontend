@@ -1,7 +1,13 @@
-<ul *ngIf="businesses">
+<!-- <ul *ngIf="businesses">
   <li *ngFor="let business of businesses">
     {{ business.username }}
     <a  [routerLink]="['/business-profile', business._id]">business profile</a>
   </li>
-</ul>
+</ul> -->
 
+
+<ul *ngIf="products">
+    <li *ngFor="let product of products">
+        {{product.type}}
+    </li>
+</ul>

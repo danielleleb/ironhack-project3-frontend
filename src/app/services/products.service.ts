@@ -40,4 +40,14 @@ export class ProductsService {
     .then((data) => this.setProduct(data))
   }
 
+  getProductsBySearch(searched) :Promise<any>{
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.API_URL}/view/${searched}`, options)
+    .toPromise()
+    // .then((data) => console.log(data))
+    .then((data) => this.setProduct(data))
+  }
+
 }

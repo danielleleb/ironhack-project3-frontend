@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { ProductsService } from '../../services/products.service';
+
 // import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -10,9 +12,11 @@ import { UserService } from '../../services/user.service';
 export class HomePageComponent implements OnInit {
 
   businesses: {}[]
+  businessId: any
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private productsService: ProductsService
   ) { }
 
   ngOnInit() {

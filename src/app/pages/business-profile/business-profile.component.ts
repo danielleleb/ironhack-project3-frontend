@@ -20,28 +20,33 @@ export class BusinessProfileComponent implements OnInit {
   type: String
   price: number
   showSelected: boolean = false
-  products: {}[];
-  businessId
+  products: {}[]
+  businessId: String
 
   constructor(
     private authService: AuthService,
     private productsService: ProductsService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) {
-   
-   }
+  ) { }
 
   ngOnInit() {
     this.user = this.authService.getUser();
-    
-    this.activatedRoute.params
-    .subscribe((params) => this.businessId = String(params.id))
 
-    this.productsService.getProductList()
-    .then((products) => {
-      this.products = products})
-   }
+    this.activatedRoute.params
+    .subscribe((params) => {
+      this.businessId = String(params.id)
+
+      this.productsService.getProductList(this.businessId)
+      .then((products) => {
+        this.products = products
+      })
+   })
+  }
+   
+
+
+  
   
 
   ShowButton(){
@@ -71,7 +76,6 @@ export class BusinessProfileComponent implements OnInit {
           this.processing = false;
           this.feedbackEnabled = false;
         });
+    }
   }
-}
-
 }

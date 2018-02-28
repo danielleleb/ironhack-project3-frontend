@@ -1,4 +1,3 @@
-{{user.username}}
 
 <ul *ngIf="products">
   <li *ngFor="let product of products">
@@ -7,7 +6,7 @@
   </li>
 </ul>
 
-<div>
+<div *ngIf="(user.type === 'business')">
     <button (click)="ShowButton()">Add a new product for rent</button>
     <div *ngIf="showSelected">
       <form  (ngSubmit)="HideButton()" #form="ngForm" novalidate>
@@ -29,4 +28,4 @@
   
       </form>
     </div>
-  </div>
+</div>

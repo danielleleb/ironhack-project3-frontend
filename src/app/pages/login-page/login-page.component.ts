@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
 
 
 @Component({
@@ -15,15 +16,26 @@ export class LoginPageComponent implements OnInit {
   error = null;
   processing = false;
   username: String;
-  password: String
+  password: String;
+  loading = true;
+  anon: boolean;
+  user: any;
   
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {
    }
 
   ngOnInit() {
+
+    this.authService.userChange$.subscribe((user) => {
+      this.loading = false;
+      this.user = user;
+      this.anon = !user;
+    });
+    
   }
 
   submitForm(form) {
@@ -39,7 +51,7 @@ export class LoginPageComponent implements OnInit {
         .then((result) => {
           console.log(result)
           if (result.type == 'business') { 
-            this.router.navigate(['/business-profile'])
+            this.router.navigate(['/business-profile', this.user._id])
           } else if (result.type =='user'){
             this.router.navigate(['/homepage'])
           } else {

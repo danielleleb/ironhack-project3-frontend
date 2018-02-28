@@ -15,7 +15,10 @@ export class BusinessSignUpComponent implements OnInit {
   error = null;
   processing = false;
   username: String;
-  password: String
+  password: String;
+  loading = true;
+  anon: boolean;
+  user: any;
   
   constructor(
     private authService: AuthService,
@@ -23,6 +26,13 @@ export class BusinessSignUpComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    this.authService.userChange$.subscribe((user) => {
+      this.loading = false;
+      this.user = user;
+      this.anon = !user;
+    });
+
   }
 
   submitForm(form) {
@@ -36,7 +46,7 @@ export class BusinessSignUpComponent implements OnInit {
     }
       this.authService.businessSignup(data)
         .then((result) => {
-            this.router.navigate(['/business-profile'])
+          this.router.navigate(['/business-profile', this.user._id])
       //     // ... navigate with this.router.navigate(['...'])
         })
         .catch((err) => {

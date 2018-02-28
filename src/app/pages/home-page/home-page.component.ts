@@ -12,7 +12,6 @@ import { ProductsService } from '../../services/products.service';
 export class HomePageComponent implements OnInit {
 
   businesses: {}[]
-  businessId: any
 
   constructor(
     private userService: UserService,

@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: 'signup',  component: SignupPageComponent
   , canActivate: [ RequireAnonGuardService ] 
 },
-{ path: 'business/signup',  component: BusinessSignUpComponent
+  { path: 'business/signup',  component: BusinessSignUpComponent
   , canActivate: [ RequireAnonGuardService ] 
 },
   { path: 'homepage',  component: HomePageComponent

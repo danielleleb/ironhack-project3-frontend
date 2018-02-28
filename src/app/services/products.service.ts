@@ -29,5 +29,4 @@ export class ProductsService {
       .toPromise()
       .then((data) => this.setProduct(data));
   }
-
 }

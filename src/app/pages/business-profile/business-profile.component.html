@@ -1,5 +1,11 @@
 {{user.username}}
 
+<ul *ngIf="products">
+  <li *ngFor="let product of products">
+      {{product.type}}
+  </li>
+</ul>
+
 <div>
     <button (click)="ShowButton()">Add a new product for rent</button>
     <div *ngIf="showSelected">

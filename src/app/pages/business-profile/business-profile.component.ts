@@ -18,6 +18,7 @@ export class BusinessProfileComponent implements OnInit {
   type: String
   price: number
   showSelected: boolean = false
+  products: {}[];
 
   constructor(
     private authService: AuthService,
@@ -29,8 +30,11 @@ export class BusinessProfileComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.authService.getUser();
-
-  }
+    this.productsService.getProductList()
+    .then((products) => {
+      this.products = products})
+   }
+  
 
   ShowButton(){
     this.showSelected = true;

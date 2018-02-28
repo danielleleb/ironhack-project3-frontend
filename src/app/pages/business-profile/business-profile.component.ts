@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
 import { ProductsService } from '../../services/products.service';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-business-profile',
@@ -19,17 +21,23 @@ export class BusinessProfileComponent implements OnInit {
   price: number
   showSelected: boolean = false
   products: {}[];
+  businessId
 
   constructor(
     private authService: AuthService,
     private productsService: ProductsService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
-
+   
    }
 
   ngOnInit() {
     this.user = this.authService.getUser();
+    
+    this.activatedRoute.params
+    .subscribe((params) => this.businessId = String(params.id))
+
     this.productsService.getProductList()
     .then((products) => {
       this.products = products})
@@ -55,7 +63,7 @@ export class BusinessProfileComponent implements OnInit {
     }
       this.productsService.addNewProduct(data)
         .then((result) => {
-            this.router.navigate(['/business-profile'])
+            this.router.navigate(['/business-profile/:id'])
       //     // ... navigate with this.router.navigate(['...'])
         })
         .catch((err) => {

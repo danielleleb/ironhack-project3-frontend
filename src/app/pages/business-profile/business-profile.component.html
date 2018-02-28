@@ -3,6 +3,7 @@
 <ul *ngIf="products">
   <li *ngFor="let product of products">
       {{product.type}}
+      {{ product.owner.username}}
   </li>
 </ul>
 

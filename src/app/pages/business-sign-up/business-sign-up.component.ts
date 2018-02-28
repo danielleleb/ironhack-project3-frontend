@@ -14,11 +14,12 @@ export class BusinessSignUpComponent implements OnInit {
   feedbackEnabled = false;
   error = null;
   processing = false;
-  username: String;
-  password: String;
+  username: string;
+  password: string;
   loading = true;
   anon: boolean;
   user: any;
+  address: string
   
   constructor(
     private authService: AuthService,
@@ -42,7 +43,8 @@ export class BusinessSignUpComponent implements OnInit {
     this.processing = true;
     const data = {
       username: this.username,
-      password: this.password
+      password: this.password,
+      address: this.address
     }
       this.authService.businessSignup(data)
         .then((result) => {

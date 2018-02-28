@@ -19,6 +19,15 @@
         </div>
       </div>
 
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && addressField.errors}">
+      <label>address</label>
+      <input type="text" name="address" [(ngModel)]="address" #addressField="ngModel" required minlength="6" [disabled]="processing"/>
+      <div *ngIf="feedbackEnabled && addressField.errors">
+        <p *ngIf="addressField.errors.required" class="validation">address required</p>
+        <p *ngIf="addressField.errors.minlength" class="validation">address is too short</p>
+      </div>
+    </div>
+
     <div class="field submit">
       <button type="submit" [disabled]="processing">signup</button>
       <div *ngIf="feedbackEnabled && form.invalid">

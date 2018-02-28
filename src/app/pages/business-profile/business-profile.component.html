@@ -6,7 +6,7 @@
   </li>
 </ul>
 
-<div *ngIf="(user.type === 'business')">
+<div *ngIf="(user._id === businessId)">
     <button (click)="ShowButton()">Add a new product for rent</button>
     <div *ngIf="showSelected">
       <form  (ngSubmit)="HideButton()" #form="ngForm" novalidate>

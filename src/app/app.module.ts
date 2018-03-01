@@ -13,7 +13,7 @@ import { RequireUserGuardService } from './guards/require-user-guard.service';
 import { InitAuthGuardService } from './guards/init-auth-guard.service';
 import { ProductsService } from './services/products.service';
 import { UserService } from './services/user.service';
-
+// PAGES
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -21,6 +21,11 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { BusinessSignUpComponent } from './pages/business-sign-up/business-sign-up.component';
 import { BusinessProfileComponent } from './pages/business-profile/business-profile.component';
 import { BookingFormComponent } from './pages/booking-form/booking-form.component';
+
+// COMPONENTS
+import { BookingFormCComponent } from './components/booking-form-c/booking-form-c.component';
+import { SignupFormComponent } from './components/signup-form/signup-form.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 const routes: Routes = [
   { path: '',  component: LandingPageComponent
@@ -57,7 +62,10 @@ const routes: Routes = [
     SignupPageComponent,
     BusinessSignUpComponent,
     BusinessProfileComponent,
-    BookingFormComponent
+    BookingFormComponent,
+    BookingFormCComponent,
+    SignupFormComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,

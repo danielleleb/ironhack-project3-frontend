@@ -13,8 +13,6 @@ export class SignupPageComponent implements OnInit {
   feedbackEnabled = false;
   error = null;
   processing = false;
-  username: String;
-  password: String
   
   constructor(
     private authService: AuthService,
@@ -24,25 +22,17 @@ export class SignupPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  submitForm(form) {
-    this.error = '';
-    this.feedbackEnabled = true;
-    if (form.valid){
-    this.processing = true;
-    const data = {
-      username: this.username,
-      password: this.password
-    }
-      this.authService.signup(data)
-        .then((result) => {
-            this.router.navigate(['/homepage'])
-      //     // ... navigate with this.router.navigate(['...'])
-        })
-        .catch((err) => {
-          this.error = err.error.error; // :-)
-          this.processing = false;
-          this.feedbackEnabled = false;
-        });
+  handleSubmitForm(event) {
+    console.log(event);
+      this.authService.signup(event)
+      .then((result) => {
+      this.router.navigate(['/homepage'])
+        //     // ... navigate with this.router.navigate(['...'])
+      })
+      .catch((err) => {
+        this.error = err.error.error; // :-)
+        this.processing = false;
+        this.feedbackEnabled = false;
+      });
   }
-}
 }

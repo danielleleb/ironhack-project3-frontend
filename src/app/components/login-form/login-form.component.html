@@ -24,10 +24,9 @@
 
   <div class="field submit">
     <button type="submit" [disabled]="processing">Login</button>
-
-      <div class="validation" [ngSwitch]="error" *ngIf="error">
-          <div *ngSwitchCase="'not-found'">The username/password are not recongnised</div>
-          <div *ngSwitchDefault>An unexpected error ocurred, please try again</div>
-        </div>
+    <div class="validation" [ngSwitch]="error" *ngIf="error">
+      <div *ngSwitchCase="'not-found'">The username/password are not recongnised</div>
+      <div *ngSwitchDefault>An unexpected error ocurred, please try again</div>
+    </div>
   </div>
 </form>

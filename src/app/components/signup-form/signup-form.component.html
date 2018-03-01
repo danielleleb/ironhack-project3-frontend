@@ -1,6 +1,3 @@
-<p>
-  signup-form works!
-</p>
 
 <form (ngSubmit)="submitSignUpForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
 
@@ -24,12 +21,11 @@
 
   <div class="field submit">
     <button type="submit" [disabled]="processing">signup</button>
-    <div *ngIf="feedbackEnabled && form.invalid">
-      <p class="validation">there are errors in the form, please review the fields</p>
+    <div class="validation" [ngSwitch]="error" *ngIf="error">
+      <div *ngSwitchCase="'username-not-unique'">The username already exists</div>
+      <div *ngSwitchDefault>An unexpected error ocurred, please try again</div>
     </div>
   </div>
 </form>
-
-{{error}}
 
 <p>Are you a business with equipment to rent? <a [routerLink]="['/business/signup']">Register as a business.</a></p>

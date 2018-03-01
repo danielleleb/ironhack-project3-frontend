@@ -26,7 +26,7 @@ export class SignupPageComponent implements OnInit {
       this.authService.signup(event)
       .then((result) => {
       this.router.navigate(['/homepage'])
-        //     // ... navigate with this.router.navigate(['...'])
+        //   this.error = err.error.error;  // ... navigate with this.router.navigate(['...'])
       })
       .catch((err) => {
         this.error = err.error.error; // :-)

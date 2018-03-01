@@ -27,6 +27,7 @@ import { BookingFormCComponent } from './components/booking-form-c/booking-form-
 import { SignupFormComponent } from './components/signup-form/signup-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 const routes: Routes = [
   { path: '',  component: LandingPageComponent
@@ -67,7 +68,8 @@ const routes: Routes = [
     BookingFormCComponent,
     SignupFormComponent,
     LoginFormComponent,
-    SearchFormComponent
+    SearchFormComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,

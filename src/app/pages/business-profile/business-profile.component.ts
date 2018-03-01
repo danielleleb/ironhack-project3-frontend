@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { AuthService } from '../../services/auth.service';
 import { ProductsService } from '../../services/products.service';
@@ -27,7 +28,8 @@ export class BusinessProfileComponent implements OnInit {
     private authService: AuthService,
     private productsService: ProductsService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -42,18 +44,15 @@ export class BusinessProfileComponent implements OnInit {
         this.products = products
       })
    })
+
   }
-   
-
-
   
-  
+  goBack() {
+    this.location.back();
+  }
 
-  ShowButton(){
-    this.showSelected = true;
-}
-  HideButton(){
-    this.showSelected=false;
+  toggleForm() {
+    this.showSelected = !this.showSelected;
   }
 
   addProduct(form) {
@@ -78,4 +77,12 @@ export class BusinessProfileComponent implements OnInit {
         });
     }
   }
+
+checkIfLoggedIn(productId){
+  if (this.user) {
+    this.router.navigate(['/business-profile', productId, 'book'])
+  } else {
+    this.router.navigate(['/signup'])
+  }
+ }
 }

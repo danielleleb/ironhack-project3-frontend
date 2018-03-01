@@ -1,31 +1,53 @@
+<!-- <a  [routerLink]="['/']">back to search</a> -->
 
 <ul *ngIf="products">
   <li *ngFor="let product of products">
+    {{product.name}}
       {{product.type}}
       {{ product.owner.username}}
+      <button (click)="checkIfLoggedIn(product._id)"></button>
+      <!-- <a  [routerLink]="['/business-profile', product._id, 'book']">book me</a> -->
+
   </li>
 </ul>
 
+<div *ngIf="user">
 <div *ngIf="(user._id === businessId)">
-    <button (click)="ShowButton()">Add a new product for rent</button>
+    <button (click)="toggleForm()">Add a new product for rent</button>
     <div *ngIf="showSelected">
-      <form  (ngSubmit)="HideButton()" #form="ngForm" novalidate>
+      <form  (ngSubmit)="toggleForm()" #form="ngForm" novalidate>
         <div class='field' [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
           <label for="productName">Product name</label>
-          <input type="text" [(ngModel)]='name' name='name' #nameField='ngModel' >
+          <input type="text" [(ngModel)]='name' name='name' #nameField='ngModel' required>
+          <div *ngIf="feedbackEnabled && nameField.errors">
+              <p *ngIf="nameField.errors.required" class="validation">name required</p>
+            </div>
         </div>
   
         <div class='field' [ngClass]="{'has-error': feedbackEnabled && priceField.errors}">
             <label for="productPrice">Product price</label>
-            <input type="text" [(ngModel)]='price' name='price' #priceField='ngModel' >
+            <input type="text" [(ngModel)]='price' name='price' #priceField='ngModel' required>
+            <div *ngIf="feedbackEnabled && priceField.errors">
+                <p *ngIf="priceField.errors.required" class="validation">price required</p>
+              </div>
         </div>
         <div class='field' [ngClass]="{'has-error': feedbackEnabled && typeField.errors}">
             <label for="producttype">Product type</label>
-            <input type="text" [(ngModel)]='type' name='type' #typeField='ngModel' >
+            <input type="text" [(ngModel)]='type' name='type' #typeField='ngModel' required>
+            <div *ngIf="feedbackEnabled && typeField.errors">
+                <p *ngIf="typeField.errors.required" class="validation">type required</p>
+              </div>
         </div>
-    
+        
+        <div class="field submit">
         <button type="submit" (click)="addProduct(form)" >submit product</button>
-  
+        <div *ngIf="feedbackEnabled && form.invalid">
+            <p class="validation">there are errors in the form, please review the fields</p>
+          </div>
+        </div>
       </form>
     </div>
 </div>
+</div>
+
+<button (click)="goBack()">Back</button>

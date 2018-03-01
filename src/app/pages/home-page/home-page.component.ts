@@ -41,9 +41,6 @@ export class HomePageComponent implements OnInit {
     //   this.businesses = businesses})
    }
 
-  //  search(form) {
-
-  //  }
   }
 
 

@@ -5,9 +5,14 @@
   </li>
 </ul> -->
 
+<a  [routerLink]="['/']">back to search</a>
+
+
 
 <ul *ngIf="products">
     <li *ngFor="let product of products">
         {{product.type}}
+        cost: {{product.price}}
+        <a [routerLink]="['/business-profile', product.owner._id ]">business profile</a>
     </li>
 </ul>

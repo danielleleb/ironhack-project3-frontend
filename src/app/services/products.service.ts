@@ -11,7 +11,7 @@ export class ProductsService {
   private product: any;
   private productChange: Subject<any> = new Subject();
 
-  private API_URL = 'http://localhost:3000/products/';
+  private API_URL = 'http://localhost:3000/products';
 
 
   constructor(private httpClient: HttpClient) { }

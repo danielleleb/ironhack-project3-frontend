@@ -53,7 +53,7 @@ export class LoginPageComponent implements OnInit {
           if (result.type == 'business') { 
             this.router.navigate(['/business-profile', this.user._id])
           } else if (result.type =='user'){
-            this.router.navigate(['/homepage'])
+            this.router.navigate(['/'])
           } else {
             this.router.navigate(['/login'])
           }

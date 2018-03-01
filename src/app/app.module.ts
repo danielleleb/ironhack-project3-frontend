@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 
+import { AppComponent } from './app.component';
 // GUARDS
 
 import { AuthService } from './services/auth.service';
@@ -13,7 +14,6 @@ import { InitAuthGuardService } from './guards/init-auth-guard.service';
 import { ProductsService } from './services/products.service';
 import { UserService } from './services/user.service';
 
-import { AppComponent } from './app.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -42,6 +42,7 @@ const routes: Routes = [
   , canActivate: [ InitAuthGuardService ] 
 },
 { path: ':citySearch/:typeSearch',  component: HomePageComponent 
+  , canActivate: [ InitAuthGuardService ] 
 },
   { path: '**', redirectTo: '' }
 ];

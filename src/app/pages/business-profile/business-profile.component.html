@@ -5,7 +5,7 @@
     {{product.name}}
       {{product.type}}
       {{ product.owner.username}}
-      <button (click)="checkIfLoggedIn(product._id)"></button>
+      <button (click)="goToBooking(product._id)">Book</button>
       <!-- <a  [routerLink]="['/business-profile', product._id, 'book']">book me</a> -->
 
   </li>

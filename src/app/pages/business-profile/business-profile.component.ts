@@ -49,6 +49,7 @@ export class BusinessProfileComponent implements OnInit {
   
   goBack() {
     this.location.back();
+    console.log('youh');
   }
 
   toggleForm() {
@@ -78,11 +79,7 @@ export class BusinessProfileComponent implements OnInit {
     }
   }
 
-checkIfLoggedIn(productId){
-  if (this.user) {
+  goToBooking(productId){
     this.router.navigate(['/business-profile', productId, 'book'])
-  } else {
-    this.router.navigate(['/signup'])
-  }
  }
 }

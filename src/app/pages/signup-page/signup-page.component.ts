@@ -23,7 +23,6 @@ export class SignupPageComponent implements OnInit {
   }
 
   handleSubmitForm(event) {
-    console.log(event);
       this.authService.signup(event)
       .then((result) => {
       this.router.navigate(['/homepage'])

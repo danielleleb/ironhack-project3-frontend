@@ -15,8 +15,6 @@ export class LoginPageComponent implements OnInit {
   feedbackEnabled = false;
   error = null;
   processing = false;
-  username: String;
-  password: String;
   loading = true;
   anon: boolean;
   user: any;
@@ -38,16 +36,9 @@ export class LoginPageComponent implements OnInit {
     
   }
 
-  submitForm(form) {
-    this.error = '';
-    this.feedbackEnabled = true;
-    if (form.valid) {
-    this.processing = true;
-    const data = {
-      username: this.username,
-      password: this.password
-    }
-      this.authService.login(data)
+  handleLoginForm(event) {
+    console.log(event);
+      this.authService.login(event)
         .then((result) => {
           console.log(result)
           if (result.type == 'business') { 

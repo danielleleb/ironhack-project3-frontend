@@ -21,15 +21,11 @@ export class SignupFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  ngOnChange(change) {
-    console.log(change);
-  }
-
   submitSignUpForm(form){
     this.error = '';
     this.feedbackEnabled = true;
     if (form.valid){
-      this.processing = true;
+      // this.processing = false;
       const data = {
         username: this.username,
         password: this.password

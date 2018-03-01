@@ -14,12 +14,10 @@ export class BusinessSignUpComponent implements OnInit {
   feedbackEnabled = false;
   error = null;
   processing = false;
-  username: string;
-  password: string;
   loading = true;
   anon: boolean;
   user: any;
-  address: string
+  
   
   constructor(
     private authService: AuthService,
@@ -36,17 +34,8 @@ export class BusinessSignUpComponent implements OnInit {
 
   }
 
-  submitForm(form) {
-    this.error = '';
-    this.feedbackEnabled = true;
-    if (form.valid){
-    this.processing = true;
-    const data = {
-      username: this.username,
-      password: this.password,
-      address: this.address
-    }
-      this.authService.businessSignup(data)
+  handleSubmitBusinessForm(event) {
+      this.authService.businessSignup(event)
         .then((result) => {
           this.router.navigate(['/business-profile', this.user._id])
       //     // ... navigate with this.router.navigate(['...'])
@@ -57,5 +46,4 @@ export class BusinessSignUpComponent implements OnInit {
           this.feedbackEnabled = false;
         });
   }
-}
 }

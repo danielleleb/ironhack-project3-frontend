@@ -1,37 +1,3 @@
 <h1>business signup</h1>
-<form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
 
-    <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
-      <label>Username</label>
-      <input type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" required minlength="6" [disabled]="processing"/>
-      <div *ngIf="feedbackEnabled && usernameField.errors">
-        <p *ngIf="usernameField.errors.required" class="validation">username required</p>
-        <p *ngIf="usernameField.errors.minlength" class="validation">username is too short</p>
-      </div>
-    </div>
-  
-    <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
-        <label>Password</label>
-        <input type="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required minlength="6" [disabled]="processing"/>
-        <div *ngIf="feedbackEnabled && passwordField.errors">
-          <p *ngIf="passwordField.errors.required" class="validation">password required</p>
-          <p *ngIf="passwordField.errors.minlength" class="validation">password is too short</p>
-        </div>
-      </div>
-
-    <div class="field" [ngClass]="{'has-error': feedbackEnabled && addressField.errors}">
-      <label>City</label>
-      <input type="text" name="address" [(ngModel)]="address" #addressField="ngModel" required minlength="6" [disabled]="processing"/>
-      <div *ngIf="feedbackEnabled && addressField.errors">
-        <p *ngIf="addressField.errors.required" class="validation">City required</p>
-        <p *ngIf="addressField.errors.minlength" class="validation">City is too short</p>
-      </div>
-    </div>
-
-    <div class="field submit">
-      <button type="submit" [disabled]="processing">signup</button>
-      <div *ngIf="feedbackEnabled && form.invalid">
-        <p class="validation">there are errors in the form, please review the fields</p>
-      </div>
-    </div>
-  </form>
+<app-signup-form-business [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleSubmitBusinessForm($event)" ></app-signup-form-business>

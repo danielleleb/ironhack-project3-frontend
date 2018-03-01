@@ -28,6 +28,7 @@ import { SignupFormComponent } from './components/signup-form/signup-form.compon
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { SignupFormBusinessComponent } from './components/signup-form-business/signup-form-business.component';
 
 const routes: Routes = [
   { path: '',  component: LandingPageComponent
@@ -69,7 +70,8 @@ const routes: Routes = [
     SignupFormComponent,
     LoginFormComponent,
     SearchFormComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    SignupFormBusinessComponent
   ],
   imports: [
     BrowserModule,

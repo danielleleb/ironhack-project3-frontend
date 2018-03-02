@@ -49,24 +49,23 @@ export class BusinessProfileComponent implements OnInit {
   
   goBack() {
     this.location.back();
-    console.log('youh');
   }
 
   toggleForm() {
     this.showSelected = !this.showSelected;
   }
 
-  addProduct(form) {
-    this.error = '';
-    this.feedbackEnabled = true;
-    if (form.valid){
-    this.processing = true;
-    const data = {
-      name: this.name,
-      type: this.type,
-      price: this.price
-    }
-      this.productsService.addNewProduct(data)
+  handleAddProductForm(event) {
+    // this.error = '';
+    // this.feedbackEnabled = true;
+    // if (form.valid){
+    // this.processing = true;
+    // const data = {
+    //   name: this.name,
+    //   type: this.type,
+    //   price: this.price
+    // }
+      this.productsService.addNewProduct(event)
         .then((result) => {
             this.router.navigate(['/business-profile/', this.businessId])
       //     // ... navigate with this.router.navigate(['...'])
@@ -76,7 +75,8 @@ export class BusinessProfileComponent implements OnInit {
           this.processing = false;
           this.feedbackEnabled = false;
         });
-    }
+        this.toggleForm()
+    
   }
 
   goToBooking(productId){

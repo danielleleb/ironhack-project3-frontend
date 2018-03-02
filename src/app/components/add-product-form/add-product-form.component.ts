@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-add-product-form',
   templateUrl: './add-product-form.component.html',
-  styleUrls: ['./add-product-form.component.css']
+  styleUrls: ['./add-product-form.component.scss']
 })
 export class AddProductFormComponent implements OnInit {
 

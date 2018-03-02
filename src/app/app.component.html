@@ -1,9 +1,9 @@
 
 <header id="site-header">
         <div [ngClass]="{'is-user': user, 'is-anon': anon}">
-                <!-- <div *ngIf="loading">
+                <div *ngIf="loading">
                   <span class="username text">loading...</span>
-                </div> -->
+                </div>
                 <div *ngIf="!loading && !!user">
                   <a (click)="profile()">{{user.username}}</a>
                   <a (click)="logout()">logout</a>

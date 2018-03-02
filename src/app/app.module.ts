@@ -5,14 +5,15 @@ import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-// GUARDS
 
+// GUARDS
 import { AuthService } from './services/auth.service';
 import { RequireAnonGuardService } from './guards/require-anon-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
 import { InitAuthGuardService } from './guards/init-auth-guard.service';
 import { ProductsService } from './services/products.service';
 import { UserService } from './services/user.service';
+
 // PAGES
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';

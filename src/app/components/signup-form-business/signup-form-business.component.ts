@@ -3,7 +3,7 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-signup-form-business',
   templateUrl: './signup-form-business.component.html',
-  styleUrls: ['./signup-form-business.component.css']
+  styleUrls: ['./signup-form-business.component.scss']
 })
 export class SignupFormBusinessComponent implements OnInit {
 

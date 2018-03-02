@@ -7,11 +7,18 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BookingFormCComponent implements OnInit {
 
+  bookingLength: any;
+  
   @Input() product: string;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  calculateBookingLength(startDate, endDate) {
+    this.bookingLength = endDate - startDate;
+    return this.bookingLength
   }
 
 }

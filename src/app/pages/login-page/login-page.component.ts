@@ -37,10 +37,8 @@ export class LoginPageComponent implements OnInit {
   }
 
   handleLoginForm(event) {
-    console.log(event);
       this.authService.login(event)
         .then((result) => {
-          console.log(result)
           if (result.type == 'business') { 
             this.router.navigate(['/business-profile', this.user._id])
           } else if (result.type =='user'){
@@ -56,4 +54,8 @@ export class LoginPageComponent implements OnInit {
           this.feedbackEnabled = false;
         });
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 2daaec14fe376c5e393a8eacb8012b601df6eda9

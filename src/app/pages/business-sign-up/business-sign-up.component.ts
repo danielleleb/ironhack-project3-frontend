@@ -18,6 +18,10 @@ export class BusinessSignUpComponent implements OnInit {
   loading = true;
   anon: boolean;
   user: any;
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 2daaec14fe376c5e393a8eacb8012b601df6eda9
   
   constructor(
     private authService: AuthService,
@@ -32,6 +36,7 @@ export class BusinessSignUpComponent implements OnInit {
           });
   }
 
+<<<<<<< HEAD
   handleSubmitForm(event) {
       this.authService.signup(event)
       .then((result) => {
@@ -43,5 +48,18 @@ export class BusinessSignUpComponent implements OnInit {
         this.processing = false;
         this.feedbackEnabled = false;
       });
+=======
+  handleSubmitBusinessForm(event) {
+      this.authService.businessSignup(event)
+        .then((result) => {
+          this.router.navigate(['/business-profile', this.user._id])
+      //     // ... navigate with this.router.navigate(['...'])
+        })
+        .catch((err) => {
+          this.error = err.error.error; // :-)
+          this.processing = false;
+          this.feedbackEnabled = false;
+        });
+>>>>>>> 2daaec14fe376c5e393a8eacb8012b601df6eda9
   }
 }

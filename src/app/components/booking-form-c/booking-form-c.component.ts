@@ -16,9 +16,13 @@ export class BookingFormCComponent implements OnInit {
   ngOnInit() {
   }
 
+ 
+
   calculateBookingLength(startDate, endDate) {
-    this.bookingLength = endDate - startDate;
-    return this.bookingLength
+    startDate = new Date(startDate);
+    endDate = new Date(endDate)
+    this.bookingLength = (endDate - startDate) / (24 * 3600 * 1000);
+    console.log(startDate)
   }
 
 }

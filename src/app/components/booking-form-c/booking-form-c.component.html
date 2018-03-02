@@ -12,7 +12,7 @@
   
       <div class='field' [ngClass]="{'has-error': feedbackEnabled && endDateField.errors}">
           <label for="endDate"> End date: </label>
-          <input type="date" [(ngModel)]='endDate' name='endDate' #endDateField='ngModel' >
+          <input type="date" [(ngModel)]='endDate' name='endDate' #endDateField='ngModel' (ngModelChange)="calculateBookingLength(startDate, endDate)">
       </div>
 
       {{bookingLength}}

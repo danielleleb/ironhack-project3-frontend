@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
   }
 
   profile() {
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/']);
   }
 
   logout() {

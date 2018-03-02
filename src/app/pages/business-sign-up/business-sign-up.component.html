@@ -1,5 +1,5 @@
 <h1>business signup</h1>
-<form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+<!-- <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
 
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
       <label>Username</label>
@@ -34,4 +34,7 @@
         <p class="validation">there are errors in the form, please review the fields</p>
       </div>
     </div>
-  </form>
+  </form> -->
+
+  
+<app-signup-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleSubmitForm($event)"></app-signup-form>

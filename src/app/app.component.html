@@ -1,34 +1,41 @@
 
 <header id="site-header">
-        <div [ngClass]="{'is-user': user, 'is-anon': anon}">
-                <div *ngIf="loading">
-                  <span class="username text">loading...</span>
+    <!-- NAV BAR -->
+<nav class="nav-bar">
+        <div class="pos-f-t">
+            <nav class="navbar navbar-dark">
+                <div class="nav-logo">
+                    <h3>Rent It</h3>
                 </div>
-                <div *ngIf="!loading && !!user">
-                  <a (click)="profile()">{{user.username}}</a>
-                  <a (click)="logout()">logout</a>
+                <button class="navbar-menu" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="p-4">
+                    <div [ngClass]="{'is-user': user, 'is-anon': anon}">
+                        <div *ngIf="loading">
+                            <span class="username text">loading...</span>
+                        </div>
+                        <div *ngIf="!loading && !!user">
+                            <a (click)="profile()">{{user.username}}</a>
+                            <a (click)="logout()">logout</a>
+                        </div>
+                        <div *ngIf="!loading && anon">
+                            <a (click)="login()">login</a>
+                            <a (click)="signup()">signup</a>
+                        </div>
+                    </div>
                 </div>
-                <div *ngIf="!loading && anon">
-                  <a (click)="login()">login</a>
-                  <a (click)="signup()">signup</a>
-                </div>
-              </div>
-    <!-- <div class="pos-f-t">
-        <div class="collapse" id="navbarToggleExternalContent">
-            <div class="bg-dark p-4">
-                <h4 class="text-white">Collapsed content</h4>
-                <span class="text-muted">Toggleable via the navbar brand.</span>
             </div>
         </div>
-        <nav class="navbar navbar-dark bg-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-        </nav>
-    </div> -->
+    </nav>
+    <img src="http://erikdkennedy.com/r-r-r-random/divider-triangle.png" class="divider"/>
 </header>
 
-<router-outlet></router-outlet>
+<router-outlet>
+    
+</router-outlet>
 
 <footer id="site-footer">
     <div>

@@ -53,3 +53,17 @@
   font-family: $titillium;
   color: $primary-color;
 }
+
+// --- BUTTONS --- //
+
+@mixin primary-button{
+  border: none;
+  padding: 10px;
+  font-size: 1em;
+  font-weight: bolder;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px rgba(0,0,0,0.2);
+  color: white;
+  background-color: $primary-color;
+}

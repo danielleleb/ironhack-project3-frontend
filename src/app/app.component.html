@@ -1,7 +1,10 @@
 
+
+
 <header id="site-header">
+
     <!-- NAV BAR -->
-<nav class="nav-bar">
+    <nav class="nav-bar container">
         <div class="pos-f-t">
             <nav class="navbar navbar-dark">
                 <div class="nav-logo">
@@ -12,7 +15,7 @@
                 </button>
             </nav>
             <div class="collapse" id="navbarToggleExternalContent">
-                <div class="p-4">
+                <div class="nav-links">
                     <div [ngClass]="{'is-user': user, 'is-anon': anon}">
                         <div *ngIf="loading">
                             <span class="username text">loading...</span>
@@ -21,15 +24,27 @@
                             <a (click)="profile()">{{user.username}}</a>
                             <a (click)="logout()">logout</a>
                         </div>
-                        <div *ngIf="!loading && anon">
-                            <a (click)="login()">login</a>
-                            <a (click)="signup()">signup</a>
+                        <div class="nav-btns" *ngIf="!loading && anon">
+                            <button class="nav-btn">
+                                <a (click)="login()">LOGIN</a>
+                            </button>
+                            <button class="nav-btn">
+                                <a (click)="signup()">SIGNUP</a>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
+
+    <div class="container main-header">
+        <h3> The new way to rent!</h3>
+        <p>Rentily is an online platform, write some text here and be happy for your entire life.
+            Don't use any other online platform other than Rentily.
+            Thank you :)
+        </p>
+    </div>
     <img src="http://erikdkennedy.com/r-r-r-random/divider-triangle.png" class="divider"/>
 </header>
 

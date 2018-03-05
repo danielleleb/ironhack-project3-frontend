@@ -21,7 +21,7 @@
         </div>
       </div>
 
-    <div class="field submit">
+    <div class="field submit container">
       <button class="secondary-btn" type="submit" [disabled]="processing">SIGNUP</button>
       <div class="validation" [ngSwitch]="error" *ngIf="error">
         <div *ngSwitchCase="'username-not-unique'">The username already exists</div>

@@ -1,14 +1,15 @@
 <!-- <a  [routerLink]="['/']">back to search</a> -->
 
+<div *ngIf="(user._id == businessId)">
+    <a [routerLink]="['/business-profile', businessId, 'edit' ]">edit or delete your products</a>
+</div>
+
 <ul *ngIf="products">
   <li *ngFor="let product of products">
     <app-product-card [product]="product" [showProfileLink]="showProfileLink" [businessId]="businessId" [user]="user"></app-product-card>
     <div *ngIf="(user.type !== 'business')">
       <button (click)="goToBooking(product._id)">Book</button>
       <!-- <a  [routerLink]="['/business-profile', product._id, 'book']">book me</a> -->
-    </div>
-    <div *ngIf="(user._id == businessId)">
-        <a [routerLink]="['/business-profile', product._id, 'edit' ]">edit or delete this product</a>
     </div>
   </li>
 </ul>

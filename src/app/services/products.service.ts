@@ -43,6 +43,15 @@ export class ProductsService {
     // .then((data) => console.log(data))
     .then((data) => this.setProduct(data))
   }
+  getEntireProductList(businessId) :Promise<any>{
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.API_URL}/complete/${businessId}`, options)
+    .toPromise()
+    // .then((data) => console.log(data))
+    .then((data) => this.setProduct(data))
+  }
   
   getProductById(productId) {
     const options = {

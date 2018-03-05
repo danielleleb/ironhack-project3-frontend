@@ -1,4 +1,9 @@
 <p>
   edit-product-page works!
 </p>
-<app-edit-product-form></app-edit-product-form>
+<ul *ngIf="products">
+    <li *ngFor="let product of products">
+      <app-product-card [product]="product"></app-product-card>
+      {{product.available}}
+    </li>
+</ul>

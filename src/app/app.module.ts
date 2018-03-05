@@ -31,6 +31,8 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { SignupFormBusinessComponent } from './components/signup-form-business/signup-form-business.component';
 import { AddProductFormComponent } from './components/add-product-form/add-product-form.component';
+import { EditProductFormComponent } from './components/edit-product-form/edit-product-form.component';
+import { EditProductPageComponent } from './pages/edit-product-page/edit-product-page.component';
 
 const routes: Routes = [
   { path: '',  component: LandingPageComponent
@@ -74,7 +76,9 @@ const routes: Routes = [
     SearchFormComponent,
     ProductCardComponent,
     SignupFormBusinessComponent,
-    AddProductFormComponent
+    AddProductFormComponent,
+    EditProductFormComponent,
+    EditProductPageComponent
   ],
   imports: [
     BrowserModule,

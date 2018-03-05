@@ -3,9 +3,10 @@
 <ul *ngIf="products">
   <li *ngFor="let product of products">
     <app-product-card [product]="product  "></app-product-card>
+    <div *ngIf="(user.type !== 'business')">
       <button (click)="goToBooking(product._id)">Book</button>
       <!-- <a  [routerLink]="['/business-profile', product._id, 'book']">book me</a> -->
-
+    </div>
   </li>
 </ul>
 

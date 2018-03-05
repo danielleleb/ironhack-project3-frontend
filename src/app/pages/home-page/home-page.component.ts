@@ -4,7 +4,7 @@ import { ProductsService } from '../../services/products.service';
 import { ActivatedRoute } from '@angular/router';
 
 
-// import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home-page',
@@ -18,16 +18,22 @@ export class HomePageComponent implements OnInit {
   // businesses: {}[];
   products: {}[];
   showProfileLink: boolean;
+  user: any
 
   constructor(
     private userService: UserService,
     private productsService: ProductsService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthService,
+
 
   ) { }
 
   ngOnInit() {
+    this.user = this.authService.getUser();
+
     this.showProfileLink = true;
+    
     this.activatedRoute.params
     .subscribe((params) => {
       this.citySearch = String(params.citySearch)

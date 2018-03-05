@@ -7,6 +7,9 @@
       <button (click)="goToBooking(product._id)">Book</button>
       <!-- <a  [routerLink]="['/business-profile', product._id, 'book']">book me</a> -->
     </div>
+    <div *ngIf="(user._id == businessId)">
+        <a [routerLink]="['/business-profile', product._id, 'edit' ]">edit or delete this product</a>
+    </div>
   </li>
 </ul>
 

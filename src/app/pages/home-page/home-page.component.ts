@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { ProductsService } from '../../services/products.service';
 import { ActivatedRoute } from '@angular/router';
@@ -12,10 +12,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
+  // @Input() showProfileLink
   citySearch: string;
   typeSearch: string;
   // businesses: {}[];
   products: {}[];
+  showProfileLink: boolean;
 
   constructor(
     private userService: UserService,
@@ -25,6 +27,7 @@ export class HomePageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.showProfileLink = true;
     this.activatedRoute.params
     .subscribe((params) => {
       this.citySearch = String(params.citySearch)

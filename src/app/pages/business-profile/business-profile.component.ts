@@ -23,6 +23,7 @@ export class BusinessProfileComponent implements OnInit {
   showSelected: boolean = false
   products: {}[]
   businessId: String
+  showProfileLink: boolean;
 
   constructor(
     private authService: AuthService,
@@ -33,6 +34,8 @@ export class BusinessProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.showProfileLink = false;
+
     this.user = this.authService.getUser();
 
     this.activatedRoute.params

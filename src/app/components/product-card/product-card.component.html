@@ -1,4 +1,6 @@
 
 {{product.type}}
 cost: {{product.price}}
+<div *ngIf="showProfileLink">
 <a [routerLink]="['/business-profile', product.owner._id ]">business profile</a>
+</div>

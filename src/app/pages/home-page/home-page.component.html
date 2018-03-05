@@ -2,6 +2,6 @@
 
 <ul *ngIf="products">
     <li *ngFor="let product of products">
-      <app-product-card [product]="product"></app-product-card>
+      <app-product-card [product]="product" [showProfileLink]="showProfileLink"></app-product-card>
     </li>
 </ul>

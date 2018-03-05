@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class EditProductFormComponent implements OnInit {
 
-  @Input() product
+  @Input() product;
 
   constructor() { }
 

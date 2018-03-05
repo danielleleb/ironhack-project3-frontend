@@ -60,4 +60,14 @@ export class ProductsService {
     .then((data) => this.setProduct(data))
   }
 
+  bookProduct(productId){
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.post(`${this.API_URL}/book/:productId`, options)
+    .toPromise()
+    // .then((data) => console.log(data))
+    .then((data) => this.setProduct(data))
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-booking-form-c',
@@ -6,10 +6,17 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./booking-form-c.component.scss']
 })
 export class BookingFormCComponent implements OnInit {
-
-  bookingLength: any;
   
+  bookingLength: any;
+  @Output() submitForm = new EventEmitter<any>();
+  
+  @Input() feedbackEnabled: boolean;
+  @Input() error: string; 
+  @Input() processing: boolean;
   @Input() product: string;
+
+  startDate: number;
+  endDate: number;
 
   constructor() { }
 
@@ -23,6 +30,20 @@ export class BookingFormCComponent implements OnInit {
     endDate = new Date(endDate)
     this.bookingLength = (endDate - startDate) / (24 * 3600 * 1000);
     console.log(startDate)
+  }
+
+  submitBookingForm(form) {
+    this.error='';
+    this.feedbackEnabled = true;
+
+    if (form.valid){
+      // this.processing = false;
+      const data = {
+        startDate: this.startDate,
+        endDate: this.endDate
+      }
+      this.submitForm.emit(data);
+     }
   }
 
 }

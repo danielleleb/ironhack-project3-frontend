@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { ProductsService } from '../../services/products.service';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-booking-form',
@@ -13,11 +15,16 @@ export class BookingFormComponent implements OnInit {
   // businessId: String;
   productId: String;
   product: {}
+  feedbackEnabled = false;
+  error = null;
+  processing = false;
 
   constructor(
     private authService: AuthService,
     private productsService: ProductsService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+
   ) { }
 
   ngOnInit() {
@@ -34,5 +41,17 @@ export class BookingFormComponent implements OnInit {
 
   }
   
+  handleBookingForm(event) {
+    this.productsService.bookProduct(event)
+      .then((result) => {
+      this.router.navigate(['/'])
+        //   this.error = err.error.error;  // ... navigate with this.router.navigate(['...'])
+      })
+      .catch((err) => {
+        this.error = err.error.error; // :-)
+        this.processing = false;
+        this.feedbackEnabled = false;
+      });
+  }
 
 }

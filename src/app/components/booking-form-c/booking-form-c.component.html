@@ -4,7 +4,7 @@
   {{product.price}}
   {{product.owner.username}}
   </div>
-  <form  #form="ngForm" novalidate>
+  <form (ngSubmit)="submitBookingForm(form)" #form="ngForm" novalidate>
       <div class='field' [ngClass]="{'has-error': feedbackEnabled && startDateField.errors}">
         <label for="startDate"> Start date: </label>
         <input type="date" [(ngModel)]='startDate' name='startDate' #startDateField='ngModel' >
@@ -21,6 +21,6 @@
           <input type="text" [(ngModel)]='type' name='type' #typeField='ngModel' >
       </div> -->
   
-      <button type="submit" (click)="addProduct(form)" >submit product</button>
+      <button type="submit" [disabled]="processing">submit product</button>
   
     </form>

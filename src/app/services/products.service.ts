@@ -64,11 +64,11 @@ export class ProductsService {
     .then((data) => this.setProduct(data))
   }
 
-  bookProduct(productId){
+  bookProduct(product: any){
     const options = {
       withCredentials: true
     };
-    return this.httpClient.post(`${this.API_URL}/book/:productId`, options)
+    return this.httpClient.post(`${this.API_URL}/book`, product, options)
     .toPromise()
     // .then((data) => console.log(data))
     .then((data) => this.setProduct(data))

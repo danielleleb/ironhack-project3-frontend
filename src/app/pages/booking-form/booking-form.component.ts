@@ -43,6 +43,8 @@ export class BookingFormComponent implements OnInit {
   
   handleBookingForm(event) {
     this.productsService.bookProduct(event)
+          // this.router.navigate(['/'])
+
       .then((result) => {
       this.router.navigate(['/'])
         //   this.error = err.error.error;  // ... navigate with this.router.navigate(['...'])

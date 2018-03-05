@@ -40,7 +40,6 @@ export class ProductsService {
     };
     return this.httpClient.get(`${this.API_URL}/${businessId}`, options)
     .toPromise()
-    // .then((data) => console.log(data))
     .then((data) => this.setProduct(data))
   }
   getEntireProductList(businessId) :Promise<any>{
@@ -49,7 +48,6 @@ export class ProductsService {
     };
     return this.httpClient.get(`${this.API_URL}/complete/${businessId}`, options)
     .toPromise()
-    // .then((data) => console.log(data))
     .then((data) => this.setProduct(data))
   }
   
@@ -59,7 +57,6 @@ export class ProductsService {
     };
     return this.httpClient.get(`${this.API_URL}/view/${productId}`, options)
     .toPromise()
-    // .then((data) => console.log(data))
     .then((data) => this.setProduct(data))
   }
 
@@ -69,7 +66,6 @@ export class ProductsService {
     };
     return this.httpClient.get(`${this.API_URL}/view/${citySearch}/${typeSearch}`, options)
     .toPromise()
-    // .then((data) => console.log(data))
     .then((data) => this.setProduct(data))
   }
 
@@ -79,7 +75,6 @@ export class ProductsService {
     };
     return this.httpClient.post(`${this.API_URL}/book`, product, options)
     .toPromise()
-    // .then((data) => console.log(data))
     .then((data) => this.setProduct(data))
   }
 
@@ -89,7 +84,6 @@ export class ProductsService {
     };
     return this.httpClient.post(`${this.API_URL}/return/${productId}`, options)
     .toPromise()
-    // .then((data) => console.log(data))
     .then((data) => this.setProduct(data))
   }
 

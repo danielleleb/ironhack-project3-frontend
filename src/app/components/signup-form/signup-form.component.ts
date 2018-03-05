@@ -14,7 +14,7 @@ export class SignupFormComponent implements OnInit {
   @Input() processing: boolean;
 
   username: string;
-  password: string
+  password: string;
 
   constructor() { }
 

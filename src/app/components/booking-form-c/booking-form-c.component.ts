@@ -13,10 +13,11 @@ export class BookingFormCComponent implements OnInit {
   @Input() feedbackEnabled: boolean;
   @Input() error: string; 
   @Input() processing: boolean;
-  @Input() product: string;
+  @Input() product: any;
 
   startDate: number;
   endDate: number;
+  productId: string;
 
   constructor() { }
 
@@ -40,7 +41,8 @@ export class BookingFormCComponent implements OnInit {
       // this.processing = false;
       const data = {
         startDate: this.startDate,
-        endDate: this.endDate
+        endDate: this.endDate,
+        productId: this.product._id
       }
       this.submitForm.emit(data);
      }

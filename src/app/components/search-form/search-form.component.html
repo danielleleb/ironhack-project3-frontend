@@ -1,7 +1,10 @@
+
+<div class="search-form container">
+  <h1>Search</h1>
 <form  #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
 
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && cityField.errors}">
-      <label>city</label>
+      <label>CITY</label>
       <input type="text" name="city" [(ngModel)]="city" #cityField="ngModel"required minlength="6" [disabled]="processing">
       <div *ngIf="feedbackEnabled && cityField.errors">
         <p *ngIf="cityField.errors.required" class="validation">city required</p>
@@ -9,7 +12,7 @@
       </div>
     </div>
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && typeField.errors}">
-          <label>type</label>
+          <label>TYPE</label>
           <input type="text" name="type" [(ngModel)]="type" #typeField="ngModel"required  [disabled]="processing">
           <div *ngIf="feedbackEnabled && typeField.errors">
             <p *ngIf="typeField.errors.required" class="validation">type required</p>
@@ -18,9 +21,10 @@
         </div>
   
     <div class="field submit">
-        <button type="button" [routerLink]="[cityField.value, typeField.value]"[disabled]="processing">search</button>
+        <button class="secondary-btn" type="button" [routerLink]="[cityField.value, typeField.value]"[disabled]="processing">SEARCH</button>
         <div *ngIf="feedbackEnabled && form.invalid">
           <p class="validation">there are errors in the form, please review the fields</p>
         </div>
       </div>
   </form> 
+</div>

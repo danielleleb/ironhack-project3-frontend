@@ -4,3 +4,6 @@ cost: {{product.price}}
 <div *ngIf="showProfileLink">
 <a [routerLink]="['/business-profile', product.owner._id ]">business profile</a>
 </div>
+<div *ngIf="(user._id == businessId)">
+    <a [routerLink]="['/business-profile', product._id, '/edit' ]">edit or delete this product</a>
+</div>

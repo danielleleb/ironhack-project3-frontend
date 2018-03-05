@@ -11,6 +11,8 @@ export class ProductCardComponent implements OnInit {
 
   @Input() product;
   @Input() showProfileLink;
+  @Input() businessId
+  @Input() user
   location: any;
 
   constructor(private router: Router) { 

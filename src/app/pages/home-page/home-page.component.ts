@@ -12,10 +12,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-  // @Input() showProfileLink
   citySearch: string;
-  typeSearch: string;
-  // businesses: {}[];
   products: {}[];
   showProfileLink: boolean;
   user: any
@@ -24,9 +21,7 @@ export class HomePageComponent implements OnInit {
     private userService: UserService,
     private productsService: ProductsService,
     private activatedRoute: ActivatedRoute,
-    private authService: AuthService,
-
-
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -37,8 +32,7 @@ export class HomePageComponent implements OnInit {
     this.activatedRoute.params
     .subscribe((params) => {
       this.citySearch = String(params.citySearch)
-      this.typeSearch = String(params.typeSearch)
-      this.productsService.getProductsBySearch(this.citySearch, this.typeSearch)
+      this.productsService.getProductsBySearch(this.citySearch)
       .then((products) => {
         console.log(products)
         this.products = products

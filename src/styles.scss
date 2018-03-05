@@ -36,6 +36,7 @@ html {
   
   p {
     margin: 0;
+    color: white;
   }
   
   
@@ -76,10 +77,16 @@ html {
 .secondary-btn{
   @include secondary-button;
 }
+.third-btn{
+  @include third-button;
+}
 
 // --- NAV-BAR --- //
 .navbar{
   padding: 0;
+}
+.nav-bar p{
+  color: black;
 }
 .nav-bar{
   margin-bottom: 20px;
@@ -91,6 +98,9 @@ html {
   background-color: transparent;
   border: none;
   border-radius: .25rem;
+}
+.nav-btns p{
+  color: white;
 }
 .fa-bars{
   color: white;
@@ -105,11 +115,24 @@ html {
 }
 .nav-logo h3{
   color: white;
+  padding-top: 20px;
 }
 .nav-links{
   display: flex;
   justify-content: flex-start;
 }
+// .scrolled-nav {
+//   color: black !important;
+//   height: 80px !important;
+//   border-bottom: 1px solid lightgrey !important;
+//   position: fixed !important;
+//   top: 0 !important;
+//   z-index: 100 !important;
+//   background-color: white !important;
+// }
+// .scrolled-bg{
+//   background-color: white;
+// }
 
 // --- HEADER --- //
 .divider {
@@ -125,9 +148,11 @@ html {
 }
 .main-header h3{
   transform: skewX(-20deg);
+  margin-bottom: 60px;
 }
 
 // --- FOOTER --- //
 #site-footer p{
   padding: 0 10px;
+  color: black;
 }

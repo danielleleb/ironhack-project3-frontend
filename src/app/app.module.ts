@@ -43,23 +43,23 @@ const routes: Routes = [
  },
   { path: 'signup',  component: SignupPageComponent
   , canActivate: [ RequireAnonGuardService ] 
-},
+  },
   { path: 'business/signup',  component: BusinessSignUpComponent
   , canActivate: [ RequireAnonGuardService ] 
-},
-{ path: 'business-profile/:productId/edit',  component: EditProductPageComponent 
-  , canActivate: [ RequireUserGuardService ] 
-},
-{ path: 'business-profile/:productId/book',  component: BookingFormComponent
-  , canActivate: [ RequireUserGuardService ]
-},
-{ path: 'business-profile/:id',  component: BusinessProfileComponent
-  , canActivate: [ InitAuthGuardService ] 
-},
-{ path: ':citySearch/:typeSearch',  component: HomePageComponent 
-  , canActivate: [ InitAuthGuardService ] 
-},
-  { path: '**', redirectTo: '' }
+  },
+  { path: 'business-profile/:productId/edit',  component: EditProductPageComponent 
+    , canActivate: [ RequireUserGuardService ] 
+  },
+  { path: 'business-profile/:productId/book',  component: BookingFormComponent
+    , canActivate: [ RequireUserGuardService ]
+  },
+  { path: 'business-profile/:id',  component: BusinessProfileComponent
+    , canActivate: [ InitAuthGuardService ] 
+  },
+  { path: ':citySearch',  component: HomePageComponent 
+    , canActivate: [ InitAuthGuardService ] 
+  },
+    { path: '**', redirectTo: '' }
 ];
 
 

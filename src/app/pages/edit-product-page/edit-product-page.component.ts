@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -11,10 +13,14 @@ import { ActivatedRoute } from '@angular/router';
 export class EditProductPageComponent implements OnInit {
   products: {}[];
   businessId: String
+  feedbackEnabled = false;
+  error = null;
+  processing = false;
 
 
   
   constructor(
+    private router: Router,
     private activatedRoute: ActivatedRoute,
     private productsService: ProductsService
   ) { }
@@ -30,5 +36,17 @@ export class EditProductPageComponent implements OnInit {
       })
    })
   }
+
+  changeAvailableStatus(productId){
+    this.productsService.returnProduct(productId)
+    .then((result) => {
+      this.router.navigate(['/business-profile/', this.businessId, 'edit'])
+    })
+    .catch((err) => {
+      this.error = err.error.error; // :-)
+      this.processing = false;
+      this.feedbackEnabled = false;
+    });
+    }
 
 }

@@ -5,5 +5,8 @@
     <li *ngFor="let product of products">
       <app-product-card [product]="product"></app-product-card>
       {{product.available}}
+      <div *ngIf="(product.available == false)">
+      <p>has this product been returned? mark it as <button (click)="changeAvailableStatus(product._id)">available</button></p>
+    </div>
     </li>
 </ul>

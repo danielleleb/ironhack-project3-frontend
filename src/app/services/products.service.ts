@@ -83,4 +83,14 @@ export class ProductsService {
     .then((data) => this.setProduct(data))
   }
 
+  returnProduct(productId) {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.post(`${this.API_URL}/return/${productId}`, options)
+    .toPromise()
+    // .then((data) => console.log(data))
+    .then((data) => this.setProduct(data))
+  }
+
 }

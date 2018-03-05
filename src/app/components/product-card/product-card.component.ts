@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent implements OnInit {
-
+  
   @Input() product;
   @Input() showProfileLink;
   @Input() businessId

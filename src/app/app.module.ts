@@ -47,7 +47,7 @@ const routes: Routes = [
   { path: 'business/signup',  component: BusinessSignUpComponent
   , canActivate: [ RequireAnonGuardService ] 
 },
-{ path: 'business-profile/:productId/edit',  component: HomePageComponent 
+{ path: 'business-profile/:productId/edit',  component: EditProductPageComponent 
   , canActivate: [ RequireUserGuardService ] 
 },
 { path: 'business-profile/:productId/book',  component: BookingFormComponent

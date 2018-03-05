@@ -1,6 +1,7 @@
 <p>
   edit-product-form works!
 </p>
+<div *ngIf="product">
 {{product.name}}
 
 <form   #form="ngForm" novalidate>
@@ -34,3 +35,4 @@
       </div>
     </div>
   </form>
+</div>

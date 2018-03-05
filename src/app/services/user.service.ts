@@ -4,6 +4,8 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/toPromise';
+import { environment } from '../../environments/environment';
+
 
 @Injectable()
 export class UserService {
@@ -11,7 +13,7 @@ export class UserService {
   private business: any;
   private businessChange: Subject<any> = new Subject();
 
-  private API_URL = 'http://localhost:3000/user/';
+  private API_URL =  environment.apiUrl + '/user';
 
 
   constructor(private httpClient: HttpClient) { }

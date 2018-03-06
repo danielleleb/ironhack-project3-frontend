@@ -31,7 +31,6 @@ export class AddProductFormComponent implements OnInit {
   ngOnInit() {
     this.uploader.onSuccessItem = (item, response) => {
       this.feedback = 'Everything is ok';
-      console.log('okk');
       this.submitForm.emit() 
     };
 
@@ -52,7 +51,6 @@ export class AddProductFormComponent implements OnInit {
     this.feedbackEnabled = true;
     if (formInput.valid){
       this.processing = true;
-      console.log('here');
       this.uploader.onBuildItemForm = (item, form) => {
         form.append('name', this.name);
         form.append('type', this.type);

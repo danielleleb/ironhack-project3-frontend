@@ -49,17 +49,18 @@ export class EditProductPageComponent implements OnInit {
     });
     }
 
-    handleEditProductForm(event) {
-      this.productsService.updateProduct(event)
-      .then((result) => {
-        this.router.navigate(['/business-profile', this.businessId])
-          //   this.error = err.error.error;  // ... navigate with this.router.navigate(['...'])
-        })
-        .catch((err) => {
-          this.error = err.error.error; // :-)
-          this.processing = false;
-          this.feedbackEnabled = false;
-        });
+    handleEditProductForm() {
+      window.location.reload()
+      // this.productsService.updateProduct(event)
+      // .then((result) => {
+      //   this.router.navigate(['/business-profile', this.businessId])
+      //     //   this.error = err.error.error;  // ... navigate with this.router.navigate(['...'])
+      //   })
+      //   .catch((err) => {
+      //     this.error = err.error.error; // :-)
+      //     this.processing = false;
+      //     this.feedbackEnabled = false;
+      //   });
     }
 
 }

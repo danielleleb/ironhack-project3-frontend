@@ -5,32 +5,32 @@
 {{product.name}}
 
 <form  (ngSubmit)="submitEditProductForm(form)" #form="ngForm" novalidate>
-    <div class='field' [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
-      <label for="productName">Product name</label>
+  <div class='field' [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
+    <label for="productName">Product name</label>
     <input type="text" [(ngModel)]='name' name='name' #nameField='ngModel' required>
-      <!-- <div *ngIf="feedbackEnabled && nameField.errors">
-          <p *ngIf="nameField.errors.required" class="validation">name required</p>
-        </div> -->
-    </div>
+    <!-- <div *ngIf="feedbackEnabled && nameField.errors">
+      <p *ngIf="nameField.errors.required" class="validation">name required</p>
+    </div> -->
+  </div>
   
-    <div class='field' [ngClass]="{'has-error': feedbackEnabled && priceField.errors}">
-        <label for="productPrice">Product price</label>
-        <input type="text" [(ngModel)]='price' name='price' #priceField='ngModel'required >
-        <!-- <div *ngIf="feedbackEnabled && priceField.errors">
-            <p *ngIf="priceField.errors.required" class="validation">price required</p>
-          </div> -->
-    </div>
-    <div class='field' [ngClass]="{'has-error': feedbackEnabled && typeField.errors}" >
-        <label for="producttype">Product type</label>
-        <input type="text" [(ngModel)]='type' name='type' #typeField='ngModel' required >
-        <!-- <div *ngIf="feedbackEnabled && typeField.errors">
-            <p *ngIf="typeField.errors.required" class="validation">type required</p>
-          </div> -->
-    </div>
-
-    <div class='field' [ngClass]="{'has-error': feedbackEnabled && imageField.errors}">
-        <label for="productimage">Product image</label>
-        <input type="file" name="file" ng2FileSelect [uploader]="uploader">
+  <div class='field' [ngClass]="{'has-error': feedbackEnabled && priceField.errors}">
+    <label for="productPrice">Product price</label>
+    <input type="text" [(ngModel)]='price' name='price' #priceField='ngModel'required >
+    <!-- <div *ngIf="feedbackEnabled && priceField.errors">
+      <p *ngIf="priceField.errors.required" class="validation">price required</p>
+    </div> -->
+  </div>
+  <div class='field' [ngClass]="{'has-error': feedbackEnabled && typeField.errors}" >
+    <label for="producttype">Product type</label>
+    <input type="text" [(ngModel)]='type' name='type' #typeField='ngModel' required >
+    <!-- <div *ngIf="feedbackEnabled && typeField.errors">
+      <p *ngIf="typeField.errors.required" class="validation">type required</p>
+    </div> -->
+  </div>
+  
+  <div class='field' [ngClass]="{'has-error': feedbackEnabled && imageField.errors}">
+    <label for="productimage">Product image</label>
+    <input type="file" name="file" ng2FileSelect [uploader]="uploader">
         <!-- <div *ngIf="feedbackEnabled && imageField.errors">
             <p *ngIf="imageField.errors.required" class="validation">image required</p>
           </div> -->

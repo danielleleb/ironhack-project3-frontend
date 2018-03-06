@@ -6,10 +6,10 @@
 
 <ul *ngIf="products">
   <li *ngFor="let product of products">
+    <img src="{{apiUrl + product.imageUrl}}" alt="">
     <app-product-card [product]="product" [showProfileLink]="showProfileLink" [businessId]="businessId" [user]="user"></app-product-card>
     <div *ngIf="(user.type !== 'business')">
       <button (click)="goToBooking(product._id)">Book</button>
-      <!-- <a  [routerLink]="['/business-profile', product._id, 'book']">book me</a> -->
     </div>
   </li>
 </ul>
@@ -18,7 +18,7 @@
   <div *ngIf="(user._id === businessId)">
     <button (click)="toggleForm()">Add a new product for rent</button>
       <div *ngIf="showSelected">
-        <app-add-product-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleAddProductForm($event)"></app-add-product-form>
+        <app-add-product-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleAddProductForm()"></app-add-product-form>
     </div>
   </div>
 </div>

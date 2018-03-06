@@ -1,5 +1,5 @@
 
-<form (ngSubmit)="handleAddProductForm(form)"  #form="ngForm" novalidate>
+<form (ngSubmit)="submitFormValidation(form)"  #form="ngForm" novalidate>
   <div class='field' [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
     <label for="productName">Product name</label>
     <input type="text" [(ngModel)]='name' name='name' #nameField='ngModel' required>
@@ -22,7 +22,10 @@
           <p *ngIf="typeField.errors.required" class="validation">type required</p>
         </div>
   </div>
-  
+
+ 
+  <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+
   <div class="field submit">
   <button type="submit"  >submit product</button>
   <div *ngIf="feedbackEnabled && form.invalid">
@@ -30,3 +33,5 @@
     </div>
   </div>
 </form>
+
+{{feedback}}

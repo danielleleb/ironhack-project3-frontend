@@ -27,6 +27,14 @@
             <p *ngIf="typeField.errors.required" class="validation">type required</p>
           </div> -->
     </div>
+
+    <div class='field' [ngClass]="{'has-error': feedbackEnabled && imageField.errors}">
+        <label for="productimage">Product image</label>
+        <input type="file" name="file" ng2FileSelect [uploader]="uploader">
+        <!-- <div *ngIf="feedbackEnabled && imageField.errors">
+            <p *ngIf="imageField.errors.required" class="validation">image required</p>
+          </div> -->
+    </div>
     
     <div class="field submit">
     <button type="submit"  >submit product</button>

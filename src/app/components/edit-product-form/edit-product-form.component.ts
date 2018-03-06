@@ -13,8 +13,12 @@ export class EditProductFormComponent implements OnInit {
   name: string;
   type: string;
   price: number;
+  image: string;
+  feedback: string;
 
-  constructor() { }
+
+  constructor() { 
+  }
 
   ngOnInit() {
     this.name = this.product.name;
@@ -30,6 +34,7 @@ export class EditProductFormComponent implements OnInit {
         price: this.price,
         type: this.type,
         productId: this.product._id
+        //image: this.image
       }
       this.submitForm.emit(data)
       window.location.reload()

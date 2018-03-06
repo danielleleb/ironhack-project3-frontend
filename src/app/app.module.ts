@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
+import { FileSelectDirective } from "ng2-file-upload";
 
 import { AppComponent } from './app.component';
 
@@ -81,7 +82,8 @@ const routes: Routes = [
     SignupFormBusinessComponent,
     AddProductFormComponent,
     EditProductFormComponent,
-    EditProductPageComponent
+    EditProductPageComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,

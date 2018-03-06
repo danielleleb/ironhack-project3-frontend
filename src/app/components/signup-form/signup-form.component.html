@@ -1,35 +1,35 @@
-
 <div class="container signup-form">
-  <h1>Signup</h1>
-  <form (ngSubmit)="submitSignUpForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
-
-    <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
-      <label>USERNAME</label>
-      <input type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" required minlength="6" [disabled]="processing"/>
-      <div *ngIf="feedbackEnabled && usernameField.errors">
-        <p *ngIf="usernameField.errors.required" class="validation">username required</p>
-        <p *ngIf="usernameField.errors.minlength" class="validation">username is too short</p>
-      </div>
-    </div>
-
-    <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
-        <label>PASSWORD</label>
-        <input type="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required minlength="6" [disabled]="processing"/>
-        <div *ngIf="feedbackEnabled && passwordField.errors">
-          <p *ngIf="passwordField.errors.required" class="validation">password required</p>
-          <p *ngIf="passwordField.errors.minlength" class="validation">password is too short</p>
+    <h1>Signup</h1>
+    <form (ngSubmit)="submitSignUpForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+  
+      <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
+        <label>USERNAME</label>
+        <input type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" required minlength="6" [disabled]="processing"/>
+        <div *ngIf="feedbackEnabled && usernameField.errors">
+          <p *ngIf="usernameField.errors.required" class="validation">username required</p>
+          <p *ngIf="usernameField.errors.minlength" class="validation">username is too short</p>
         </div>
       </div>
-
-    <div class="field submit container">
-      <button class="secondary-btn" type="submit" [disabled]="processing">SIGNUP</button>
-      <div class="validation" [ngSwitch]="error" *ngIf="error">
-        <div *ngSwitchCase="'username-not-unique'">The username already exists</div>
-        <div *ngSwitchDefault>An unexpected error ocurred, please try again</div>
+  
+      <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
+          <label>PASSWORD</label>
+          <input type="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required minlength="6" [disabled]="processing"/>
+          <div *ngIf="feedbackEnabled && passwordField.errors">
+            <p *ngIf="passwordField.errors.required" class="validation">password required</p>
+            <p *ngIf="passwordField.errors.minlength" class="validation">password is too short</p>
+          </div>
+        </div>
+  
+      <div class="field submit container">
+        <button class="secondary-btn" type="submit" [disabled]="processing">SIGNUP</button>
+        <div class="validation" [ngSwitch]="error" *ngIf="error">
+          <div *ngSwitchCase="'username-not-unique'">The username already exists</div>
+          <div *ngSwitchDefault>An unexpected error ocurred, please try again</div>
+        </div>
       </div>
-    </div>
-  </form>
-
-  <p>Are you a business with equipment to rent? <a [routerLink]="['/business/signup']">Register as a business.</a></p>
-
-</div>
+    </form>
+  
+    <p>Are you a business with equipment to rent? <a [routerLink]="['/business/signup']">Register as a business.</a></p>
+  
+  </div>
+  

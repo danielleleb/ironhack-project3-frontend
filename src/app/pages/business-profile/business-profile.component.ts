@@ -79,6 +79,7 @@ export class BusinessProfileComponent implements OnInit {
           this.feedbackEnabled = false;
         });
         this.toggleForm()
+        window.location.reload()
     
   }
 

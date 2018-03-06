@@ -64,6 +64,9 @@
   color: white;
   background-color: $primary-color;
   letter-spacing: 5px;
+  @media (min-width: #{$desktop-width}){
+    margin: 0px;
+  }
 }
 @mixin secondary-button{
   width: 100%;

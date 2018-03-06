@@ -1,0 +1,46 @@
+@import "variables";
+
+@mixin desktop{
+    @media (min-width: #{$desktop-width}){
+        // --- NAV BAR --- //
+        .pos-f-t{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .navbar-menu{
+            display: none;
+        }
+        #navbarToggleExternalContent{
+            display: inline-block;
+        }
+        .search-field{
+            width: 60%;
+        }
+        .search-input{
+            justify-content: center;
+        }
+
+        // --- HEADER --- //
+        .main-header h3{
+            font-size: 28px;
+        }
+        #site-header{
+            margin-bottom: 120px;
+        }
+
+        // --- MAIN --- //
+        .main-ctn{
+            display: flex;
+            flex-flow: row;
+        }
+        // --- FOOTER --- //
+        #site-footer{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    }
+}

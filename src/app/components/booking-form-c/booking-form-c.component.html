@@ -14,8 +14,9 @@
           <label for="endDate"> End date: </label>
           <input type="date" [(ngModel)]='endDate' name='endDate' #endDateField='ngModel' (ngModelChange)="calculateBookingLength(startDate, endDate)">
       </div>
-
-      {{bookingLength}}
+      <div *ngIf="bookingLength">
+      <p>Rent this product for {{bookingLength}} days.</p>
+    </div>
       <!-- <div class='field' [ngClass]="{'has-error': feedbackEnabled && typeField.errors}">
           <label for="producttype">Product type</label>
           <input type="text" [(ngModel)]='type' name='type' #typeField='ngModel' >

@@ -1,7 +1,11 @@
-<a  [routerLink]="['/']">back to search</a>
 
-<ul *ngIf="products">
-    <li *ngFor="let product of products">
-      <app-product-card [product]="product" [showProfileLink]="showProfileLink" [user]="user" [businessId]="businessId"></app-product-card>
-    </li>
-</ul>
+<div class="products">
+  <ul *ngIf="products">
+      <li *ngFor="let product of products">
+        <app-product-card [product]="product" [showProfileLink]="showProfileLink" [user]="user" [businessId]="businessId"></app-product-card>
+      </li>
+  </ul>
+  <div class="new-search-btn">
+    <a  [routerLink]="['/']">NEW SEARCH</a>
+  </div>
+</div>

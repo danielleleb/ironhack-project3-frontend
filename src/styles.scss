@@ -2,6 +2,10 @@
 @import "app/scss/mixins";
 @import "app/scss/variables";
 @include forms;
+
+// div{
+//   border: 1px solid red;
+// }
 /* ---- RESET ---- */
 
 html {
@@ -37,6 +41,13 @@ html {
   p {
     margin: 0;
   }
+  ul{
+    list-style: none;
+    padding: 0;
+  }
+  a{
+    color: white;
+  }
   
   
   
@@ -45,6 +56,7 @@ html {
     position: relative;
     height: $header-height;
     background-image: linear-gradient($primary-color, $secondary-color );
+    margin-bottom: 30px;
   }
   #site-footer {
     height: $footer-height;
@@ -123,18 +135,6 @@ html {
   display: flex;
   justify-content: flex-start;
 }
-// .scrolled-nav {
-//   color: black !important;
-//   height: 80px !important;
-//   border-bottom: 1px solid lightgrey !important;
-//   position: fixed !important;
-//   top: 0 !important;
-//   z-index: 100 !important;
-//   background-color: white !important;
-// }
-// .scrolled-bg{
-//   background-color: white;
-// }
 
 // --- HEADER --- //
 .divider {
@@ -151,6 +151,11 @@ html {
 .main-header h3{
   transform: skewX(-20deg);
   margin-bottom: 60px;
+}
+
+// --- MAIN --- //
+.search-input{
+  margin-top: -10px;
 }
 
 // --- FOOTER --- //

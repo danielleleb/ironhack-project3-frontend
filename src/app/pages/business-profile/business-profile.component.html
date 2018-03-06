@@ -6,7 +6,6 @@
 
 <ul *ngIf="products">
   <li *ngFor="let product of products">
-    <img src="{{apiUrl + product.imageUrl}}" alt="">
     <app-product-card [product]="product" [showProfileLink]="showProfileLink" [businessId]="businessId" [user]="user"></app-product-card>
     <div *ngIf="(user.type !== 'business')">
       <button (click)="goToBooking(product._id)">Book</button>

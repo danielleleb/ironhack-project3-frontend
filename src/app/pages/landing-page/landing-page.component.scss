@@ -1,0 +1,19 @@
+@import "../../scss/variables";
+
+.search-info{
+    margin-bottom: 40px;
+}
+.search-info h3{
+    font-size: 18px;
+    font-family: $titillium;
+    color: $secondary-color;
+    font-weight: bolder;
+}
+.search-info p{
+    font-size: 14px;
+}
+.fa-searchengin, .fa-hand-point-up, .fa-bicycle{
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: $secondary-color;
+}

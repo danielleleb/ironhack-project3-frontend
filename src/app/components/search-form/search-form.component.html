@@ -1,9 +1,9 @@
 
-<div class="container">
+<div class="container search-pos">
   <form  #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && cityField.errors}">
       <div class="search-input">
-        <div>
+        <div class="search-field">
           <input type="text" name="city" [(ngModel)]="city" #cityField="ngModel"required minlength="6" [disabled]="processing" placeholder="type your city">
         </div>
         <div class="field submit">

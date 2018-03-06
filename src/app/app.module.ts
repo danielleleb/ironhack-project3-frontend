@@ -34,6 +34,7 @@ import { SignupFormBusinessComponent } from './components/signup-form-business/s
 import { AddProductFormComponent } from './components/add-product-form/add-product-form.component';
 import { EditProductFormComponent } from './components/edit-product-form/edit-product-form.component';
 import { EditProductPageComponent } from './pages/edit-product-page/edit-product-page.component';
+import { FilterFormComponent } from './components/filter-form/filter-form.component';
 
 const routes: Routes = [
   { path: '',  component: LandingPageComponent
@@ -83,7 +84,11 @@ const routes: Routes = [
     AddProductFormComponent,
     EditProductFormComponent,
     EditProductPageComponent,
+<<<<<<< HEAD
+    FilterFormComponent
+=======
     FileSelectDirective
+>>>>>>> 32172fe58ff50cc088f0b7ee00f9aed050c09dd7
   ],
   imports: [
     BrowserModule,

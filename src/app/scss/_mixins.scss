@@ -43,6 +43,13 @@
   width: 50%;
   margin-left: 25%;
 }
+@mixin card-title{
+  font-family: $raleway;
+  color: $secondary-color;
+  font-weight: bolder;
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
 
 // --- BUTTONS --- //
 
@@ -62,6 +69,7 @@
   width: 100%;
   @include primary-button();
   background-color: $secondary-color;
+  background-image: linear-gradient(to bottom right, $secondary-color, $primary-color );
 }
 @mixin third-button{
   @include primary-button;

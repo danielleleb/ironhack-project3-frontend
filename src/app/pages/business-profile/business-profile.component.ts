@@ -6,6 +6,7 @@ import { AuthService } from '../../services/auth.service';
 import { ProductsService } from '../../services/products.service';
 import { ActivatedRoute } from '@angular/router';
 
+import { environment } from '../../../environments/environment'
 
 @Component({
   selector: 'app-business-profile',
@@ -13,6 +14,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./business-profile.component.scss']
 })
 export class BusinessProfileComponent implements OnInit {
+  apiUrl = environment.apiUrl;
+
   user;
   feedbackEnabled = false;
   error = null;
@@ -24,6 +27,7 @@ export class BusinessProfileComponent implements OnInit {
   products: {}[]
   businessId: String
   showProfileLink: boolean;
+  form: any;
 
   constructor(
     private authService: AuthService,
@@ -58,29 +62,9 @@ export class BusinessProfileComponent implements OnInit {
     this.showSelected = !this.showSelected;
   }
 
-  handleAddProductForm(event) {
-    // this.error = '';
-    // this.feedbackEnabled = true;
-    // if (form.valid){
-    // this.processing = true;
-    // const data = {
-    //   name: this.name,
-    //   type: this.type,
-    //   price: this.price
-    // }
-      this.productsService.addNewProduct(event)
-        .then((result) => {
-            this.router.navigate(['/business-profile/', this.businessId])
-      //     // ... navigate with this.router.navigate(['...'])
-        })
-        .catch((err) => {
-          this.error = err.error.error; // :-)
-          this.processing = false;
-          this.feedbackEnabled = false;
-        });
-        this.toggleForm()
-        window.location.reload()
-    
+  handleAddProductForm() {
+    this.toggleForm();
+    window.location.reload();
   }
 
   goToBooking(productId){

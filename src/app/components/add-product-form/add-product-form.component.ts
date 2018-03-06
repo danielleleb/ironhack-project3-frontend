@@ -1,10 +1,7 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
-import { Location } from '@angular/common';
+import { FileUploader } from 'ng2-file-upload';
 
-import { AuthService } from '../../services/auth.service';
-import { ProductsService } from '../../services/products.service';
-import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../../environments/environment'
 
 @Component({
   selector: 'app-add-product-form',
@@ -12,6 +9,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./add-product-form.component.scss']
 })
 export class AddProductFormComponent implements OnInit {
+  apiUrl = environment.apiUrl;
+  uploader: FileUploader = new FileUploader({
+    url: `${this.apiUrl}/products/add-product/`
+  });
 
   @Output() submitForm = new EventEmitter<any>();
 
@@ -22,23 +23,41 @@ export class AddProductFormComponent implements OnInit {
   name: string;
   price: number;
   type: string;
+  feedback: string;
+
 
   constructor() { }
 
   ngOnInit() {
+    this.uploader.onSuccessItem = (item, response) => {
+      this.feedback = 'Everything is ok';
+      this.submitForm.emit() 
+    };
+
+    this.uploader.onErrorItem = (item, response, status, headers) => {
+      this.error = 'There was an error with the image';
+      this.processing = false;
+      this.feedbackEnabled = false;
+    };
   }
 
-  handleAddProductForm(form) {
+  submit() {
+
+  }
+
+
+  submitFormValidation(formInput) {
     this.error = '';
     this.feedbackEnabled = true;
-    if (form.valid){
-    this.processing = true;
-    const data = {
-      name: this.name,
-      type: this.type,
-      price: this.price
-    }
-      this.submitForm.emit(data)     
+    if (formInput.valid){
+      this.processing = true;
+      this.uploader.onBuildItemForm = (item, form) => {
+        form.append('name', this.name);
+        form.append('type', this.type);
+        form.append('price', this.price);
+      };
+  
+      this.uploader.uploadAll();      
     }
   }
 

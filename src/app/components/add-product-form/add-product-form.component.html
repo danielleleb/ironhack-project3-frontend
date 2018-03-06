@@ -1,5 +1,5 @@
 
-<form   #form="ngForm" novalidate>
+<form (ngSubmit)="handleAddProductForm(form)"  #form="ngForm" novalidate>
   <div class='field' [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
     <label for="productName">Product name</label>
     <input type="text" [(ngModel)]='name' name='name' #nameField='ngModel' required>
@@ -24,7 +24,7 @@
   </div>
   
   <div class="field submit">
-  <button type="submit" (click)="handleAddProductForm(form)" >submit product</button>
+  <button type="submit"  >submit product</button>
   <div *ngIf="feedbackEnabled && form.invalid">
       <p class="validation">there are errors in the form, please review the fields</p>
     </div>

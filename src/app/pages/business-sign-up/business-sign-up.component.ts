@@ -34,6 +34,7 @@ export class BusinessSignUpComponent implements OnInit {
   }
 
   handleSubmitBusinessForm(event) {
+    this.error = null;
       this.authService.businessSignup(event)
         .then((result) => {
           this.router.navigate(['/business-profile', this.user._id])

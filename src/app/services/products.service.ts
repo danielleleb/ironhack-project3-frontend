@@ -60,11 +60,11 @@ export class ProductsService {
     .then((data) => this.setProduct(data))
   }
 
-  getProductsBySearch(citySearch, typeSearch) :Promise<any>{
+  getProductsBySearch(citySearch) :Promise<any>{
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.API_URL}/view/${citySearch}/${typeSearch}`, options)
+    return this.httpClient.get(`${this.API_URL}/?city=${citySearch}`, options)
     .toPromise()
     .then((data) => this.setProduct(data))
   }
@@ -76,6 +76,14 @@ export class ProductsService {
     return this.httpClient.post(`${this.API_URL}/book`, product, options)
     .toPromise()
     .then((data) => this.setProduct(data))
+  }
+  
+  updateProduct(product: any) {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.post(`${this.API_URL}/update`, product, options)
+    .toPromise()
   }
 
   returnProduct(productId) {

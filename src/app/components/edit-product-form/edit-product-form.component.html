@@ -4,35 +4,35 @@
 <div *ngIf="product">
 {{product.name}}
 
-<form   #form="ngForm" novalidate>
+<form  (ngSubmit)="submitEditProductForm(form)" #form="ngForm" novalidate>
     <div class='field' [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
       <label for="productName">Product name</label>
-      <input type="text" [(ngModel)]='name' name='name' #nameField='ngModel' value={{product.name}} required>
-      <div *ngIf="feedbackEnabled && nameField.errors">
+    <input type="text" [(ngModel)]='name' name='name' #nameField='ngModel' required>
+      <!-- <div *ngIf="feedbackEnabled && nameField.errors">
           <p *ngIf="nameField.errors.required" class="validation">name required</p>
-        </div>
+        </div> -->
     </div>
   
     <div class='field' [ngClass]="{'has-error': feedbackEnabled && priceField.errors}">
         <label for="productPrice">Product price</label>
-        <input type="text" [(ngModel)]='price' name='price' #priceField='ngModel' value={{product.price}} required>
-        <div *ngIf="feedbackEnabled && priceField.errors">
+        <input type="text" [(ngModel)]='price' name='price' #priceField='ngModel'required >
+        <!-- <div *ngIf="feedbackEnabled && priceField.errors">
             <p *ngIf="priceField.errors.required" class="validation">price required</p>
-          </div>
+          </div> -->
     </div>
-    <div class='field' [ngClass]="{'has-error': feedbackEnabled && typeField.errors}">
+    <div class='field' [ngClass]="{'has-error': feedbackEnabled && typeField.errors}" >
         <label for="producttype">Product type</label>
-        <input type="text" [(ngModel)]='type' name='type' #typeField='ngModel' value={{product.type}} required>
-        <div *ngIf="feedbackEnabled && typeField.errors">
+        <input type="text" [(ngModel)]='type' name='type' #typeField='ngModel' required >
+        <!-- <div *ngIf="feedbackEnabled && typeField.errors">
             <p *ngIf="typeField.errors.required" class="validation">type required</p>
-          </div>
+          </div> -->
     </div>
     
     <div class="field submit">
-    <button type="submit" (click)="handleAddProductForm(form)" >submit product</button>
-    <div *ngIf="feedbackEnabled && form.invalid">
+    <button type="submit"  >submit product</button>
+    <!-- <div *ngIf="feedbackEnabled && form.invalid">
         <p class="validation">there are errors in the form, please review the fields</p>
-      </div>
+      </div> -->
     </div>
   </form>
 </div>

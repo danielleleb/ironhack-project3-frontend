@@ -22,7 +22,7 @@ export class SignupFormComponent implements OnInit {
   }
 
   submitSignUpForm(form){
-    this.error = '';
+    this.error = null;
     this.feedbackEnabled = true;
     if (form.valid){
       // this.processing = false;

@@ -3,7 +3,7 @@
 </p>
 <ul *ngIf="products">
     <li *ngFor="let product of products">
-      <app-edit-product-form [product]="product"></app-edit-product-form>
+      <app-edit-product-form [product]="product" (submitForm)="handleEditProductForm($event)"></app-edit-product-form>
       {{product.available}}
       <div *ngIf="(product.available == false)">
       <p>has this product been returned? mark it as <button (click)="changeAvailableStatus(product._id)">available</button></p>

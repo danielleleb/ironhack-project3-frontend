@@ -16,6 +16,8 @@ export class EditProductPageComponent implements OnInit {
   feedbackEnabled = false;
   error = null;
   processing = false;
+  product: any;
+  productId: any;
 
 
   
@@ -28,11 +30,11 @@ export class EditProductPageComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params
     .subscribe((params) => {
-      this.businessId = String(params.id)
+      this.productId = String(params.id)
 
-      this.productsService.getEntireProductList(this.businessId)
-      .then((products) => {
-        this.products = products
+      this.productsService.getProductById(this.productId)
+      .then((product) => {
+        this.product = product
       })
    })
   }

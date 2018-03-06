@@ -22,6 +22,7 @@ export class EditProductFormComponent implements OnInit {
   name: string;
   type: string;
   price: number;
+
   image: string;
   feedback: string;
 
@@ -45,7 +46,7 @@ export class EditProductFormComponent implements OnInit {
       this.processing = false;
       this.feedbackEnabled = false;
     };
-    
+
     this.uploader.onBuildItemForm = (item, form) => {
       form.append('name', this.name);
       form.append('type', this.type);

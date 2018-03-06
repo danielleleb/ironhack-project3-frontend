@@ -5,5 +5,26 @@
 .search-input{
     display: flex;
     align-items: center;
+    border: 1px solid grey;
+    border-radius: 5px;
     width: 100%;
-}   
+}
+form .field{
+    margin: 0;
+}
+form .submit{
+    padding: 0;
+}
+form input{
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.secondary-btn{
+    margin: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 10px;
+}

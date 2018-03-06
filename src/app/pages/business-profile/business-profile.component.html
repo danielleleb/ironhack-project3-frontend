@@ -8,10 +8,10 @@
   </div>
 </div>
 
-<ul *ngIf="products">
-  <li *ngFor="let product of products">
+<ul class="product-list container" *ngIf="products">
+  <li class="list-row" *ngFor="let product of products">
     <app-product-card [product]="product" [showProfileLink]="showProfileLink" [businessId]="businessId" [user]="user"></app-product-card>
-    <div class="container" *ngIf="(user._id == businessId)">
+    <div class="container edit-btn" *ngIf="(user._id == businessId)">
         <button class="secondary-btn"><a [routerLink]="['/business-profile', product._id, 'edit' ]">EDIT</a></button>
     </div>
     <div class="container" *ngIf="(user.type !== 'business')">

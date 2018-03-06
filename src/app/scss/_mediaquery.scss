@@ -35,6 +35,21 @@
             display: flex;
             flex-flow: row;
         }
+        .search-info{
+            margin: 0px 10px;
+        }
+        .arrange-products{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .product-card{
+            width: 400px;
+        }
+        .products-list{
+            flex-grow: 1;
+            width: 33%;
+            height: 100px;
+        }
         // --- FOOTER --- //
         #site-footer{
             position: absolute;

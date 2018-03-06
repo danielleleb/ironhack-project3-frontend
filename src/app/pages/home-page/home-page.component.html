@@ -1,9 +1,9 @@
 
 <app-filter-form></app-filter-form>
 
-<div class="products">
-  <ul *ngIf="products">
-      <li *ngFor="let product of products">
+<div class="products container">
+  <ul class="arrange-products" *ngIf="products">
+      <li class="products-list" *ngFor="let product of products">
         <app-product-card [product]="product" [showProfileLink]="showProfileLink" [user]="user" [businessId]="businessId"></app-product-card>
       </li>
   </ul>

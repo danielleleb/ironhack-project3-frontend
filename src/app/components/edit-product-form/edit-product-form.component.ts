@@ -32,6 +32,8 @@ export class EditProductFormComponent implements OnInit {
         productId: this.product._id
       }
       this.submitForm.emit(data)
+      window.location.reload()
+
     }
   }
 

@@ -78,5 +78,10 @@
   text-align: center;
   width: 50%;
 }
+@mixin fourth-button{
+  @include primary-button;
+  background-color: $third-color;
+  margin-bottom: 0;
+}
 
 // --- LAYOUT --- //

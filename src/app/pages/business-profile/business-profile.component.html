@@ -1,27 +1,25 @@
-<!-- <a  [routerLink]="['/']">back to search</a> -->
 
-<div *ngIf="(user._id == businessId)">
-    <a [routerLink]="['/business-profile', businessId, 'edit' ]">edit or delete your products</a>
-</div>
-
-<ul *ngIf="products">
-  <li *ngFor="let product of products">
-    <app-product-card [product]="product" [showProfileLink]="showProfileLink" [businessId]="businessId" [user]="user"></app-product-card>
-    <div *ngIf="(user._id == businessId)">
-        <a [routerLink]="['/business-profile', product._id, 'edit' ]">edit or delete this product</a>
-    </div>
-    <div *ngIf="(user.type !== 'business')">
-      <button (click)="goToBooking(product._id)">Book</button>
-    </div>
-  </li>
-</ul>
-
-<div *ngIf="user">
+<div class="add-back container" *ngIf="user">
   <div *ngIf="(user._id === businessId)">
-    <button (click)="toggleForm()">Add a new product for rent</button>
+    <button class="primary-btn" (click)="toggleForm()">ADD PRODUCT</button>
       <div *ngIf="showSelected">
         <app-add-product-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleAddProductForm()"></app-add-product-form>
     </div>
   </div>
 </div>
-<button (click)="goBack()">Back</button>
+
+<ul *ngIf="products">
+  <li *ngFor="let product of products">
+    <app-product-card [product]="product" [showProfileLink]="showProfileLink" [businessId]="businessId" [user]="user"></app-product-card>
+    <div class="container" *ngIf="(user._id == businessId)">
+        <button class="secondary-btn"><a [routerLink]="['/business-profile', product._id, 'edit' ]">EDIT</a></button>
+    </div>
+    <div class="container" *ngIf="(user.type !== 'business')">
+      <button class="secondary-btn" (click)="goToBooking(product._id)">BOOK</button>
+    </div>
+  </li>
+</ul>
+
+<div class="back-btn">
+  <button class="fourth-btn" (click)="goBack()">BACK</button>
+</div>

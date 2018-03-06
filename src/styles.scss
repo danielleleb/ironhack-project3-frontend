@@ -94,6 +94,9 @@ html {
 .third-btn{
   @include third-button;
 }
+.fourth-btn{
+  @include fourth-button;
+}
 
 // --- NAV-BAR --- //
 .navbar{
@@ -114,7 +117,6 @@ html {
   border-radius: .25rem;
 }
 .nav-btns p{
-  margin-bottom: 10px;
   color: white;
   z-index: 100;
 }

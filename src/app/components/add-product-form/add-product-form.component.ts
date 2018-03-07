@@ -31,13 +31,14 @@ export class AddProductFormComponent implements OnInit {
   ngOnInit() {
     this.uploader.onSuccessItem = (item, response) => {
       this.feedback = 'Everything is ok';
-      this.submitForm.emit() 
+      this.submitForm.emit(true) 
     };
 
     this.uploader.onErrorItem = (item, response, status, headers) => {
       this.error = 'There was an error with the image';
       this.processing = false;
       this.feedbackEnabled = false;
+      this.submitForm.emit(false) 
     };
   }
 

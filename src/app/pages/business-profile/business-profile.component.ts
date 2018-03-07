@@ -73,11 +73,11 @@ export class BusinessProfileComponent implements OnInit {
     this.showSelected = !this.showSelected;
   }
 
-  handleAddProductForm() {
-    
+  handleAddProductForm(event) {
+    if (event) {
       this.toggleForm();
       window.location.reload();
-    
+    }
   }
 
   goToBooking(productId){

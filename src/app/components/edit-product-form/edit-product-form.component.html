@@ -26,7 +26,7 @@
     </div> -->
   </div>
   
-  <div class='field' [ngClass]="{'has-error': feedbackEnabled && imageField.errors}">
+  <div class='field' [ngClass]="{'has-error': feedbackEnabled }">
     <label for="productimage">IMAGE</label>
     <input type="file" name="file" ng2FileSelect [uploader]="uploader">
         <!-- <div *ngIf="feedbackEnabled && imageField.errors">

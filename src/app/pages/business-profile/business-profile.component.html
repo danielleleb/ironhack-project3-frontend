@@ -3,7 +3,7 @@
   <div *ngIf="(user._id === businessId)">
     <button class="primary-btn" (click)="toggleForm()">ADD PRODUCT</button>
       <div *ngIf="showSelected">
-        <app-add-product-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleAddProductForm()"></app-add-product-form>
+        <app-add-product-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleAddProductForm($event)"></app-add-product-form>
     </div>
   </div>
 </div>

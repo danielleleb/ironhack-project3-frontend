@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '../../services/products.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
-
+import { ProductsService } from '../../services/products.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-edit-product-page',
@@ -19,12 +19,11 @@ export class EditProductPageComponent implements OnInit {
   product: any;
   productId: any;
 
-
-  
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -36,33 +35,34 @@ export class EditProductPageComponent implements OnInit {
       .then((product) => {
         this.product = product
       })
+
+      this.businessId = this.authService.getUser()._id;
    })
   }
 
   changeAvailableStatus(productId){
     this.productsService.returnProduct(productId)
     .then((result) => {
-      this.router.navigate(['/business-profile', this.businessId])
+      this.router.navigate(['business-profile', this.businessId])
     })
     .catch((err) => {
       this.error = err.error.error; // :-)
       this.processing = false;
       this.feedbackEnabled = false;
     });
-    }
+  }
 
-    handleEditProductForm() {
-      this.router.navigate(['/business-profile', this.businessId])
-      // this.productsService.updateProduct(event)
-      // .then((result) => {
-      //   this.router.navigate(['/business-profile', this.businessId])
-      //     //   this.error = err.error.error;  // ... navigate with this.router.navigate(['...'])
-      //   })
-      //   .catch((err) => {
-      //     this.error = err.error.error; // :-)
-      //     this.processing = false;
-      //     this.feedbackEnabled = false;
-      //   });
-    }
-
+  handleEditProductForm() {
+    this.router.navigate(['business-profile', this.businessId])
+    // this.productsService.updateProduct(event)
+    // .then((result) => {
+    //   this.router.navigate(['/business-profile', this.businessId])
+    //     //   this.error = err.error.error;  // ... navigate with this.router.navigate(['...'])
+    //   })
+    //   .catch((err) => {
+    //     this.error = err.error.error; // :-)
+    //     this.processing = false;
+    //     this.feedbackEnabled = false;
+    //   });
+  }
 }

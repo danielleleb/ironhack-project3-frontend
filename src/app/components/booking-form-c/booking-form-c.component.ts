@@ -13,6 +13,7 @@ export class BookingFormCComponent implements OnInit {
   productId: string;
   bookingCost: any;
   today: any;
+  showSelected: boolean
   @Output() submitForm = new EventEmitter<any>();
   
   @Input() feedbackEnabled: boolean;
@@ -26,6 +27,7 @@ export class BookingFormCComponent implements OnInit {
 
   ngOnInit() {
     this.startDate = new Date().setHours(1,0,0,0)
+    this.showSelected = false;
   }
 
  
@@ -43,6 +45,8 @@ export class BookingFormCComponent implements OnInit {
   submitBookingForm(form) {
     this.error='';
     this.feedbackEnabled = true;
+    this.showSelected = true;
+
 
     if (form.valid){
       // this.processing = false;
@@ -51,6 +55,7 @@ export class BookingFormCComponent implements OnInit {
         endDate: this.endDate,
         productId: this.product._id
       }
+      this.showSelected = true;
       this.submitForm.emit(data);
      }
   }

@@ -1,9 +1,18 @@
 
+<div *ngIf="showSelected">
+  <div class="alert">
+    <p>your booking has been submitted</p>
+    <button>back home</button>
+  </div>
+</div>
+
 <div class="container" *ngIf="product">
   <h3>Product: {{product.name}}</h3>
   <p>Price: ${{product.price}}/day</p>
   <p>Renter: {{product.owner.username}}</p>
-  </div>
+</div>
+
+
   <form class="container" (ngSubmit)="submitBookingForm(form)" #form="ngForm" novalidate>
       <div class='field' [ngClass]="{'has-error': feedbackEnabled && startDateField.errors}">
         <label for="startDate"> Start date: </label>
@@ -26,3 +35,5 @@
       <button class="secondary-btn" type="submit" [disabled]="processing">BOOK NOW</button>
   
     </form>
+
+    

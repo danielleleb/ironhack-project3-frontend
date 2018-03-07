@@ -27,7 +27,7 @@
                             <div class="third-btn">
                                 <a (click)="logout()">LOGOUT</a>
                             </div>
-                            <div class="third-btn">
+                            <div class="third-btn" *ngIf="(user.type === 'business')">
                                 <a (click)="businessProfile()">PROFILE</a>
                             </div>
 

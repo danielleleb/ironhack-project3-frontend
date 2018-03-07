@@ -1,0 +1,78 @@
+@import "variables";
+
+@mixin desktop{
+    @media screen and  (min-width: #{$desktop-width}){
+        // --- NAV BAR --- //
+        .pos-f-t{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-top: 10px;
+        }
+        .navbar-menu{
+            display: none;
+        }
+        #navbarToggleExternalContent{
+            display: inline-block;
+        }
+        .search-field{
+            width: 60%;
+        }
+        .search-input{
+            justify-content: center;
+        }
+
+        // --- HEADER --- //
+        .main-header h3{
+            font-size: 28px;
+        }
+        #site-header{
+            margin-bottom: 120px;
+        }
+
+        // --- MAIN --- //
+        .main-ctn{
+            display: flex;
+            flex-flow: row;
+        }
+        .search-info{
+            margin: 0px 10px;
+        }
+        .arrange-products{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .products-list{
+            flex: 0 0 33.333%;
+            box-shadow: 2px 2px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .login-form{
+            width: 50%;
+        }
+        .login-form button{
+            width: 30%;
+        }
+        .signup-form{
+            width: 50%;
+        }
+        .signup-form button{
+            width: 30%;
+        }
+        .business-signup{
+            width: 50%;
+        }
+        .business-signup button{
+            width: 30%;
+        }
+        // --- FOOTER --- //
+        #site-footer{
+            position: sticky;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    }
+}

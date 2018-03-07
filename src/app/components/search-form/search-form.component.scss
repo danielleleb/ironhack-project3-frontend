@@ -5,9 +5,11 @@
 .search-input{
     display: flex;
     align-items: center;
-    border: 1px solid grey;
     border-radius: 5px;
     width: 100%;
+}
+.search-field{
+    border-bottom: 1px solid lightgrey;
 }
 form .field{
     margin: 0;
@@ -16,7 +18,7 @@ form .submit{
     padding: 0;
 }
 form input{
-    padding: 10px;
+    padding: 9px;
     width: 100%;
     border: none;
     border-top-right-radius: 0;

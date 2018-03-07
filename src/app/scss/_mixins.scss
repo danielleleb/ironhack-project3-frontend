@@ -64,6 +64,9 @@
   color: white;
   background-color: $primary-color;
   letter-spacing: 5px;
+  @media (min-width: #{$desktop-width}){
+    margin: 0px;
+  }
 }
 @mixin secondary-button{
   width: 100%;
@@ -77,6 +80,11 @@
   background-color: transparent;
   text-align: center;
   width: 50%;
+}
+@mixin fourth-button{
+  @include primary-button;
+  background-color: $third-color;
+  margin-bottom: 0;
 }
 
 // --- LAYOUT --- //

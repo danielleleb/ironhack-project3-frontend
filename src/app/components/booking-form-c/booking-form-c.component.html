@@ -1,10 +1,10 @@
 
-<div *ngIf="product">
-  {{product.name}}
-  {{product.price}}
-  {{product.owner.username}}
+<div class="container" *ngIf="product">
+  <h3>Product: {{product.name}}</h3>
+  <p>Price: ${{product.price}}/day</p>
+  <p>Renter: {{product.owner.username}}</p>
   </div>
-  <form (ngSubmit)="submitBookingForm(form)" #form="ngForm" novalidate>
+  <form class="container" (ngSubmit)="submitBookingForm(form)" #form="ngForm" novalidate>
       <div class='field' [ngClass]="{'has-error': feedbackEnabled && startDateField.errors}">
         <label for="startDate"> Start date: </label>
         <input type="date" [(ngModel)]='startDate' name='startDate' #startDateField='ngModel' >
@@ -22,6 +22,6 @@
           <input type="text" [(ngModel)]='type' name='type' #typeField='ngModel' >
       </div> -->
   
-      <button type="submit" [disabled]="processing">submit product</button>
+      <button class="secondary-btn" type="submit" [disabled]="processing">BOOK NOW</button>
   
     </form>

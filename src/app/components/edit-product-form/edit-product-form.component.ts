@@ -26,6 +26,8 @@ export class EditProductFormComponent implements OnInit {
   image: string;
   feedback: string;
 
+  isDummy: boolean;
+
 
   constructor() { 
   }
@@ -38,12 +40,14 @@ export class EditProductFormComponent implements OnInit {
 
     this.uploader.onSuccessItem = (item, response) => {
       this.feedback = 'Everything is ok';
+      this.isDummy = false;      
       this.submitForm.emit() 
     };
 
     this.uploader.onErrorItem = (item, response, status, headers) => {
       this.error = 'There was an error with the image';
       this.processing = false;
+      this.isDummy = false;      
       this.feedbackEnabled = false;
     };
 
@@ -52,16 +56,27 @@ export class EditProductFormComponent implements OnInit {
       form.append('type', this.type);
       form.append('price', this.price);
       form.append('id', this.product._id);
+
+      if(this.isDummy) {
+        form.append('isDummy', true);
+      }
+
     };
   }
 
- submitEditProductForm(formInput) {
-  this.error = '';
-  this.feedbackEnabled = true;
-  if (formInput.valid){
-    this.processing = true;
-    this.uploader.uploadAll();      
-  }
+  submitEditProductForm(formInput) {
+    this.error = '';
+    this.feedbackEnabled = true;
+    if (formInput.valid){
+      this.processing = true;
+
+      if(this.uploader.queue.length === 0) {
+        this.uploader.addToQueue([new File([new Blob([""])], "dummy")]);
+        this.isDummy = true;
+      }
+
+      this.uploader.uploadAll();      
+    }
   }
 
 }

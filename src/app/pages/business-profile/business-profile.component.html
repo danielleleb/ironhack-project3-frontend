@@ -1,3 +1,10 @@
+<div *ngIf="showAlert" class="alert">
+  <div class="alert-content">
+    <p>You must be logged in to book a rental.</p>
+  </div>
+</div>  
+
+
 
 <div class="add-back container" *ngIf="user">
   <div *ngIf="(user._id === businessId)">
@@ -11,10 +18,12 @@
 <ul class="arrange-products container" *ngIf="products">
   <li class="products-list" *ngFor="let product of products">
     <app-product-card [product]="product" [showProfileLink]="showProfileLink" [businessId]="businessId" [user]="user"></app-product-card>
+    <div *ngIf="user">
     <div class="container edit-btn" *ngIf="(user._id == businessId)">
         <button class="secondary-btn"><a [routerLink]="['/business-profile', product._id, 'edit' ]">EDIT</a></button>
     </div>
-    <div class="container" *ngIf="(user.type !== 'business')">
+  </div>
+    <div class="container" *ngIf="(!user || user.type !== 'business')">
       <button class="secondary-btn" (click)="goToBooking(product._id)">BOOK</button>
     </div>
   </li>

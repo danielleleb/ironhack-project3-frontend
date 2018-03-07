@@ -25,7 +25,7 @@ export class BookingFormCComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.today = new Date()
+    this.startDate = new Date()
   }
 
  

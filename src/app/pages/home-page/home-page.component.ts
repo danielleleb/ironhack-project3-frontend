@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { ProductsService } from '../../services/products.service';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+
 
 
 import { AuthService } from '../../services/auth.service';
@@ -21,7 +23,8 @@ export class HomePageComponent implements OnInit {
     private userService: UserService,
     private productsService: ProductsService,
     private activatedRoute: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -43,6 +46,10 @@ export class HomePageComponent implements OnInit {
     // .then((businesses) => {
     //   this.businesses = businesses})
    }
+
+   goToBooking(productId){
+    this.router.navigate(['/business-profile', productId, 'book'])
+ }
 
   }
 

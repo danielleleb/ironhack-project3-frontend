@@ -1,13 +1,15 @@
 <app-filter-form></app-filter-form>
 
-<div *ngIf="(products.length == 0)">
-  <p>No products were found based on your search. Please try again with new search terms.</p>
-</div>
+
 
 <div class="products container">
   <ul class="arrange-products" *ngIf="products">
+      <div *ngIf="(products.length == 0)">
+          <p>No products were found based on your search. Please try again with new search terms.</p>
+        </div>
       <li class="products-list" *ngFor="let product of products">
         <app-product-card [product]="product" [showProfileLink]="showProfileLink" [user]="user" [businessId]="businessId"></app-product-card>
+        <button class="secondary-btn" (click)="goToBooking(product._id)">BOOK</button>
       </li>
   </ul>
 </div>

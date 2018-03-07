@@ -1,8 +1,8 @@
 <div *ngIf="showAlert" class="alert">
   <div class="alert-content">
-      <button class="third-btn exit" (click)="displayAlert()">X</button>
-    <div *ngIf="showLoginForm">
-      <p>You must be logged in to book a rental.</p>
+      <button class="exit-btn" (click)="displayAlert()"><i class="fas fa-times"></i></button>
+    <div class="container" *ngIf="showLoginForm">
+      <p id="must-login">You must be logged in to book a rental.</p>
       <app-login-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleLoginForm($event)"></app-login-form>
       <p>Don't have an account yet? <button (click)="toggleSignupLogin()">Signup</button></p>
     </div>

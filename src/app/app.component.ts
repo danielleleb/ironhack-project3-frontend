@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
       this.loading = false;
       this.user = user;
       this.anon = !user;
-      if (this.user.type == 'business'){
+      if (this.user && this.user.type == 'business'){
         this.businessId = this.user._id
       }
     });

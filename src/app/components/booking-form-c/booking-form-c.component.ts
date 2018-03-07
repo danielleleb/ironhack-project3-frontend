@@ -25,7 +25,7 @@ export class BookingFormCComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.startDate = new Date()
+    this.startDate = new Date().setHours(1,0,0,0)
   }
 
  
@@ -35,7 +35,7 @@ export class BookingFormCComponent implements OnInit {
     endDate = new Date(endDate)
     this.bookingLength = (endDate - startDate) / (24 * 3600 * 1000);
     this.bookingCost = this.bookingLength * this.product.price
-    console.log(this.today)
+    console.log(startDate, endDate)
 
   }
 

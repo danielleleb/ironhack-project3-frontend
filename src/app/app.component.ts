@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   loading = true;
   anon: boolean;
   user: any;
+  businessId: string;
 
   constructor(
     private authService: AuthService,
@@ -24,7 +25,11 @@ export class AppComponent implements OnInit {
       this.loading = false;
       this.user = user;
       this.anon = !user;
+      if (this.user.type == 'business'){
+        this.businessId = this.user._id
+      }
     });
+   
   }
 
   login() {
@@ -37,6 +42,10 @@ export class AppComponent implements OnInit {
 
   profile() {
     this.router.navigate(['/']);
+  }
+
+  businessProfile() {
+    this.router.navigate(['/business-profile', this.businessId])
   }
 
   logout() {

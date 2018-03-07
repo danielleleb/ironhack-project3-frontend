@@ -60,6 +60,8 @@ export class HomePageComponent implements OnInit {
 
    displayAlert() {
     this.showAlert = !this.showAlert
+    this.showLoginForm = !this.showLoginForm
+
   }
   toggleSignupLogin() {
     this.showSignupForm = !this.showSignupForm;
@@ -71,7 +73,7 @@ export class HomePageComponent implements OnInit {
       this.router.navigate(['/business-profile', productId, 'book'])
       }
       else if (!this.user) {
-        this.showAlert = true
+        this.showAlert = !this.showAlert
         this.showLoginForm = !this.showLoginForm
 
       } 
@@ -109,7 +111,7 @@ export class HomePageComponent implements OnInit {
             if (result.type == 'business') { 
               this.router.navigate(['/business-profile', this.user._id])
             } else if (result.type =='user'){
-              this.showAlert = false
+              this.showAlert = !this.showAlert
             } else {
               this.router.navigate(['/login'])
             }
@@ -126,7 +128,7 @@ export class HomePageComponent implements OnInit {
       this.error = null;
       this.authService.signup(event)
       .then((result) => {
-        this.showAlert = false;
+        this.showAlert = !this.showAlert;
         //   this.error = err.error.error;  // ... navigate with this.router.navigate(['...'])
       })
       .catch((err) => {

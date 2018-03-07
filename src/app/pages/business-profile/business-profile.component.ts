@@ -116,7 +116,7 @@ else if (this.user._id == this.businessId) {
     this.error = null;
     this.authService.signup(event)
     .then((result) => {
-      this.showAlert = false;
+      this.showAlert = !this.showAlert;
     window.location.reload()
       //   this.error = err.error.error;  // ... navigate with this.router.navigate(['...'])
     })
@@ -144,7 +144,7 @@ else if (this.user._id == this.businessId) {
 
   displayAlert() {
     this.showAlert = !this.showAlert
-    // this.showLoginForm = !this.showLoginForm
+    this.showLoginForm = !this.showLoginForm
   }
   toggleSignupLogin() {
     this.showSignupForm = !this.showSignupForm;
@@ -166,11 +166,11 @@ else if (this.user._id == this.businessId) {
   goToBooking(product){
     if (this.user) {
       this.userPresent = true;
-      this.showAlert = true;
+      this.showAlert = !this.showAlert;
       this.product = product
     }
     else if (!this.user) {
-      this.showAlert = true
+      this.showAlert = !this.showAlert
       this.showLoginForm = !this.showLoginForm
 
     }

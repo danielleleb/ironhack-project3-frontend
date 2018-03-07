@@ -27,7 +27,9 @@
       </div>
       <li class="products-list" *ngFor="let product of productsArray">
         <app-product-card [product]="product" [showProfileLink]="showProfileLink" [user]="user" [businessId]="businessId"></app-product-card>
-        <button class="secondary-btn" (click)="goToBooking(product)">BOOK</button>
+        <div class="container" *ngIf="(!user || user.type !== 'business')">
+            <button class="secondary-btn" (click)="goToBooking(product)">BOOK</button>
+        </div>  
       </li>
   </ul>
 </div>

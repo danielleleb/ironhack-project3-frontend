@@ -83,7 +83,7 @@ export class HomePageComponent implements OnInit {
   //   }
 
   goToBooking(product){
-    if (this.user) {
+    if (this.user && this.user.type !== 'business') {
       this.userPresent = true;
       this.showAlert = !this.showAlert;
       this.product = product
@@ -93,6 +93,10 @@ export class HomePageComponent implements OnInit {
       this.showAlert = !this.showAlert
       this.showLoginForm = !this.showLoginForm
     }
+    else if (this.user.type == 'business') {
+      this.router.navigate(['/business-profile', this.user._id])
+    }
+    
  }
 
     private handleChangeFilter(event) {

@@ -100,9 +100,11 @@ if (this.user._id == this.businessId) {
   }
 
   displayEditForm(product) {
-   this.showEditForm = true;
+   this.showEditForm = !this.showEditForm;
+   if(product){
    this.product = product
   }
+}
 
   goToBooking(productId){
     if (this.user) {

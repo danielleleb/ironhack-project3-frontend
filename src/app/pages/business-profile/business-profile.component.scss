@@ -34,10 +34,10 @@
     top: 0;
 }
 
-.alert-content {
+.alert-content{
     border: 3px solid black;
-    width: 70%;
-    height: 70%;
+    width: 75%;
+    height: 75%;
     background-color: rgb(31, 190, 208);
     border-radius: 10px;
     display: flex;
@@ -46,4 +46,14 @@
     align-items: center;
     margin-bottom: 50px;
     flex-direction: column;
+}
+
+.exit{
+    border: 1px solid red;
+    font-size: 20px;
+    float: right;
+    right: 0px;
+    margin-left: auto;
+    font-weight: 800;
+
 }

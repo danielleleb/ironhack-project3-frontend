@@ -15,10 +15,11 @@ import { AuthService } from '../../services/auth.service';
 })
 export class HomePageComponent implements OnInit {
   citySearch: string;
-  products: {}[];
+  products: Array<any>;
   showProfileLink: boolean;
   user: any
   showAlert:boolean;
+  productsArray: Array<any>;
 
   constructor(
     private userService: UserService,
@@ -41,6 +42,7 @@ export class HomePageComponent implements OnInit {
       .then((products) => {
         console.log(products)
         this.products = products
+        this.productsArray = this.products;
       })
    })
     
@@ -55,7 +57,33 @@ export class HomePageComponent implements OnInit {
       }
       else if (!this.user) {
         this.showAlert = true
-      } }
+      } 
+    }
+
+    private handleChangeFilter(event) {
+      console.log(event);
+      this.filterProduct(event)
+    }
+
+    private filterProduct(filters) {
+      const bike = filters.bike;
+      const skate = filters.skate;
+      const surf = filters.surf;
+      if (!bike && !skate && !surf) {
+        return this.productsArray = this.products;
+      }
+      this.productsArray = this.products.filter((elem) => {
+        if (bike && elem.type === 'bike') {
+          return true;
+        }
+        if (skate && elem.type === 'skate') {
+          return true;
+        }
+        if (surf && elem.type === 'surf') {
+          return true;
+        }
+      })
+    }
 
   }
 

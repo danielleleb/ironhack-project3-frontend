@@ -26,4 +26,8 @@ export class ProductCardComponent implements OnInit {
 
   }
 
+  demo(icon) {
+    console.log(icon)
+  }
+
 }

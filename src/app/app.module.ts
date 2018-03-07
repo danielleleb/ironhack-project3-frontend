@@ -84,13 +84,9 @@ const routes: Routes = [
     AddProductFormComponent,
     EditProductFormComponent,
     EditProductPageComponent,
-<<<<<<< HEAD
     FilterFormComponent,
-    FileSelectDirective
-=======
     FileSelectDirective,
     FilterFormComponent
->>>>>>> a9a6c9d5b0ee967eeba85f886375c421bd93d927
   ],
   imports: [
     BrowserModule,

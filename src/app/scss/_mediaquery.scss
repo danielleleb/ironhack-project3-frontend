@@ -7,11 +7,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 60px;
             padding-top: 10px;
         }
         .nav-btns{
-            margin-bottom: 20px;
+            margin: 0 !important;
         }
         .navbar-menu{
             display: none;
@@ -29,7 +29,7 @@
 
         // --- HEADER --- //
         .main-header h3{
-            font-size: 28px;
+            font-size: 36px;
         }
         #site-header{
             margin-bottom: 120px;

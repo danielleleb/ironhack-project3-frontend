@@ -21,16 +21,12 @@ export class BookingFormCComponent implements OnInit {
   @Input() processing: boolean;
   @Input() product: any;
 
- 
-
   constructor() { }
 
   ngOnInit() {
     this.startDate = new Date().setHours(1,0,0,0)
     this.showSelected = false;
   }
-
- 
 
   calculateBookingLengthAndCost(startDate, endDate) {
     startDate = new Date(startDate);
@@ -40,13 +36,10 @@ export class BookingFormCComponent implements OnInit {
     console.log(startDate, endDate)
 
   }
-
-
   submitBookingForm(form) {
     this.error='';
     this.feedbackEnabled = true;
     this.showSelected = true;
-
 
     if (form.valid){
       // this.processing = false;

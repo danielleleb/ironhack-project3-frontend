@@ -9,7 +9,7 @@ export class BookingFormCComponent implements OnInit {
   
   bookingLength: any;
   startDate: any;
-  endDate: number;
+  endDate: any 
   productId: string;
   bookingCost: any;
   today: any;

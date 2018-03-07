@@ -24,13 +24,14 @@
                             <div>
                                 <p>You're connected as <span>{{user.username.toUpperCase()}}</span></p>
                             </div>
-                            <div class="third-btn">
-                                <a (click)="logout()">LOGOUT</a>
+                                <div class="logged-btn">
+                                <div class="third-btn">
+                                    <a (click)="logout()">LOGOUT</a>
+                                </div>
+                                <div class="third-btn" *ngIf="(user.type === 'business')">
+                                    <a (click)="businessProfile()">PROFILE</a>
+                                </div>
                             </div>
-                            <div class="third-btn" *ngIf="(user.type === 'business')">
-                                <a (click)="businessProfile()">PROFILE</a>
-                            </div>
-
                         </div>
                         <div class="nav-btns" *ngIf="!loading && anon">
                             <button class="primary-btn">

@@ -49,16 +49,18 @@
             flex-wrap: wrap;
         }
         .products-list{
-            flex: 0 0 33.333%;
+            flex: 0 0 32.333%;
+            margin: 0 5px;
             box-shadow: 2px 2px rgba(0,0,0,0.2);
             border-radius: 5px;
             margin-bottom: 20px;
         }
-        .login-form{
-            width: 50%;
+        .product-card{
+            margin-bottom: 10px;
         }
+        // --- FORMS --- //
         .login-form button{
-            width: 30%;
+            width: 50%;
         }
         .signup-form{
             width: 50%;
@@ -71,6 +73,11 @@
         }
         .business-signup button{
             width: 30%;
+        }
+
+        // --- MODALS --- //
+        .alert-content{
+            width: 50% !important;
         }
         // --- FOOTER --- //
         #site-footer{

@@ -17,9 +17,9 @@
   <div class='field' [ngClass]="{'has-error': feedbackEnabled && typeField.errors}">
       <label for="producttype">TYPE</label>
       <select [(ngModel)]='type' name='type' #typeField='ngModel' required>
-          <option value="bike">bike</option>
-          <option value="surf">surf</option>
-          <option value="skate">skate</option>
+          <option value="Bike">Bike</option>
+          <option value="Surf">Surf</option>
+          <option value="Skate">Skate</option>
         </select>
       <div *ngIf="feedbackEnabled && typeField.errors">
           <p *ngIf="typeField.errors.required" class="validation">Type required</p>

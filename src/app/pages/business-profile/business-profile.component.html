@@ -12,7 +12,6 @@
       </div>
       <div *ngIf="userPresent">
         <app-booking-form [product]="product"></app-booking-form>
-          <!-- <app-booking-form-c [product]="product" (submitForm)="handleBookingForm($event)"></app-booking-form-c>            -->
         </div>
   </div>
 </div>  
@@ -51,7 +50,7 @@
   <li class="products-list" *ngFor="let product of products">
     <app-product-card [product]="product" [showProfileLink]="showProfileLink" [businessId]="businessId" [user]="user"></app-product-card>
     <div *ngIf="user">
-    <div class="container edit-btn" *ngIf="(user._id == businessId)">
+    <div class="edit-btn" *ngIf="(user._id == businessId)">
         <button class="secondary-btn" (click)="displayEditForm(product)">EDIT</button>
     </div>
   </div>
@@ -65,4 +64,3 @@
 <div class="back-btn">
   <button class="fourth-btn" (click)="goBack()">BACK</button>
 </div>
-<!-- <a [routerLink]="['/business-profile', product._id, 'edit']"></a> -->

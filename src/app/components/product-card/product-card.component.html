@@ -1,6 +1,6 @@
 
 
-<div class="container product-card">
+<div class="product-card">
     <div>
         <img src="{{apiUrl + product.imageUrl}}" alt="">
     </div>
@@ -22,8 +22,10 @@
             </form>
         </div>
     </div>
-    <div *ngIf="showProfileLink">
-        <button class="secondary-btn"><a [routerLink]="['/business-profile', product.owner._id ]">DETAILS</a></button>
+    <div class="card-user">
+        <div *ngIf="showProfileLink">
+            <button class="secondary-btn"><a [routerLink]="['/business-profile', product.owner._id ]">DETAILS</a></button>
+        </div>
     </div>
 </div>
 

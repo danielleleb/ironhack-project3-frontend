@@ -1,25 +1,28 @@
 <div *ngIf="showAlert" class="alert">
   <div class="alert-content">
       <button class="exit-btn" (click)="displayAlert()"><i class="fas fa-times"></i></button>
+
     <div class="container" *ngIf="showLoginForm">
       <p id="must-login">You must be logged in to book a rental.</p>
       <app-login-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleLoginForm($event)"></app-login-form>
-      <p>Don't have an account yet? <button (click)="toggleSignupLogin()">Signup</button></p>
+      <p>Don't have an account yet? <button class="primary-btn" (click)="toggleSignupLogin()">SIGNUP</button></p>
     </div>
-      <div *ngIf="showSignupForm">
-        <app-signup-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleSubmitForm($event)"></app-signup-form>
-          <p>Already have an account? <button (click)="toggleSignupLogin()">Login</button></p>
-      </div>
-      <div *ngIf="userPresent">
-        <app-booking-form [product]="product"></app-booking-form>
-        </div>
+
+    <div *ngIf="showSignupForm">
+      <app-signup-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleSubmitForm($event)"></app-signup-form>
+        <p>Already have an account? <button (click)="toggleSignupLogin()">Login</button></p>
+    </div>
+    
+    <div *ngIf="userPresent">
+      <app-booking-form [product]="product"></app-booking-form>
+    </div>
   </div>
 </div>  
 
 <div class='alert' *ngIf="showEditForm">
   <div class="alert-content">
     <div class="exit-btn">
-      <button class="third-btn exit" (click)="displayEditForm(product._id)">X</button>
+      <button class="exit-btn-edit" (click)="displayEditForm(product._id)"><i class="fas fa-times"></i></button>
     </div>
     <div>
       <app-edit-product-page [product]="product"></app-edit-product-page>
@@ -34,7 +37,7 @@
     <div *ngIf="showSelected" class="alert">
       <div class="alert-content">
         <div class="exit-btn-add">
-          <button class="third-btn exit" (click)="displayAddForm()">X</button>
+          <button class="exit-btn-add" (click)="displayAddForm()"><i class="fas fa-times"></i></button>
         </div>
         <div>
           <app-add-product-form class='content' [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleAddProductForm($event)"></app-add-product-form>

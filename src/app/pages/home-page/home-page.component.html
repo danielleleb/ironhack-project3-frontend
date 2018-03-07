@@ -1,7 +1,7 @@
 <app-filter-form (filterChange)="handleChangeFilter($event)" ></app-filter-form>
 
 <div *ngIf="showAlert" class="alert">
-    <div class="alert-content container">
+    <div class="alert-content">
         <button class="exit-btn" (click)="displayAlert()"><i class="fas fa-times"></i></button>
         <p id="must-login">You must be logged in to book a rental.</p>
         <div *ngIf="showLoginForm">

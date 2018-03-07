@@ -8,7 +8,6 @@
 }
 .primary-btn{
     margin-bottom: 20px;
-    width: 100%;
 }
 .secondary-btn{
     margin-bottom: 20px;
@@ -19,6 +18,15 @@
     margin-bottom: 40px;
 }
 .exit-btn-add{
-    width: 20%;
-    margin-left: 90%;
+    margin-left: 70%;
+    color: red;
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+}
+.exit-btn-edit{
+    margin-left: 0%;
+    color: red;
+    border: none;
+    background-color: transparent;
 }

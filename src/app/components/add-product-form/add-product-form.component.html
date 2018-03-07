@@ -1,4 +1,4 @@
-<form (ngSubmit)="submitFormValidation(form)"  #form="ngForm" novalidate>
+<form class="container" (ngSubmit)="submitFormValidation(form)"  #form="ngForm" novalidate>
   <div class='field' [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
     <label for="productName">NAME</label>
     <input type="text" [(ngModel)]='name' name='name' #nameField='ngModel' required>
@@ -29,7 +29,7 @@
  
   <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
 
-  <div class="field submit">
+  <div class="container field submit">
   <button class="secondary-btn" type="submit"  >SUBMIT</button>
   <div *ngIf="feedbackEnabled && form.invalid">
       <p class="validation">There are errors in the form, please review the fields</p>

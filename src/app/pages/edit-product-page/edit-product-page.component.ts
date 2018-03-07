@@ -52,7 +52,7 @@ export class EditProductPageComponent implements OnInit {
     }
 
     handleEditProductForm() {
-      window.location.reload()
+      this.router.navigate(['/business-profile', this.businessId])
       // this.productsService.updateProduct(event)
       // .then((result) => {
       //   this.router.navigate(['/business-profile', this.businessId])

@@ -56,7 +56,7 @@ const routes: Routes = [
     , canActivate: [ RequireUserGuardService ]
   },
   { path: 'business-profile/:id',  component: BusinessProfileComponent
-    , canActivate: [ RequireUserGuardService ] 
+    , canActivate: [ InitAuthGuardService ] 
   },
   { path: ':citySearch',  component: HomePageComponent 
     , canActivate: [ InitAuthGuardService ] 

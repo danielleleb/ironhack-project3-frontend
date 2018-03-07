@@ -8,10 +8,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class BookingFormCComponent implements OnInit {
   
   bookingLength: any;
-  startDate: number;
+  startDate: any;
   endDate: number;
   productId: string;
   bookingCost: any;
+  today: any;
   @Output() submitForm = new EventEmitter<any>();
   
   @Input() feedbackEnabled: boolean;
@@ -24,6 +25,7 @@ export class BookingFormCComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.today = new Date()
   }
 
  
@@ -33,6 +35,7 @@ export class BookingFormCComponent implements OnInit {
     endDate = new Date(endDate)
     this.bookingLength = (endDate - startDate) / (24 * 3600 * 1000);
     this.bookingCost = this.bookingLength * this.product.price
+    console.log(this.today)
 
   }
 

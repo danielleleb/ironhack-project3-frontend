@@ -42,6 +42,7 @@ export class BusinessProfileComponent implements OnInit {
 
     this.user = this.authService.getUser();
 
+  if (this.user._id !== this.businessId) {
     this.activatedRoute.params
     .subscribe((params) => {
       this.businessId = String(params.id)
@@ -51,7 +52,17 @@ export class BusinessProfileComponent implements OnInit {
         this.products = products
       })
    })
+  } 
+  if (this.user._id == this.businessId)
+      this.activatedRoute.params
+      .subscribe((params) => {
+        this.businessId = String(params.id)
 
+        this.productsService.getEntireProductList(this.businessId)
+        .then((products) => {
+          this.products = products
+        })
+    })
   }
   
   goBack() {

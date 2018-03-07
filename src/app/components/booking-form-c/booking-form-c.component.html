@@ -7,7 +7,7 @@
   <form class="container" (ngSubmit)="submitBookingForm(form)" #form="ngForm" novalidate>
       <div class='field' [ngClass]="{'has-error': feedbackEnabled && startDateField.errors}">
         <label for="startDate"> Start date: </label>
-        <input type="date" [(ngModel)]='startDate' name='startDate' #startDateField='ngModel' >
+        <input type="date" [(ngModel)]='startDate' name='startDate' #startDateField='ngModel' [value]="today | date: 'yyyy-MM-dd'" >
       </div>
   
       <div class='field' [ngClass]="{'has-error': feedbackEnabled && endDateField.errors}">

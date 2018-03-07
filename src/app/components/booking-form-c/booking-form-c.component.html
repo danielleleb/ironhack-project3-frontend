@@ -1,8 +1,8 @@
 
-<div *ngIf="showSelected">
-  <div class="alert">
-    <p>your booking has been submitted</p>
-    <button>back home</button>
+<div *ngIf="showSelected" class="alert">
+  <div class="alert-content">
+    <p>Your booking has been successfully submitted.</p>
+    <button class="secondary-btn"><a [routerLink]="['/']">Back to search</a></button>
   </div>
 </div>
 

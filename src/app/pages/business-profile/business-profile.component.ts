@@ -28,7 +28,9 @@ export class BusinessProfileComponent implements OnInit {
   businessId: String
   showProfileLink: boolean;
   form: any;
-  showAlert:boolean
+  showAlert:boolean;
+  showEditForm:boolean;
+  product: any;
 
   constructor(
     private authService: AuthService,
@@ -40,6 +42,7 @@ export class BusinessProfileComponent implements OnInit {
 
   ngOnInit() {
     this.showProfileLink = false;
+    this.showEditForm = false;
 
     this.showAlert = false
 
@@ -55,7 +58,7 @@ if (!this.user) {
     })
  })
 }
- else if (this.user._id !== this.businessId) {
+if (this.user._id !== this.businessId) {
     this.activatedRoute.params
     .subscribe((params) => {
       this.businessId = String(params.id)
@@ -65,8 +68,9 @@ if (!this.user) {
         this.products = products
       })
    })
+
   } 
- else if (this.user._id == this.businessId) {
+if (this.user._id == this.businessId) {
       this.activatedRoute.params
       .subscribe((params) => {
         this.businessId = String(params.id)
@@ -93,6 +97,11 @@ if (!this.user) {
       this.toggleForm();
       window.location.reload();
     }
+  }
+
+  displayEditForm(product) {
+   this.showEditForm = true;
+   this.product = product
   }
 
   goToBooking(productId){

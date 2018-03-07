@@ -1,8 +1,10 @@
 
 <div *ngIf="product">
     <h3>{{product.name}}</h3>
+   
 
 <form class="container" (ngSubmit)="submitEditProductForm(form)" #form="ngForm" novalidate>
+    
   <div class='field' [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
     <label for="productName">NAME</label>
     <input type="text" [(ngModel)]='name' name='name' #nameField='ngModel' required>
@@ -26,7 +28,7 @@
     </div> -->
   </div>
   
-  <div class='field' [ngClass]="{'has-error': feedbackEnabled }">
+  <div class='field'>
     <label for="productimage">IMAGE</label>
     <input type="file" name="file" ng2FileSelect [uploader]="uploader">
         <!-- <div *ngIf="feedbackEnabled && imageField.errors">
@@ -41,4 +43,5 @@
       </div> -->
     </div>
   </form>
+
 </div>

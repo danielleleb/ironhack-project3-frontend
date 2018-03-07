@@ -6,7 +6,11 @@
   </div>
 </div>  
 
-
+<div class='alert' *ngIf="showEditForm">
+    <div class="alert-content">
+    <app-edit-product-page [product]="product"></app-edit-product-page>
+  </div>
+</div>
 
 <div class="add-back container" *ngIf="user">
   <div *ngIf="(user._id === businessId)">
@@ -22,9 +26,10 @@
     <app-product-card [product]="product" [showProfileLink]="showProfileLink" [businessId]="businessId" [user]="user"></app-product-card>
     <div *ngIf="user">
     <div class="container edit-btn" *ngIf="(user._id == businessId)">
-        <button class="secondary-btn"><a [routerLink]="['/business-profile', product._id, 'edit' ]">EDIT</a></button>
+        <button class="secondary-btn" (click)="displayEditForm(product)">EDIT</button>
     </div>
   </div>
+
     <div class="container" *ngIf="(!user || user.type !== 'business')">
       <button class="secondary-btn" (click)="goToBooking(product._id)">BOOK</button>
     </div>
@@ -34,3 +39,4 @@
 <div class="back-btn">
   <button class="fourth-btn" (click)="goBack()">BACK</button>
 </div>
+<!-- <a [routerLink]="['/business-profile', product._id, 'edit']"></a> -->

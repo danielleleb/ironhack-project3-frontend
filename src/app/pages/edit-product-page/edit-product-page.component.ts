@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+
 
 import { ProductsService } from '../../services/products.service';
 import { AuthService } from '../../services/auth.service';
@@ -11,39 +13,44 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./edit-product-page.component.scss']
 })
 export class EditProductPageComponent implements OnInit {
-  products: {}[];
+  // products: {}[];
   businessId: String
   feedbackEnabled = false;
   error = null;
   processing = false;
-  product: any;
+  // product: any;
   productId: any;
+
+  @Input() product
+
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private productsService: ProductsService,
-    private authService: AuthService
+    private authService: AuthService,
+    private location: Location
   ) { }
 
   ngOnInit() {
-    this.activatedRoute.params
-    .subscribe((params) => {
-      this.productId = String(params.id)
+  this.productId= this.product._id
+  //   this.activatedRoute.params
+  //   // .subscribe((params) => {
+  //   //   this.productId = String(params.id)
 
-      this.productsService.getProductById(this.productId)
-      .then((product) => {
-        this.product = product
-      })
+  //     // this.productsService.getProductById(this.productId)
+  //     // .then((product) => {
+  //     //   this.product = product
+  //     // })
 
       this.businessId = this.authService.getUser()._id;
-   })
+  //  })
   }
 
   changeAvailableStatus(productId){
     this.productsService.returnProduct(productId)
     .then((result) => {
-      this.router.navigate(['business-profile', this.businessId])
+      this.router.navigate(['/business-profile', this.businessId])
     })
     .catch((err) => {
       this.error = err.error.error; // :-)
@@ -53,7 +60,8 @@ export class EditProductPageComponent implements OnInit {
   }
 
   handleEditProductForm() {
-    this.router.navigate(['business-profile', this.businessId])
+    window.location.reload()
+    // this.router.navigate(['/business-profile', this.businessId])
     // this.productsService.updateProduct(event)
     // .then((result) => {
     //   this.router.navigate(['/business-profile', this.businessId])

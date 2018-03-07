@@ -77,13 +77,13 @@ export class HomePageComponent implements OnInit {
         return this.productsArray = this.products;
       }
       this.productsArray = this.products.filter((elem) => {
-        if (bike && elem.type === 'bike') {
+        if (bike && elem.type === 'Bike') {
           return true;
         }
-        if (skate && elem.type === 'skate') {
+        if (skate && elem.type === 'Skate') {
           return true;
         }
-        if (surf && elem.type === 'surf') {
+        if (surf && elem.type === 'Surf') {
           return true;
         }
       })

@@ -1,6 +1,6 @@
 <div *ngIf="showAlert" class="alert">
   <div class="alert-content">
-      <button class="exit" (click)="displayAlert()">X</button>
+      <button class="third-btn exit" (click)="displayAlert()">X</button>
       <p>You must be logged in to book a rental.</p>
     <p>Go to <a [routerLink]="['/login']">Login</a></p>. 
     <p>Don't have an account yet? <a [routerLink]="['/signup']">Signup</a></p>
@@ -8,21 +8,31 @@
 </div>  
 
 <div class='alert' *ngIf="showEditForm">
-    <div class="alert-content">
-        <button class="exit" (click)="displayEditForm(product._id)">X</button>
-    <app-edit-product-page [product]="product"></app-edit-product-page>
+  <div class="alert-content">
+    <div class="exit-btn">
+      <button class="third-btn exit" (click)="displayEditForm(product._id)">X</button>
+    </div>
+    <div>
+      <app-edit-product-page [product]="product"></app-edit-product-page>
+    </div>
   </div>
 </div>
 
 <div class="add-back container" *ngIf="user">
   <div *ngIf="(user._id === businessId)">
+
     <button class="primary-btn" (click)="toggleForm()">ADD PRODUCT</button>
-      <div *ngIf="showSelected" class="alert add-form">
-        <div class="alert-content">
-          <button class="exit" (click)="displayAddForm()">X</button>
-        <app-add-product-form class='content' [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleAddProductForm($event)"></app-add-product-form>
+    <div *ngIf="showSelected" class="alert">
+      <div class="alert-content">
+        <div class="exit-btn-add">
+          <button class="third-btn exit" (click)="displayAddForm()">X</button>
+        </div>
+        <div>
+          <app-add-product-form class='content' [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleAddProductForm($event)"></app-add-product-form>
+        </div>
+      </div>
     </div>
-  </div>
+
   </div>
 </div>
 

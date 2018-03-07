@@ -2,13 +2,13 @@
   <div class="alert-content">
       <button class="exit-btn" (click)="displayAlert()"><i class="fas fa-times"></i></button>
 
-    <div class="container" *ngIf="showLoginForm">
+    <div class="container" *ngIf="showLoginForm && !user">
       <p id="must-login">You must be logged in to book a rental.</p>
       <app-login-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleLoginForm($event)"></app-login-form>
       <p>Don't have an account yet? <button class="primary-btn" (click)="toggleSignupLogin()">SIGNUP</button></p>
     </div>
 
-    <div *ngIf="showSignupForm">
+    <div *ngIf="showSignupForm && !user">
       <app-signup-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleSubmitForm($event)"></app-signup-form>
         <p>Already have an account? <button (click)="toggleSignupLogin()">Login</button></p>
     </div>

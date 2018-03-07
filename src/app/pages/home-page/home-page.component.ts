@@ -25,6 +25,8 @@ export class HomePageComponent implements OnInit {
   feedbackEnabled = false;
   error = null;
   processing = false;
+  userPresent: boolean;
+  product: any;
 
   constructor(
     private userService: UserService,
@@ -39,6 +41,7 @@ export class HomePageComponent implements OnInit {
     this.showLoginForm = false;
     this.showProfileLink = true;
     this.showSignupForm = false;
+    this.userPresent = false;
     
     this.user = this.authService.getUser();
     
@@ -68,16 +71,29 @@ export class HomePageComponent implements OnInit {
     this.showLoginForm = !this.showLoginForm
   }
 
-   goToBooking(productId){
-    if (this.user) {
-      this.router.navigate(['/business-profile', productId, 'book'])
-      }
-      else if (!this.user) {
-        this.showAlert = !this.showAlert
-        this.showLoginForm = !this.showLoginForm
+  //  goToBooking(productId){
+  //   if (this.user) {
+  //     this.router.navigate(['/business-profile', productId, 'book'])
+  //     }
+  //     else if (!this.user) {
+  //       this.showAlert = !this.showAlert
+  //       this.showLoginForm = !this.showLoginForm
 
-      } 
+  //     } 
+  //   }
+
+  goToBooking(product){
+    if (this.user) {
+      this.userPresent = true;
+      this.showAlert = !this.showAlert;
+      this.product = product
     }
+    else if (!this.user) {
+      this.userPresent = false;
+      this.showAlert = !this.showAlert
+      this.showLoginForm = !this.showLoginForm
+    }
+ }
 
     private handleChangeFilter(event) {
       console.log(event);

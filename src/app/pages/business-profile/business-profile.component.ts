@@ -170,6 +170,7 @@ else if (this.user._id == this.businessId) {
       this.product = product
     }
     else if (!this.user) {
+      this.userPresent = false;
       this.showAlert = !this.showAlert
       this.showLoginForm = !this.showLoginForm
 

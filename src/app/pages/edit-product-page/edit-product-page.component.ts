@@ -50,7 +50,8 @@ export class EditProductPageComponent implements OnInit {
   changeAvailableStatus(productId){
     this.productsService.returnProduct(productId)
     .then((result) => {
-      this.router.navigate(['/business-profile', this.businessId])
+      window.location.reload()
+      // this.router.navigate(['/business-profile', this.businessId])
     })
     .catch((err) => {
       this.error = err.error.error; // :-)

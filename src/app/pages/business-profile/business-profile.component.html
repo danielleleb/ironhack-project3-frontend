@@ -1,7 +1,7 @@
 <div *ngIf="showAlert" class="alert">
   <div class="alert-content">
-    <p class="exit">X</p>
-    <p>You must be logged in to book a rental.</p>
+      <button class="exit" (click)="displayAlert()">X</button>
+      <p>You must be logged in to book a rental.</p>
     <p>Go to <a [routerLink]="['/login']">Login</a></p>. 
     <p>Don't have an account yet? <a [routerLink]="['/signup']">Signup</a></p>
   </div>
@@ -17,9 +17,12 @@
 <div class="add-back container" *ngIf="user">
   <div *ngIf="(user._id === businessId)">
     <button class="primary-btn" (click)="toggleForm()">ADD PRODUCT</button>
-      <div *ngIf="showSelected" class="alert">
-        <app-add-product-form class="alert-content" [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleAddProductForm($event)"></app-add-product-form>
+      <div *ngIf="showSelected" class="alert add-form">
+        <div class="alert-content">
+          <button class="exit" (click)="displayAddForm()">X</button>
+        <app-add-product-form class='content' [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleAddProductForm($event)"></app-add-product-form>
     </div>
+  </div>
   </div>
 </div>
 

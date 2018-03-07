@@ -99,6 +99,15 @@ if (this.user._id == this.businessId) {
     }
   }
 
+  displayAlert() {
+    this.showAlert = !this.showAlert
+  }
+
+  displayAddForm() {
+    this.showSelected = !this.showSelected
+  }
+
+
   displayEditForm(product) {
    this.showEditForm = !this.showEditForm;
    if(product){

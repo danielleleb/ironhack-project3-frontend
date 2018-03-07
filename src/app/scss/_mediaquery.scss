@@ -10,6 +10,9 @@
             margin-bottom: 20px;
             padding-top: 10px;
         }
+        .nav-btns{
+            margin-bottom: 20px;
+        }
         .navbar-menu{
             display: none;
         }
@@ -21,6 +24,7 @@
         }
         .search-input{
             justify-content: center;
+            margin-top: 200px;
         }
 
         // --- HEADER --- //
@@ -29,6 +33,7 @@
         }
         #site-header{
             margin-bottom: 120px;
+            height: 400px !important;
         }
 
         // --- MAIN --- //

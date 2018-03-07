@@ -1,7 +1,7 @@
-<form (ngSubmit)="submitBusinessSignUp(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+<form class="container business-signup" (ngSubmit)="submitBusinessSignUp(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
 
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
-    <label>Username</label>
+    <label>USERNAME</label>
     <input type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" required minlength="6" [disabled]="processing"/>
     <div *ngIf="feedbackEnabled && usernameField.errors">
       <p *ngIf="usernameField.errors.required" class="validation">username required</p>
@@ -10,7 +10,7 @@
   </div>
 
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
-      <label>Password</label>
+      <label>PASSWORD</label>
       <input type="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required minlength="6" [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && passwordField.errors">
         <p *ngIf="passwordField.errors.required" class="validation">password required</p>
@@ -19,7 +19,7 @@
     </div>
 
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && addressField.errors}">
-    <label>City</label>
+    <label>CITY</label>
     <input type="text" name="address" [(ngModel)]="address" #addressField="ngModel" required minlength="6" [disabled]="processing"/>
     <div *ngIf="feedbackEnabled && addressField.errors">
       <p *ngIf="addressField.errors.required" class="validation">City required</p>
@@ -27,8 +27,8 @@
     </div>
   </div>
 
-  <div class="field submit">
-    <button type="submit" [disabled]="processing">signup</button>
+  <div class="container field submit">
+    <button class="secondary-btn" type="submit" [disabled]="processing">SIGNUP</button>
     <div class="validation" [ngSwitch]="error" *ngIf="error">
       <div *ngSwitchCase="'username-not-unique'">The username already exists</div>
       <div *ngSwitchDefault>An unexpected error ocurred, please try again</div>

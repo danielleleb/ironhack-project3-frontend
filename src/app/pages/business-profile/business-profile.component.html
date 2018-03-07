@@ -1,16 +1,19 @@
 <div *ngIf="showAlert" class="alert">
   <div class="alert-content">
-      <button class="exit" (click)="displayAlert()">X</button>
+    <button class="exit" (click)="displayAlert()">X</button>
+    <div *ngIf="showLoginForm">
       <p>You must be logged in to book a rental.</p>
-      <div *ngIf="showLoginForm">
       <app-login-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleLoginForm($event)"></app-login-form>
       <p>Don't have an account yet? <button (click)="toggleSignupLogin()">Signup</button></p>
-  
     </div>
       <div *ngIf="showSignupForm">
         <app-signup-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleSubmitForm($event)"></app-signup-form>
           <p>Already have an account? <button (click)="toggleSignupLogin()">Login</button></p>
       </div>
+      <div *ngIf="userPresent">
+        <app-booking-form [product]="product"></app-booking-form>
+          <!-- <app-booking-form-c [product]="product" (submitForm)="handleBookingForm($event)"></app-booking-form-c>            -->
+        </div>
   </div>
 </div>  
 
@@ -44,7 +47,7 @@
   </div>
 
     <div class="container" *ngIf="(!user || user.type !== 'business')">
-      <button class="secondary-btn" (click)="goToBooking(product._id)">BOOK</button>
+      <button class="secondary-btn" (click)="goToBooking(product)">BOOK</button>
     </div>
   </li>
 </ul>

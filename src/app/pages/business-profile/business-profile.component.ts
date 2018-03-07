@@ -33,6 +33,9 @@ export class BusinessProfileComponent implements OnInit {
   showSignupForm: boolean;
   showLoginForm: boolean;
   product: any;
+  userPresent: boolean;
+  bookingLength: any;
+  bookingCost: any;
 
   constructor(
     private authService: AuthService,
@@ -44,6 +47,7 @@ export class BusinessProfileComponent implements OnInit {
 
   ngOnInit() {
     this.showProfileLink = false;
+    this.userPresent = false;
     this.showEditForm = false;
     this.showSignupForm = false;
     this.showLoginForm = false;
@@ -95,7 +99,7 @@ else if (this.user._id == this.businessId) {
           if (result.type == 'business') { 
             this.router.navigate(['/business-profile', this.user._id])
           } else if (result.type =='user'){
-            this.showAlert = false
+            window.location.reload()
           } else {
             this.router.navigate(['/login'])
           }
@@ -113,6 +117,7 @@ else if (this.user._id == this.businessId) {
     this.authService.signup(event)
     .then((result) => {
       this.showAlert = false;
+    window.location.reload()
       //   this.error = err.error.error;  // ... navigate with this.router.navigate(['...'])
     })
     .catch((err) => {
@@ -158,9 +163,11 @@ else if (this.user._id == this.businessId) {
   }
 }
 
-  goToBooking(productId){
+  goToBooking(product){
     if (this.user) {
-    this.router.navigate(['/business-profile', productId, 'book'])
+      this.userPresent = true;
+      this.showAlert = true;
+      this.product = product
     }
     else if (!this.user) {
       this.showAlert = true
@@ -168,4 +175,29 @@ else if (this.user._id == this.businessId) {
 
     }
  }
+
+//  handleBookingForm(event) {
+//   this.productsService.bookProduct(event)
+//         // this.router.navigate(['/'])
+
+//     .then((result) => {
+//     // this.router.navigate(['/'])
+//       //   this.error = err.error.error;  // ... navigate with this.router.navigate(['...'])
+//     })
+//     .catch((err) => {
+//       this.error = err.error.error; // :-)
+//       this.processing = false;
+//       this.feedbackEnabled = false;
+//     });
+// }
+
+calculateBookingLengthAndCost(startDate, endDate) {
+  startDate = new Date(startDate);
+  endDate = new Date(endDate)
+  this.bookingLength = (endDate - startDate) / (24 * 3600 * 1000);
+  this.bookingCost = this.bookingLength * this.product.price
+  console.log(startDate, endDate)
+
+}
+
 }

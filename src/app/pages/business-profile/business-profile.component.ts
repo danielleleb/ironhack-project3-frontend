@@ -30,7 +30,12 @@ export class BusinessProfileComponent implements OnInit {
   form: any;
   showAlert:boolean;
   showEditForm:boolean;
+  showSignupForm: boolean;
+  showLoginForm: boolean;
   product: any;
+  userPresent: boolean;
+  bookingLength: any;
+  bookingCost: any;
 
   constructor(
     private authService: AuthService,
@@ -42,7 +47,10 @@ export class BusinessProfileComponent implements OnInit {
 
   ngOnInit() {
     this.showProfileLink = false;
+    this.userPresent = false;
     this.showEditForm = false;
+    this.showSignupForm = false;
+    this.showLoginForm = false;
 
     this.showAlert = false
 
@@ -58,7 +66,7 @@ if (!this.user) {
     })
  })
 }
-if (this.user._id !== this.businessId) {
+else if (this.user._id !== this.businessId) {
     this.activatedRoute.params
     .subscribe((params) => {
       this.businessId = String(params.id)
@@ -70,7 +78,7 @@ if (this.user._id !== this.businessId) {
    })
 
   } 
-if (this.user._id == this.businessId) {
+else if (this.user._id == this.businessId) {
       this.activatedRoute.params
       .subscribe((params) => {
         this.businessId = String(params.id)
@@ -83,6 +91,41 @@ if (this.user._id == this.businessId) {
   }
   
   }
+
+  handleLoginForm(event) {
+    this.error = null;
+      this.authService.login(event)
+        .then((result) => {
+          if (result.type == 'business') { 
+            this.router.navigate(['/business-profile', this.user._id])
+          } else if (result.type =='user'){
+            window.location.reload()
+          } else {
+            this.router.navigate(['/login'])
+          }
+        // ... navigate with this.router.navigate(['...'])
+        })
+        .catch((err) => {
+          this.processing = false;
+          this.error =  err.error.error;
+          this.feedbackEnabled = false;
+        });
+  }
+
+  handleSubmitForm(event) {
+    this.error = null;
+    this.authService.signup(event)
+    .then((result) => {
+      this.showAlert = false;
+    window.location.reload()
+      //   this.error = err.error.error;  // ... navigate with this.router.navigate(['...'])
+    })
+    .catch((err) => {
+      this.error = err.error.error; // :-)
+      this.processing = false;
+      this.feedbackEnabled = false;
+    });
+}
   
   goBack() {
     this.location.back();
@@ -101,6 +144,11 @@ if (this.user._id == this.businessId) {
 
   displayAlert() {
     this.showAlert = !this.showAlert
+    // this.showLoginForm = !this.showLoginForm
+  }
+  toggleSignupLogin() {
+    this.showSignupForm = !this.showSignupForm;
+    this.showLoginForm = !this.showLoginForm
   }
 
   displayAddForm() {
@@ -115,12 +163,41 @@ if (this.user._id == this.businessId) {
   }
 }
 
-  goToBooking(productId){
+  goToBooking(product){
     if (this.user) {
-    this.router.navigate(['/business-profile', productId, 'book'])
+      this.userPresent = true;
+      this.showAlert = true;
+      this.product = product
     }
     else if (!this.user) {
       this.showAlert = true
+      this.showLoginForm = !this.showLoginForm
+
     }
  }
+
+//  handleBookingForm(event) {
+//   this.productsService.bookProduct(event)
+//         // this.router.navigate(['/'])
+
+//     .then((result) => {
+//     // this.router.navigate(['/'])
+//       //   this.error = err.error.error;  // ... navigate with this.router.navigate(['...'])
+//     })
+//     .catch((err) => {
+//       this.error = err.error.error; // :-)
+//       this.processing = false;
+//       this.feedbackEnabled = false;
+//     });
+// }
+
+calculateBookingLengthAndCost(startDate, endDate) {
+  startDate = new Date(startDate);
+  endDate = new Date(endDate)
+  this.bookingLength = (endDate - startDate) / (24 * 3600 * 1000);
+  this.bookingCost = this.bookingLength * this.product.price
+  console.log(startDate, endDate)
+
+}
+
 }

@@ -20,6 +20,11 @@ export class HomePageComponent implements OnInit {
   user: any
   showAlert:boolean;
   productsArray: Array<any>;
+  showLoginForm:boolean;
+  showSignupForm: boolean;
+  feedbackEnabled = false;
+  error = null;
+  processing = false;
 
   constructor(
     private userService: UserService,
@@ -31,9 +36,11 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit() {
     this.showAlert = false
-    this.user = this.authService.getUser();
-
+    this.showLoginForm = false;
     this.showProfileLink = true;
+    this.showSignupForm = false;
+    
+    this.user = this.authService.getUser();
     
     this.activatedRoute.params
     .subscribe((params) => {
@@ -54,6 +61,10 @@ export class HomePageComponent implements OnInit {
    displayAlert() {
     this.showAlert = !this.showAlert
   }
+  toggleSignupLogin() {
+    this.showSignupForm = !this.showSignupForm;
+    this.showLoginForm = !this.showLoginForm
+  }
 
    goToBooking(productId){
     if (this.user) {
@@ -61,6 +72,8 @@ export class HomePageComponent implements OnInit {
       }
       else if (!this.user) {
         this.showAlert = true
+        this.showLoginForm = !this.showLoginForm
+
       } 
     }
 
@@ -89,6 +102,39 @@ export class HomePageComponent implements OnInit {
       })
     }
 
+    handleLoginForm(event) {
+      this.error = null;
+        this.authService.login(event)
+          .then((result) => {
+            if (result.type == 'business') { 
+              this.router.navigate(['/business-profile', this.user._id])
+            } else if (result.type =='user'){
+              this.showAlert = false
+            } else {
+              this.router.navigate(['/login'])
+            }
+          // ... navigate with this.router.navigate(['...'])
+          })
+          .catch((err) => {
+            this.processing = false;
+            this.error =  err.error.error;
+            this.feedbackEnabled = false;
+          });
+    }
+  
+    handleSubmitForm(event) {
+      this.error = null;
+      this.authService.signup(event)
+      .then((result) => {
+        this.showAlert = false;
+        //   this.error = err.error.error;  // ... navigate with this.router.navigate(['...'])
+      })
+      .catch((err) => {
+        this.error = err.error.error; // :-)
+        this.processing = false;
+        this.feedbackEnabled = false;
+      });
+  }
   }
 
 

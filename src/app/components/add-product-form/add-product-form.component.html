@@ -16,7 +16,11 @@
   </div>
   <div class='field' [ngClass]="{'has-error': feedbackEnabled && typeField.errors}">
       <label for="producttype">TYPE</label>
-      <input type="text" [(ngModel)]='type' name='type' #typeField='ngModel' required>
+      <select [(ngModel)]='type' name='type' #typeField='ngModel' required>
+          <option value="Bike">Bike</option>
+          <option value="Surf">Surf</option>
+          <option value="Skate">Skate</option>
+        </select>
       <div *ngIf="feedbackEnabled && typeField.errors">
           <p *ngIf="typeField.errors.required" class="validation">Type required</p>
         </div>

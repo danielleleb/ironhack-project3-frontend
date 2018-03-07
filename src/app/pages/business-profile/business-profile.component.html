@@ -11,8 +11,8 @@
 <div class="add-back container" *ngIf="user">
   <div *ngIf="(user._id === businessId)">
     <button class="primary-btn" (click)="toggleForm()">ADD PRODUCT</button>
-      <div *ngIf="showSelected">
-        <app-add-product-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleAddProductForm($event)"></app-add-product-form>
+      <div *ngIf="showSelected" class="alert">
+        <app-add-product-form class="alert-content" [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleAddProductForm($event)"></app-add-product-form>
     </div>
   </div>
 </div>

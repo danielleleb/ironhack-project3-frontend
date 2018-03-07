@@ -51,6 +51,10 @@ export class HomePageComponent implements OnInit {
     //   this.businesses = businesses})
    }
 
+   displayAlert() {
+    this.showAlert = !this.showAlert
+  }
+
    goToBooking(productId){
     if (this.user) {
       this.router.navigate(['/business-profile', productId, 'book'])

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
+import { ProductsService } from '../../services/products.service';
+import { Router } from '@angular/router';
 
 import { environment } from '../../../environments/environment'
 @Component({
@@ -29,7 +31,9 @@ export class EditProductFormComponent implements OnInit {
   isDummy: boolean;
 
 
-  constructor() { 
+  constructor(
+    private productsService: ProductsService
+  ) { 
   }
 
   ngOnInit() {
@@ -62,6 +66,17 @@ export class EditProductFormComponent implements OnInit {
       }
 
     };
+  }
+  changeAvailableStatus(productId){
+    this.productsService.returnProduct(productId)
+    .then((result) => {
+      this.router.navigate(['business-profile', this.businessId])
+    })
+    .catch((err) => {
+      this.error = err.error.error; // :-)
+      this.processing = false;
+      this.feedbackEnabled = false;
+    });
   }
 
   submitEditProductForm(formInput) {

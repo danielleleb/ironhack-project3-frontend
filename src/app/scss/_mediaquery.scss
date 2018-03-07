@@ -1,13 +1,14 @@
 @import "variables";
 
 @mixin desktop{
-    @media (min-width: #{$desktop-width}){
+    @media screen and  (min-width: #{$desktop-width}){
         // --- NAV BAR --- //
         .pos-f-t{
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
+            padding-top: 10px;
         }
         .navbar-menu{
             display: none;

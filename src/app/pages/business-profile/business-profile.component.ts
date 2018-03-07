@@ -30,6 +30,8 @@ export class BusinessProfileComponent implements OnInit {
   form: any;
   showAlert:boolean;
   showEditForm:boolean;
+  showSignupForm: boolean;
+  showLoginForm: boolean;
   product: any;
 
   constructor(
@@ -43,6 +45,8 @@ export class BusinessProfileComponent implements OnInit {
   ngOnInit() {
     this.showProfileLink = false;
     this.showEditForm = false;
+    this.showSignupForm = false;
+    this.showLoginForm = false;
 
     this.showAlert = false
 
@@ -58,7 +62,7 @@ if (!this.user) {
     })
  })
 }
-if (this.user._id !== this.businessId) {
+else if (this.user._id !== this.businessId) {
     this.activatedRoute.params
     .subscribe((params) => {
       this.businessId = String(params.id)
@@ -70,7 +74,7 @@ if (this.user._id !== this.businessId) {
    })
 
   } 
-if (this.user._id == this.businessId) {
+else if (this.user._id == this.businessId) {
       this.activatedRoute.params
       .subscribe((params) => {
         this.businessId = String(params.id)
@@ -103,6 +107,20 @@ if (this.user._id == this.businessId) {
           this.feedbackEnabled = false;
         });
   }
+
+  handleSubmitForm(event) {
+    this.error = null;
+    this.authService.signup(event)
+    .then((result) => {
+      this.showAlert = false;
+      //   this.error = err.error.error;  // ... navigate with this.router.navigate(['...'])
+    })
+    .catch((err) => {
+      this.error = err.error.error; // :-)
+      this.processing = false;
+      this.feedbackEnabled = false;
+    });
+}
   
   goBack() {
     this.location.back();
@@ -121,6 +139,11 @@ if (this.user._id == this.businessId) {
 
   displayAlert() {
     this.showAlert = !this.showAlert
+    // this.showLoginForm = !this.showLoginForm
+  }
+  toggleSignupLogin() {
+    this.showSignupForm = !this.showSignupForm;
+    this.showLoginForm = !this.showLoginForm
   }
 
   displayAddForm() {
@@ -141,6 +164,8 @@ if (this.user._id == this.businessId) {
     }
     else if (!this.user) {
       this.showAlert = true
+      this.showLoginForm = !this.showLoginForm
+
     }
  }
 }

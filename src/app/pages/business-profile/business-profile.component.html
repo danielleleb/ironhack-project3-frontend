@@ -2,8 +2,15 @@
   <div class="alert-content">
       <button class="exit" (click)="displayAlert()">X</button>
       <p>You must be logged in to book a rental.</p>
+      <div *ngIf="showLoginForm">
       <app-login-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleLoginForm($event)"></app-login-form>
-    <p>Don't have an account yet? <a [routerLink]="['/signup']">Signup</a></p>
+      <p>Don't have an account yet? <button (click)="toggleSignupLogin()">Signup</button></p>
+  
+    </div>
+      <div *ngIf="showSignupForm">
+        <app-signup-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleSubmitForm($event)"></app-signup-form>
+          <p>Already have an account? <button (click)="toggleSignupLogin()">Login</button></p>
+      </div>
   </div>
 </div>  
 

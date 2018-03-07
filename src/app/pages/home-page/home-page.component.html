@@ -1,6 +1,12 @@
 <app-filter-form></app-filter-form>
 
-
+<div *ngIf="showAlert" class="alert">
+    <div class="alert-content">
+      <p>You must be logged in to book a rental.</p>
+      <p>Go to <a [routerLink]="['/login']">Login</a></p>. 
+      <p>Don't have an account yet? <a [routerLink]="['/signup']">Signup</a></p>
+    </div>
+  </div>  
 
 <div class="products container">
   <ul class="arrange-products" *ngIf="products">

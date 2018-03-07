@@ -18,6 +18,7 @@ export class HomePageComponent implements OnInit {
   products: {}[];
   showProfileLink: boolean;
   user: any
+  showAlert:boolean;
 
   constructor(
     private userService: UserService,
@@ -28,6 +29,7 @@ export class HomePageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.showAlert = false
     this.user = this.authService.getUser();
 
     this.showProfileLink = true;
@@ -48,8 +50,12 @@ export class HomePageComponent implements OnInit {
    }
 
    goToBooking(productId){
-    this.router.navigate(['/business-profile', productId, 'book'])
- }
+    if (this.user) {
+      this.router.navigate(['/business-profile', productId, 'book'])
+      }
+      else if (!this.user) {
+        this.showAlert = true
+      } }
 
   }
 

@@ -18,49 +18,7 @@
     text-align: center;
     margin-bottom: 40px;
 }
-
-.alert{
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(28, 27, 27, 0.631);
-    position: fixed; /* Stay in place */
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 50px;
-    left:0;
-    top: 0;
-}
-
-.alert-content{
-    border: 3px solid black;
-    width: 78%;
-    height: 78%;
-    background-color: rgb(31, 190, 208);
-    border-radius: 10px;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-direction: column;
-}
-
-.alert-content .content {
-    margin-top: -10%;
-}
-
-.exit{
-    border: 1px solid red;
-    font-size: 20px;
-    float: right;
-    right: 0px;
-    top: 0px;
-    margin-bottom: auto;
-    margin-left: auto;
-    align-self: baseline;
-    font-weight: 800;
-    background: none;
+.exit-btn-add{
+    width: 20%;
+    margin-left: 90%;
 }

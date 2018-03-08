@@ -1,6 +1,6 @@
 
 
-
+<div>
 <header id="site-header">
 
  <!-- NAV BAR -->
@@ -10,7 +10,7 @@
                 <div class="nav-logo">
                     <h3><a (click)="profile()">RENTILY</a></h3>
                 </div>
-                <button class="navbar-menu" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button (click)="toggleNav(true)" #buttonElement class="navbar-menu" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -54,9 +54,11 @@
     <img src="http://erikdkennedy.com/r-r-r-random/divider-triangle.png" class="divider"/>
 </header>
 
-<router-outlet></router-outlet>
+<div (click)="toggleNav()">
+    <router-outlet></router-outlet>
+    <div class="backshape">
+</div>
 
-<div class="backshape">
     <footer id="site-footer">
         <div>
             <p>Created by @danielleleb and @rodrigodaoud</p>
@@ -65,3 +67,4 @@
 </div>
 
 
+</div>

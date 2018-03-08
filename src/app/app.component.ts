@@ -33,10 +33,14 @@ export class AppComponent implements OnInit {
   }
 
   login() {
+    var navBarElement: any = document.getElementsByClassName("collapse")[0];
+    navBarElement.classList.remove('show');
     this.router.navigate(['/login']);
   }
 
   signup() {
+    var navBarElement: any = document.getElementsByClassName("collapse")[0];
+    navBarElement.classList.remove('show');
     this.router.navigate(['/signup']);
   }
 
@@ -51,5 +55,15 @@ export class AppComponent implements OnInit {
   logout() {
     this.authService.logout()
       .then(() => this.router.navigate(['/login']));
+  }
+
+  toggleNav(element) {
+    if (element) {
+      return;
+    }
+    var navBarElement: any = document.getElementsByClassName("collapse")[0];
+    if (document.getElementsByClassName('show'))  {
+      navBarElement.classList.remove('show');
+    }
   }
 }

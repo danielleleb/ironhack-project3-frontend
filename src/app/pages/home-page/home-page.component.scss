@@ -1,0 +1,13 @@
+@import "../../scss/mixins";
+
+
+.new-search-btn{
+    text-align: center;
+    margin-bottom: 20px;
+}
+a {
+    @include primary-button;
+}
+.exit-btn{
+    margin-left: 90%;
+}

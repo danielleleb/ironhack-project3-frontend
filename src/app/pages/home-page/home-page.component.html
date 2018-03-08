@@ -1,7 +1,36 @@
-<a  [routerLink]="['/']">back to search</a>
+<app-filter-form (filterChange)="handleChangeFilter($event)" ></app-filter-form>
 
-<ul *ngIf="products">
-    <li *ngFor="let product of products">
-      <app-product-card [product]="product"></app-product-card>
-    </li>
-</ul>
+<div *ngIf="showAlert" class="alert">
+    <div class="alert-content">
+        <button class="exit-btn" (click)="displayAlert()"><i class="fas fa-times"></i></button>
+        <div *ngIf="showLoginForm && !user">
+            <p id="must-login">You must be logged in to book a rental.</p>
+        <app-login-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleLoginForm($event)"></app-login-form>
+        <p>Don't have an account yet?</p> 
+        <button class="primary-btn" (click)="toggleSignupLogin()">SIGNUP</button>
+    
+      </div>
+        <div *ngIf="showSignupForm && !user">
+          <app-signup-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleSubmitForm($event)"></app-signup-form>
+            <p>Already have an account? <button (click)="toggleSignupLogin()">Login</button></p>
+        </div>
+
+        <div *ngIf="userPresent">
+            <app-booking-form [product]="product"></app-booking-form>
+          </div>
+    </div>
+  </div>  
+
+<div class="products container">
+  <ul class="arrange-products" *ngIf="products">
+      <div *ngIf="(products.length == 0)">
+        <p>No products were found based on your search. Please try again with new search terms.</p>
+      </div>
+      <li class="products-list" *ngFor="let product of productsArray">
+        <app-product-card [product]="product" [showProfileLink]="showProfileLink" [user]="user" [businessId]="businessId"></app-product-card>
+        <div class="container" *ngIf="(!user || user.type !== 'business')">
+            <button class="secondary-btn" (click)="goToBooking(product)">BOOK</button>
+        </div>  
+      </li>
+  </ul>
+</div>

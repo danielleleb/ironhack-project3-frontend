@@ -1,0 +1,32 @@
+
+.search-form{
+    text-align: center;
+}
+.search-input{
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    width: 100%;
+}
+.search-field{
+    border-bottom: 1px solid lightgrey;
+}
+form .field{
+    margin: 0;
+}
+form .submit{
+    padding: 0;
+}
+form input{
+    padding: 9px;
+    width: 100%;
+    border: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.secondary-btn{
+    margin: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 10px;
+}

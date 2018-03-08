@@ -1,0 +1,9 @@
+<div *ngIf="product">
+  <div *ngIf="(product.available == true)">
+      <i class="fas fa-check"></i>
+  </div>
+    <app-edit-product-form [product]="product" (submitForm)="handleEditProductForm()"></app-edit-product-form>
+    <div *ngIf="(product.available == false)">
+    <p>has this product been returned? mark it as <button (click)="changeAvailableStatus(product._id)">available</button></p>
+  </div>
+</div>

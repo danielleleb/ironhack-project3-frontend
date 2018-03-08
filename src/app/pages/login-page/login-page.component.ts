@@ -37,6 +37,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   handleLoginForm(event) {
+    this.error = null;
       this.authService.login(event)
         .then((result) => {
           if (result.type == 'business') { 

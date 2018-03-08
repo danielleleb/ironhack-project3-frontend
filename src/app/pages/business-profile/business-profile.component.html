@@ -1,20 +1,69 @@
-<!-- <a  [routerLink]="['/']">back to search</a> -->
+<div *ngIf="showAlert" class="alert">
+  <div class="alert-content">
+      <button class="exit-btn" (click)="displayAlert()"><i class="fas fa-times"></i></button>
 
-<ul *ngIf="products">
-  <li *ngFor="let product of products">
-    <app-product-card [product]="product  "></app-product-card>
-      <button (click)="goToBooking(product._id)">Book</button>
-      <!-- <a  [routerLink]="['/business-profile', product._id, 'book']">book me</a> -->
+    <div class="container" *ngIf="showLoginForm && !user">
+      <p id="must-login">You must be logged in to book a rental.</p>
+      <app-login-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleLoginForm($event)"></app-login-form>
+      <p>Don't have an account yet? <button class="primary-btn" (click)="toggleSignupLogin()">SIGNUP</button></p>
+    </div>
 
-  </li>
-</ul>
+    <div *ngIf="showSignupForm && !user">
+      <app-signup-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleSubmitForm($event)"></app-signup-form>
+        <p>Already have an account? <button (click)="toggleSignupLogin()">Login</button></p>
+    </div>
+    
+    <div *ngIf="userPresent">
+      <app-booking-form [product]="product"></app-booking-form>
+    </div>
+  </div>
+</div>  
 
-<div *ngIf="user">
-  <div *ngIf="(user._id === businessId)">
-    <button (click)="toggleForm()">Add a new product for rent</button>
-      <div *ngIf="showSelected">
-        <app-add-product-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleAddProductForm($event)"></app-add-product-form>
+<div class='alert' *ngIf="showEditForm">
+  <div class="alert-content">
+    <div class="exit-btn">
+      <button class="exit-btn-edit" (click)="displayEditForm(product._id)"><i class="fas fa-times"></i></button>
+    </div>
+    <div>
+      <app-edit-product-page [product]="product"></app-edit-product-page>
     </div>
   </div>
 </div>
-<button (click)="goBack()">Back</button>
+
+<div class="add-back container" *ngIf="user">
+  <div *ngIf="(user._id === businessId)">
+
+    <button class="primary-btn" (click)="toggleForm()">ADD PRODUCT</button>
+    <div *ngIf="showSelected" class="alert">
+      <div class="alert-content">
+        <div class="exit-btn-add">
+          <button class="exit-btn-add" (click)="displayAddForm()"><i class="fas fa-times"></i></button>
+        </div>
+        <div>
+          <app-add-product-form class='content' [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleAddProductForm($event)"></app-add-product-form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<ul class="arrange-products container" *ngIf="products">
+  <li class="products-list" *ngFor="let product of products">
+    <app-product-card [product]="product" [showProfileLink]="showProfileLink" [businessId]="businessId" [user]="user"></app-product-card>
+    <div *ngIf="user">
+    <div class="edit-btn" *ngIf="(user._id == businessId)">
+        <button class="secondary-btn" (click)="displayEditForm(product)">EDIT</button>
+    </div>
+  </div>
+
+    <div class="container" *ngIf="(!user || user.type !== 'business')">
+      <button class="secondary-btn" (click)="goToBooking(product)">BOOK</button>
+    </div>
+  </li>
+</ul>
+
+<div class="back-btn">
+  <button class="fourth-btn" (click)="goBack()">BACK</button>
+</div>

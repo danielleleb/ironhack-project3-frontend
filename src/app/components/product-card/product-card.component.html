@@ -1,4 +1,41 @@
 
-{{product.type}}
-cost: {{product.price}}
-<a [routerLink]="['/business-profile', product.owner._id ]">business profile</a>
+
+<div class="product-card">
+    <div>
+        <img src="{{apiUrl + product.imageUrl}}" alt="">
+    </div>
+    <div class="info-product-card">
+        <h3>{{product.name}}</h3>
+        <p>${{product.price}}/day</p>
+        <div class="stars">
+            <form action="">
+                <input class="star star-5"  type="radio" name="star"/>
+                <label class="star star-5" for="star-5"></label>
+                <input class="star star-4"  type="radio" name="star"/>
+                <label class="star star-4" for="star-4"></label>
+                <input class="star star-3"  type="radio" name="star"/>
+                <label class="star star-3" for="star-3"></label>
+                <input class="star star-2"  type="radio" name="star"/>
+                <label class="star star-2" for="star-2"></label>
+                <input class="star star-1"  type="radio" name="star"/>
+                <label class="star star-1" for="star-1"></label>
+            </form>
+        </div>
+    </div>
+    <div class="card-user">
+        <div *ngIf="showProfileLink">
+            <button class="secondary-btn"><a [routerLink]="['/business-profile', product.owner._id ]">DETAILS</a></button>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.rating input').change(function () {
+    var $radio = $(this);
+    $('.rating .selected').removeClass('selected');
+    $radio.closest('label').addClass('selected');
+    });
+</script>
+
+
+

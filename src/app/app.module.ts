@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
+import { FileUploadModule } from 'ng2-file-upload/file-upload/file-upload.module';
 
 import { AppComponent } from './app.component';
 
@@ -31,6 +32,9 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { SignupFormBusinessComponent } from './components/signup-form-business/signup-form-business.component';
 import { AddProductFormComponent } from './components/add-product-form/add-product-form.component';
+import { EditProductFormComponent } from './components/edit-product-form/edit-product-form.component';
+import { EditProductPageComponent } from './pages/edit-product-page/edit-product-page.component';
+import { FilterFormComponent } from './components/filter-form/filter-form.component';
 
 const routes: Routes = [
   { path: '',  component: LandingPageComponent
@@ -41,20 +45,23 @@ const routes: Routes = [
  },
   { path: 'signup',  component: SignupPageComponent
   , canActivate: [ RequireAnonGuardService ] 
-},
+  },
   { path: 'business/signup',  component: BusinessSignUpComponent
   , canActivate: [ RequireAnonGuardService ] 
-},
-{ path: 'business-profile/:productId/book',  component: BookingFormComponent
-  , canActivate: [ RequireUserGuardService ]
-},
-{ path: 'business-profile/:id',  component: BusinessProfileComponent
-  , canActivate: [ InitAuthGuardService ] 
-},
-{ path: ':citySearch/:typeSearch',  component: HomePageComponent 
-  , canActivate: [ InitAuthGuardService ] 
-},
-  { path: '**', redirectTo: '' }
+  },
+  { path: 'business-profile/:id/edit',  component: EditProductPageComponent 
+    , canActivate: [ RequireUserGuardService ] 
+  },
+  { path: 'business-profile/:productId/book',  component: BookingFormComponent
+    , canActivate: [ RequireUserGuardService ]
+  },
+  { path: 'business-profile/:id',  component: BusinessProfileComponent
+    , canActivate: [ InitAuthGuardService ] 
+  },
+  { path: ':citySearch',  component: HomePageComponent 
+    , canActivate: [ InitAuthGuardService ] 
+  },
+    { path: '**', redirectTo: '' }
 ];
 
 
@@ -74,13 +81,18 @@ const routes: Routes = [
     SearchFormComponent,
     ProductCardComponent,
     SignupFormBusinessComponent,
-    AddProductFormComponent
+    AddProductFormComponent,
+    EditProductFormComponent,
+    EditProductPageComponent,
+    FilterFormComponent,
+    FilterFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FileUploadModule
   ],
   providers: [
     AuthService,

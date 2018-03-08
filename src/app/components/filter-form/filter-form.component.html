@@ -1,0 +1,24 @@
+
+<div class="container filter">
+  <button class="primary-btn" (click)="toggleForm()">FILTER</button>
+</div>
+<div class="check-filter container" *ngIf="showSelected">
+  <div class="slider-check">
+    <input type="checkbox" name="" id="bike-check" value="bike" (change)="handleChange()" />
+    <label class="switch" for="bike-check"></label>
+    <span>Bicicle</span>
+  </div>
+  
+  <div class="slider-check">
+    <input  type="checkbox" name="" id="skate-check" value="skate"  (change)="handleChange()" />
+    <label class="switch" for="skate-check"></label>
+    <span>Skateboard</span>
+  </div>
+
+  <div class="slider-check">
+    <input type="checkbox" name="" id="surf-check" value="surf "  (change)="handleChange()" />
+    <label class="switch" for="surf-check"></label>
+    <span>Surfboard</span>
+  </div>
+    
+</div>

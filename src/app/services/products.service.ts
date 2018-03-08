@@ -40,8 +40,15 @@ export class ProductsService {
     };
     return this.httpClient.get(`${this.API_URL}/${businessId}`, options)
     .toPromise()
-    // .then((data) => console.log(data))
     .then((data) => this.setProduct(data))
+  }
+  getEntireProductList(businessId) :Promise<any>{
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.API_URL}/complete/${businessId}`, options)
+    .toPromise()
+    // .then((data) => this.setProduct(data))
   }
   
   getProductById(productId) {
@@ -50,27 +57,41 @@ export class ProductsService {
     };
     return this.httpClient.get(`${this.API_URL}/view/${productId}`, options)
     .toPromise()
-    // .then((data) => console.log(data))
     .then((data) => this.setProduct(data))
   }
 
-  getProductsBySearch(citySearch, typeSearch) :Promise<any>{
+  getProductsBySearch(citySearch) :Promise<any>{
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.API_URL}/view/${citySearch}/${typeSearch}`, options)
+    return this.httpClient.get(`${this.API_URL}/?city=${citySearch}`, options)
     .toPromise()
-    // .then((data) => console.log(data))
     .then((data) => this.setProduct(data))
   }
 
-  bookProduct(productId){
+  bookProduct(product: any){
     const options = {
       withCredentials: true
     };
-    return this.httpClient.post(`${this.API_URL}/book/:productId`, options)
+    return this.httpClient.post(`${this.API_URL}/book`, product, options)
     .toPromise()
-    // .then((data) => console.log(data))
+    .then((data) => this.setProduct(data))
+  }
+  
+  updateProduct(product: any) {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.post(`${this.API_URL}/update`, product, options)
+    .toPromise()
+  }
+
+  returnProduct(productId) {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.post(`${this.API_URL}/return/${productId}`, options)
+    .toPromise()
     .then((data) => this.setProduct(data))
   }
 

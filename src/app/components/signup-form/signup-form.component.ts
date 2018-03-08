@@ -14,7 +14,7 @@ export class SignupFormComponent implements OnInit {
   @Input() processing: boolean;
 
   username: string;
-  password: string
+  password: string;
 
   constructor() { }
 
@@ -22,7 +22,7 @@ export class SignupFormComponent implements OnInit {
   }
 
   submitSignUpForm(form){
-    this.error = '';
+    this.error = null;
     this.feedbackEnabled = true;
     if (form.valid){
       // this.processing = false;

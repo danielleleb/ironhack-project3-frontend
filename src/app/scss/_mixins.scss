@@ -5,44 +5,31 @@
   form.is-processing {
     opacity: 0.5;
   }
-
   form .field {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
-
   form label {
     display: block;
     margin-bottom: 10px;
     font-style: bold;
   }
-
   form input {
     border: 1px solid black;
+    width: 90%;
     padding: 5px;
+    border-radius: 5px;
     font-size: 16px;
   }
-
   form .submit {
     padding-top: 20px;
   }
-
-  form .submit button {
-    padding: 5px 20px;
-    text-align: center;
-    font-size: 16px;
-    background-color: cyan;
-    cursor: pointer;
-  }
-
   form .field.has-error label {
     color: red;
   }
-
   form .validation {
     margin: 5px 0 10px;
     color: red;
   }
-
   form .field.has-error input {
     border: 1px solid  red;
     }
@@ -52,4 +39,52 @@
 @mixin main-text{
   font-family: $titillium;
   color: $primary-color;
+  border-bottom: 1px solid lightgrey;
+  width: 50%;
+  margin-left: 25%;
 }
+@mixin card-title{
+  font-family: $raleway;
+  color: $secondary-color;
+  font-weight: bolder;
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+// --- BUTTONS --- //
+
+@mixin primary-button{
+  border: none;
+  padding: 7px;
+  font-size: 1em;
+  font-weight: bolder;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px rgba(0,0,0,0.2);
+  color: white;
+  background-color: $primary-color;
+  letter-spacing: 5px;
+  @media (min-width: #{$desktop-width}){
+    margin: 0px;
+  }
+}
+@mixin secondary-button{
+  width: 100%;
+  @include primary-button();
+  background-color: $secondary-color;
+  background-image: linear-gradient(to bottom right, $secondary-color, $primary-color );
+}
+@mixin third-button{
+  @include primary-button;
+  border: 1px solid $third-color;
+  background-color: transparent;
+  text-align: center;
+  width: 50%;
+}
+@mixin fourth-button{
+  @include primary-button;
+  background-color: $third-color;
+  margin-bottom: 0;
+}
+
+// --- LAYOUT --- //

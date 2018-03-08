@@ -1,8 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import "app/scss/mixins";
 @import "app/scss/variables";
+@import "app/scss/mediaquery";
 @include forms;
+@include desktop;
 
+// div{
+//   border: 1px solid red;
+// }
 /* ---- RESET ---- */
 
 html {
@@ -26,68 +31,81 @@ html {
   
   h1 {
     @include main-text;
+    margin-bottom: 30px;
   }
   
   h2 {}
   
-  h3 {}
+  h3 {
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
   
   p {
     margin: 0;
+  }
+  ul{
+    list-style: none;
+    padding: 0;
+  }
+  a{
+    color: white;
   }
   
   
   
 /* ---- LAYOUT ---- */
-  
-  #site-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    padding: 15px 0;
-    background-color: #111;
+  #site-header{
+    position: relative;
+    height: $header-height;
+    background-image: linear-gradient($primary-color, $secondary-color );
   }
-  
+  #site-footer {
+    flex-shrink: 0;
+    height: $footer-height;
+    font-size: 0.8em;
+    color: black;
+    width: 100%;
+    padding: 30px 0;
+    border-top: 1px solid lightgrey;
+  }
   #site-main {
+    min-height: 100%;
     margin-bottom: 60px;
   }
-  
-  .container {
-    margin: 0 60px;
-  }
-  
   .section {
     margin-bottom: 20px;
     padding-top: 20px;
   }
-  
-  @media (min-width: 768px) {
-    .container {
-      max-width: 728px;
-      margin: 0 auto;
-    }
+  #popup-add{
+    display: none;
   }
   
 /* ---- COMPONENTS ---- */
 
-// --- HEADER --- //
-#site-header{
-  position: relative;
-  height: 500px;
-  background-image: linear-gradient($primary-color, $secondary-color );
+.primary-btn{
+  @include primary-button;
 }
-.divider {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 80px;
-  /* drop the height to have a constant angle for all screen widths */
+.secondary-btn{
+  @include secondary-button;
+}
+.third-btn{
+  @include third-button;
+}
+.fourth-btn{
+  @include fourth-button;
 }
 
 // --- NAV-BAR --- //
+.navbar{
+  padding: 0;
+}
+.nav-bar p{
+  color: black;
+}
+.nav-bar{
+  margin-bottom: 10px;
+}
 .navbar-menu{
   padding: .25rem .75rem;
   font-size: 1.25rem;
@@ -96,9 +114,16 @@ html {
   border: none;
   border-radius: .25rem;
 }
+.nav-btns{
+  margin-bottom: 15px;
+}
+.nav-btns p{
+  color: white;
+  z-index: 100;
+}
 .fa-bars{
   color: white;
-  font-size: 40px;
+  font-size: 30px;
   display: inline-block;
   width: 1.5em;
   height: 1.5em;
@@ -109,4 +134,84 @@ html {
 }
 .nav-logo h3{
   color: white;
+  font-weight: bolder;
+  padding-top: 20px;
+}
+.nav-links{
+  display: flex;
+  justify-content: flex-start;
+}
+.logged-btn{
+  display: flex;
+  flex-flow: row;
+}
+
+// --- HEADER --- //
+.divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 80px;
+}
+.main-header{
+  color: white;
+}
+.main-header h3{
+  margin-bottom: 60px;
+}
+
+// --- MAIN --- //
+.search-pos{
+  position: absolute;
+  top: 150px;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  margin-top: -10px;
+}
+.main-ctn{
+  text-align: center;
+  margin-bottom: 40px;
+}
+.alert-content{
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  text-align: center;
+}
+#must-login{
+  color: red;
+} 
+.alert{
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(28, 27, 27, 0.631);
+  position: fixed; /* Stay in place */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  left:0;
+  top: 0;
+}
+.exit-btn{
+ width: 20%;
+ margin-left: 90%;
+ color: red;
+ font-weight: bolder;
+ background-color: transparent;
+ border: none;
+ font-size: 30px;
+}
+
+
+// --- FOOTER --- //
+#site-footer p{
+  padding: 0 10px;
+  color: black;
 }

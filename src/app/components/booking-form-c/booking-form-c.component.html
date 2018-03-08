@@ -1,26 +1,41 @@
 
-<div *ngIf="product">
-  {{product.name}}
-  {{product.price}}
-  {{product.owner.username}}
+<div *ngIf="showSelected" class="alert">
+  <div class="alert-content">
+    <p>Your booking has been successfully submitted.</p>
+    <p> Total cost: ${{bookingCost}}</p>
+    <p>Please pick up your booking on {{startDate | date: "MMMM d, yyyy"}} and return it on {{endDate | date: "MMMM d, yyyy"}}.</p>
+    <button class="secondary-btn"><a [routerLink]="['/']">Back to search</a></button>
   </div>
-  <form (ngSubmit)="submitBookingForm(form)" #form="ngForm" novalidate>
+</div>
+
+<div class="container" *ngIf="product">
+  <h3>Product: {{product.name}}</h3>
+  <p>Price: ${{product.price}}/day</p>
+  <p>Renter: {{product.owner.username}}</p>
+</div>
+
+
+  <form class="container" (ngSubmit)="submitBookingForm(form)" #form="ngForm" novalidate>
       <div class='field' [ngClass]="{'has-error': feedbackEnabled && startDateField.errors}">
         <label for="startDate"> Start date: </label>
-        <input type="date" [(ngModel)]='startDate' name='startDate' #startDateField='ngModel' >
+        <input type="date" name='startDate' [ngModel]="startDate | date: 'yyyy-MM-dd'" (ngModelChange)="startDate = $event"  #startDateField='ngModel'>
       </div>
   
       <div class='field' [ngClass]="{'has-error': feedbackEnabled && endDateField.errors}">
           <label for="endDate"> End date: </label>
-          <input type="date" [(ngModel)]='endDate' name='endDate' #endDateField='ngModel' (ngModelChange)="calculateBookingLength(startDate, endDate)">
+          <input type="date" [ngModel]="endDate" [(ngModel)]='endDate' name='endDate' #endDateField='ngModel' (ngModelChange)="calculateBookingLengthAndCost(startDate, endDate)">
       </div>
-
-      {{bookingLength}}
+      <div *ngIf="bookingLength">
+      <p>Rent this product for {{bookingLength}} days.</p>
+      <p>The total cost for this rental will be ${{bookingCost}}.</p>
+    </div>
       <!-- <div class='field' [ngClass]="{'has-error': feedbackEnabled && typeField.errors}">
           <label for="producttype">Product type</label>
           <input type="text" [(ngModel)]='type' name='type' #typeField='ngModel' >
       </div> -->
   
-      <button type="submit" [disabled]="processing">submit product</button>
+      <button class="secondary-btn" type="submit" [disabled]="processing">BOOK NOW</button>
   
     </form>
+
+    

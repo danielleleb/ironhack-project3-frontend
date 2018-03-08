@@ -1,0 +1,7 @@
+@import "../../scss/mixins";
+
+h3{
+    @include main-text;
+    font-size: 20px;
+    font-weight: bolder;
+}

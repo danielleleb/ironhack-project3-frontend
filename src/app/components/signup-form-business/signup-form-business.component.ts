@@ -15,7 +15,7 @@ export class SignupFormBusinessComponent implements OnInit {
 
   username: string;
   password: string;
-  address: string
+  address: string;
 
   constructor() { }
 

@@ -21,11 +21,11 @@ export class BusinessProfileComponent implements OnInit {
   error = null;
   processing = false;
   name: String;
-  type: String
-  price: number
-  showSelected: boolean = false
-  products: {}[]
-  businessId: String
+  type: String;
+  price: number;
+  showSelected: boolean = false;
+  products: {}[];
+  businessId: String;
   showProfileLink: boolean;
   form: any;
   showAlert:boolean;

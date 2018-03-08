@@ -59,20 +59,19 @@
             margin-bottom: 10px;
         }
         // --- FORMS --- //
-        .login-form button{
-            width: 50%;
-        }
-        .signup-form{
-            width: 50%;
-        }
-        .signup-form button{
-            width: 30%;
-        }
         .business-signup{
             width: 50%;
         }
         .business-signup button{
             width: 30%;
+        }
+        .small-form{
+            width: 30%;
+            margin-left: 35%;
+            margin-bottom: 100px;
+        }
+        .signup-small{
+            width: 60%;
         }
 
         // --- MODALS --- //

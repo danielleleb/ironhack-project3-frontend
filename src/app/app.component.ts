@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   anon: boolean;
   user: any;
   businessId: string;
+  element;
 
   constructor(
     private authService: AuthService,

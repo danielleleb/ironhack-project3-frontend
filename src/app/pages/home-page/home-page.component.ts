@@ -99,7 +99,7 @@ export class HomePageComponent implements OnInit {
     
  }
 
-    private handleChangeFilter(event) {
+    handleChangeFilter(event) {
       console.log(event);
       this.filterProduct(event)
     }

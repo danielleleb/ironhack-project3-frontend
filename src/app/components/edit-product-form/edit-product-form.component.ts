@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { ProductsService } from '../../services/products.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+
 
 import { environment } from '../../../environments/environment'
 @Component({
@@ -24,6 +26,7 @@ export class EditProductFormComponent implements OnInit {
   name: string;
   type: string;
   price: number;
+  user: any;
 
   image: string;
   feedback: string;
@@ -32,7 +35,9 @@ export class EditProductFormComponent implements OnInit {
 
 
   constructor(
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private router: Router,
+    private authService: AuthService
   ) { 
   }
 
@@ -40,6 +45,7 @@ export class EditProductFormComponent implements OnInit {
     this.name = this.product.name;
     this.type = this.product.type;
     this.price = this.product.price;
+    this.user = this.authService.getUser();
 
 
     this.uploader.onSuccessItem = (item, response) => {
@@ -70,7 +76,7 @@ export class EditProductFormComponent implements OnInit {
   changeAvailableStatus(productId){
     this.productsService.returnProduct(productId)
     .then((result) => {
-      this.router.navigate(['business-profile', this.businessId])
+      this.router.navigate(['business-profile', this.user._id])
     })
     .catch((err) => {
       this.error = err.error.error; // :-)

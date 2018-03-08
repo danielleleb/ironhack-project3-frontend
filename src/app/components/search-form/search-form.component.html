@@ -1,21 +1,14 @@
 
 <div class="container search-pos">
-  <form  (ngSubmit)=(handleSubmitSearch(cityField.value)) #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
-    <div class="field" [ngClass]="{'has-error': feedbackEnabled && cityField.errors}">
+  <form  (ngSubmit)=(handleSubmitSearch(cityField.value)) #form="ngForm" novalidate>
+    <div class="field">
       <div class="search-input">
         <div class="search-field">
-          <input type="text" name="city" [(ngModel)]="city" #cityField="ngModel"required minlength="6" [disabled]="processing" placeholder="type your city">
+          <input type="text" name="city" #cityField required placeholder="type your city">
         </div>
         <div class="field submit">
-          <button class="secondary-btn" type="submit" [disabled]="processing">SEARCH</button>
-          <div *ngIf="feedbackEnabled && form.invalid">
-            <p class="validation">there are errors in the form, please review the fields</p>
-          </div>
+          <button class="secondary-btn" type="submit">SEARCH</button>
         </div>
-      </div>
-      <div *ngIf="feedbackEnabled && cityField.errors">
-        <p *ngIf="cityField.errors.required" class="validation">city required</p>
-        <p *ngIf="cityField.errors.minlength" class="validation">city is too short</p>
       </div>
     </div>
   </form> 

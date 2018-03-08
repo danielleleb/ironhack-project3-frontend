@@ -13,11 +13,9 @@ export class SignupFormBusinessComponent implements OnInit {
   @Input() error: string;
   @Input() processing: boolean
 
-  businessName: string;
   username: string;
   password: string;
   address: string;
-  description: string;
 
   constructor() { }
 
@@ -30,11 +28,9 @@ export class SignupFormBusinessComponent implements OnInit {
     if (form.valid){
     this.processing = false;
     const data = {
-      businessName: this.businessName,
       username: this.username,
       password: this.password,
-      address: this.address,
-      description: this.description
+      address: this.address
     }
     this.submitForm.emit(data);
   }

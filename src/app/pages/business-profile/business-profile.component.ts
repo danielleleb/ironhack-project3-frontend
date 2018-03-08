@@ -86,6 +86,8 @@ else if (this.user.type == 'business') {
         this.productsService.getEntireProductList(this.businessId)
         .then((products) => {
           this.products = products
+          console.log(this.products)
+
         })
     })
   }

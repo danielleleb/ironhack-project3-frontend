@@ -2,15 +2,6 @@
 
 <form class="container business-signup" (ngSubmit)="submitBusinessSignUp(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
 
-  <div class="field" [ngClass]="{'has-error': feedbackEnabled && businessNameField.errors}">
-    <label>NAME</label>
-    <input type="text" name="businessName" [(ngModel)]="businessName" #businessNameField="ngModel" required minlength="3" [disabled]="processing"/>
-    <div *ngIf="feedbackEnabled && businessNameField.errors">
-      <p *ngIf="businessNameField.errors.required" class="validation">Name required</p>
-      <p *ngIf="businessNameField.errors.minlength" class="validation">Name is too short</p>
-    </div>
-  </div>
-
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
     <label>USERNAME</label>
     <input type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" required minlength="6" [disabled]="processing"/>
@@ -35,15 +26,6 @@
     <div *ngIf="feedbackEnabled && addressField.errors">
       <p *ngIf="addressField.errors.required" class="validation">City required</p>
       <p *ngIf="addressField.errors.minlength" class="validation">City is too short</p>
-    </div>
-  </div>
-
-  <div class="field" [ngClass]="{'has-error': feedbackEnabled && descriptionField.errors}">
-    <label>DESCRIPTION</label>
-    <input type="text" name="description" [(ngModel)]="description" #descriptionField="ngModel" required minlength="6" [disabled]="processing"/>
-    <div *ngIf="feedbackEnabled && descriptionField.errors">
-      <p *ngIf="descriptionField.errors.required" class="validation">Description required</p>
-      <p *ngIf="descriptionField.errors.minlength" class="validation">Description is too short</p>
     </div>
   </div>
 

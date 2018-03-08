@@ -66,7 +66,7 @@ if (!this.user) {
     })
  })
 }
-else if (this.user._id !== this.businessId) {
+else if (this.user.type !== 'business') {
     this.activatedRoute.params
     .subscribe((params) => {
       this.businessId = String(params.id)
@@ -78,7 +78,7 @@ else if (this.user._id !== this.businessId) {
    })
 
   } 
-else if (this.user._id == this.businessId) {
+else if (this.user.type == 'business') {
       this.activatedRoute.params
       .subscribe((params) => {
         this.businessId = String(params.id)

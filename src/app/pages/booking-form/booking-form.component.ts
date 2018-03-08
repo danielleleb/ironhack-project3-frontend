@@ -45,7 +45,7 @@ export class BookingFormComponent implements OnInit {
   
   handleBookingForm(event) {
     this.productsService.bookProduct(event)
-    window.location.reload()
+    // window.location.reload()
     //       // this.router.navigate(['/'])
 
     //   .then((result) => {

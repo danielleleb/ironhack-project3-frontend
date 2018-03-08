@@ -58,7 +58,7 @@
     </div>
   </div>
 
-    <div class="container" *ngIf="(!user || user.type !== 'business')">
+    <div *ngIf="(!user || user.type !== 'business')">
       <button class="secondary-btn" (click)="goToBooking(product)">BOOK</button>
     </div>
   </li>

@@ -131,7 +131,7 @@ export class HomePageComponent implements OnInit {
             if (result.type == 'business') { 
               this.router.navigate(['/business-profile', this.user._id])
             } else if (result.type =='user'){
-              this.showAlert = !this.showAlert
+              window.location.reload()
             } else {
               this.router.navigate(['/login'])
             }

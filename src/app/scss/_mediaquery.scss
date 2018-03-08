@@ -32,12 +32,13 @@
             font-size: 36px;
         }
         #site-header{
-            margin-bottom: 120px;
+            margin-bottom: 120px !important;
             height: 400px !important;
         }
 
         // --- MAIN --- //
         .main-ctn{
+            margin-bottom: 120px !important;
             display: flex;
             flex-flow: row;
         }

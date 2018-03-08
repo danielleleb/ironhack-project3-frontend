@@ -33,14 +33,14 @@ export class AppComponent implements OnInit {
   }
 
   login() {
-    // var navBarElement: any = document.getElementsByClassName("collapse")[0];
-    // navBarElement.classList.remove('show');
+    var navBarElement: any = document.getElementsByClassName("collapse")[0];
+    navBarElement.classList.remove('show');
     this.router.navigate(['/login']);
   }
 
   signup() {
-    // var navBarElement: any = document.getElementsByClassName("collapse")[0];
-    // navBarElement.classList.remove('show');
+    var navBarElement: any = document.getElementsByClassName("collapse")[0];
+    navBarElement.classList.remove('show');
     this.router.navigate(['/signup']);
   }
 
@@ -58,7 +58,6 @@ export class AppComponent implements OnInit {
   }
 
   toggleNav(element) {
-    console.log(element);
     if (element) {
       return;
     }

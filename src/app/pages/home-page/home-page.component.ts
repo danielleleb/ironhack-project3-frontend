@@ -50,7 +50,6 @@ export class HomePageComponent implements OnInit {
       this.citySearch = String(params.citySearch)
       this.productsService.getProductsBySearch(this.citySearch)
       .then((products) => {
-        console.log(products)
         this.products = products
         this.productsArray = this.products;
       })
@@ -100,7 +99,6 @@ export class HomePageComponent implements OnInit {
  }
 
     handleChangeFilter(event) {
-      console.log(event);
       this.filterProduct(event)
     }
 

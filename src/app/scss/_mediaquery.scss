@@ -32,12 +32,13 @@
             font-size: 36px;
         }
         #site-header{
-            margin-bottom: 120px;
+            margin-bottom: 120px !important;
             height: 400px !important;
         }
 
         // --- MAIN --- //
         .main-ctn{
+            margin-bottom: 120px !important;
             display: flex;
             flex-flow: row;
         }
@@ -59,22 +60,25 @@
             margin-bottom: 10px;
         }
         // --- FORMS --- //
-        .login-form button{
-            width: 50%;
-        }
-        .signup-form{
-            width: 50%;
-        }
-        .signup-form button{
-            width: 30%;
-        }
         .business-signup{
             width: 50%;
         }
         .business-signup button{
             width: 30%;
         }
+        .small-form{
+            width: 30%;
+            margin-left: 35%;
+            margin-bottom: 100px;
+        }
+        .signup-small{
+            width: 60%;
+        }
 
+        // --- BUTTONS --- //
+        .secondary-btn{
+            margin-bottom: 0 !important;
+        }
         // --- MODALS --- //
         .alert-content{
             width: 50% !important;

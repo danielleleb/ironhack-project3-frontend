@@ -3,16 +3,17 @@
 <div *ngIf="showAlert" class="alert">
     <div class="alert-content">
         <button class="exit-btn" (click)="displayAlert()"><i class="fas fa-times"></i></button>
+
         <div *ngIf="showLoginForm && !user">
-            <p id="must-login">You must be logged in to book a rental.</p>
-        <app-login-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleLoginForm($event)"></app-login-form>
-        <p>Don't have an account yet?</p> 
-        <button class="primary-btn" (click)="toggleSignupLogin()">SIGNUP</button>
-    
-      </div>
-        <div *ngIf="showSignupForm && !user">
+          <p id="must-login">You must be logged in to book a rental.</p>
+          <app-login-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleLoginForm($event)"></app-login-form>
+          <p>Don't have an account yet?</p> 
+          <button class="primary-btn" (click)="toggleSignupLogin()">SIGNUP</button>
+        </div>
+
+        <div class="signup-small" *ngIf="showSignupForm && !user">
           <app-signup-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleSubmitForm($event)"></app-signup-form>
-            <p>Already have an account? <button (click)="toggleSignupLogin()">Login</button></p>
+          <p>Already have an account? <button class="primary-btn"(click)="toggleSignupLogin()">Login</button></p>
         </div>
 
         <div *ngIf="userPresent">
@@ -28,7 +29,7 @@
       </div>
       <li class="products-list" *ngFor="let product of productsArray">
         <app-product-card [product]="product" [showProfileLink]="showProfileLink" [user]="user" [businessId]="businessId"></app-product-card>
-        <div class="container" *ngIf="(!user || user.type !== 'business')">
+        <div *ngIf="(!user || user.type !== 'business')">
             <button class="secondary-btn" (click)="goToBooking(product)">BOOK</button>
         </div>  
       </li>

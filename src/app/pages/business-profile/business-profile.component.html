@@ -1,18 +1,17 @@
+
+
 <div *ngIf="showAlert" class="alert">
   <div class="alert-content">
       <button class="exit-btn" (click)="displayAlert()"><i class="fas fa-times"></i></button>
-
     <div class="container" *ngIf="showLoginForm && !user">
       <p id="must-login">You must be logged in to book a rental.</p>
       <app-login-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleLoginForm($event)"></app-login-form>
       <p>Don't have an account yet? <button class="primary-btn" (click)="toggleSignupLogin()">SIGNUP</button></p>
     </div>
-
     <div *ngIf="showSignupForm && !user">
       <app-signup-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleSubmitForm($event)"></app-signup-form>
-        <p>Already have an account? <button (click)="toggleSignupLogin()">Login</button></p>
+        <p>Already have an account? <button (click)="toggleSignupLogin()">LOGIN</button></p>
     </div>
-    
     <div *ngIf="userPresent">
       <app-booking-form [product]="product"></app-booking-form>
     </div>
@@ -30,9 +29,13 @@
   </div>
 </div>
 
+<!-- <div class="business-info">
+    {{user.businessName}}
+    {{user.description}}
+</div> -->
+
 <div class="add-back container" *ngIf="user">
   <div *ngIf="(user._id === businessId)">
-
     <button class="primary-btn" (click)="toggleForm()">ADD PRODUCT</button>
     <div *ngIf="showSelected" class="alert">
       <div class="alert-content">
@@ -44,7 +47,6 @@
         </div>
       </div>
     </div>
-
   </div>
 
 </div>
@@ -58,7 +60,7 @@
     </div>
   </div>
 
-    <div class="container" *ngIf="(!user || user.type !== 'business')">
+    <div *ngIf="(!user || user.type !== 'business')">
       <button class="secondary-btn" (click)="goToBooking(product)">BOOK</button>
     </div>
   </li>

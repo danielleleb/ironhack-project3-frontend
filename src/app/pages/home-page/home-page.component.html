@@ -6,7 +6,8 @@
         <div *ngIf="showLoginForm && !user">
             <p id="must-login">You must be logged in to book a rental.</p>
         <app-login-form [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitForm)="handleLoginForm($event)"></app-login-form>
-        <p>Don't have an account yet? <button class="primary-btn" (click)="toggleSignupLogin()">SIGNUP</button></p>
+        <p>Don't have an account yet?</p> 
+        <button class="primary-btn" (click)="toggleSignupLogin()">SIGNUP</button>
     
       </div>
         <div *ngIf="showSignupForm && !user">
